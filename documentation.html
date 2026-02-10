@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Circuit de Saône-et-Loire</title>
+    <meta name="description" content="Documentation technique et fonctionnelle du site Circuit de Saône-et-Loire.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .doc-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .doc-section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .doc-section:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-card h3 i {
+            font-size: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .path-code {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            border-left: 4px solid var(--primary-color);
+            margin: 1rem 0;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="documentation-page">
+
+    <!-- Navigation -->
+    <nav class="navbar text-dark">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu left">
+                <a href="histoire.html" class="nav-link">Histoire</a>
+                <a href="palmares.html" class="nav-link">Palmarès</a>
+                <a href="benevoles.html" class="nav-link">Bénévoles</a>
+                <a href="organisation.html" class="nav-link">Organisation</a>
+            </div>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <h1><b>Circuit de Saône-et-Loire</b></h1>
+                </a>
+            </div>
+            <div class="nav-menu right">
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="equipes.html" class="nav-link">Équipes</a>
+                <a href="partenaires.html" class="nav-link">Partenaires</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="doc-header">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Documentation <span class="text-primary">Site Web</span>
+            </h2>
+            <p style="opacity: 0.8; max-width: 700px; margin: 20px auto 0;">Guide complet des fonctionnalités, de la
+                structure et de la maintenance du site officiel du Circuit de Saône-et-Loire.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Overview -->
+        <section class="doc-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Aperçu <span class="text-primary">Fonctionnel</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="doc-grid">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-home"></i> Accueil Dynamique</h3>
+                        <p>Une porte d'entrée immersive mettant en avant l'identité de "L'Enfer de Bourgogne".</p>
+                        <ul class="feature-list">
+                            <li><strong>Hero Immersif</strong> : Grande image de fond avec overlay pour la lisibilité.
+                            </li>
+                            <li><strong>Bandeaux Partenaires</strong> : Défilement infini pour les collectivités et
+                                sponsors majeurs.</li>
+                            <li><strong>Compteurs (Stats)</strong> : Animation automatique du nombre d'étapes,
+                                kilomètres et communes.</li>
+                            <li><strong>Aperçu du Parcours</strong> : Liste interactive des étapes avec accès direct aux
+                                détails.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3><i class="fas fa-route"></i> Pages d'Étapes Dédiées</h3>
+                        <p>Chaque étape dispose d'une page complète avec toutes les données techniques indispensables.
+                        </p>
+                        <ul class="feature-list">
+                            <li><strong>Dual-Hero</strong> : Présentation visuelle des villes de départ et d'arrivée.
+                            </li>
+                            <li><strong>Profil Altimétrique</strong> : Affichage précis du relief.</li>
+                            <li><strong>Horaires de Passage</strong> : Tableau détaillé des temps estimés.</li>
+                            <li><strong>Zone de Téléchargement</strong> : Accès rapide aux fichiers GPX et PDF
+                                (Carte/Profil).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Content Pages -->
+        <section class="doc-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contenu & <span class="text-primary">Héritage</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="doc-grid">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-history"></i> Histoire & Timeline</h3>
+                        <p>Une rétrospective soignée de l'épreuve à travers les âges.</p>
+                        <ul class="feature-list">
+                            <li><strong>Timeline Verticale</strong> : Parcourez les dates clés de 1965 à nos jours.</li>
+                            <li><strong>Narratif Illustré</strong> : Sections dédiées à l'évolution de la course.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3><i class="fas fa-trophy"></i> Palmarès Interactif</h3>
+                        <p>L'historique complet des vainqueurs avec une mise en forme premium.</p>
+                        <ul class="feature-list">
+                            <li><strong>Podiums Visuels</strong> : Utilisation d'icônes de médailles (Or, Argent,
+                                Bronze).</li>
+                            <li><strong>Gestion des Éditions</strong> : Distinction claire des éditions annulées ou
+                                spéciales.</li>
+                            <li><strong>Tableau Responsive</strong> : Défilement horizontal fluide sur mobile.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Interaction & Performance -->
+        <section class="doc-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Interactions & <span class="text-primary">Performance</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="doc-grid">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-magic"></i> Effets Visuels (JS)</h3>
+                        <ul class="feature-list">
+                            <li><strong>Compte à Rebours</strong> : Calcul dynamique du temps restant jusqu'au départ.
+                            </li>
+                            <li><strong>Sticky Navbar</strong> : Menu qui s'adapte et se réduit lors du défilement.</li>
+                            <li><strong>Scroll Reveal</strong> : Apparition fluide des éléments (cartes, étapes) lors du
+                                scroll.</li>
+                            <li><strong>Effet Parallaxe</strong> : Fond du hero qui se déplace à une vitesse différente
+                                du contenu.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3><i class="fas fa-tachometer-alt"></i> Optimisation</h3>
+                        <ul class="feature-list">
+                            <li><strong>Lazy Loading</strong> : Chargement différé des images pour accélérer l'affichage
+                                initial.</li>
+                            <li><strong>SVG & WebP</strong> : Utilisation de formats d'images modernes pour un poids
+                                réduit.</li>
+                            <li><strong>Zero Dépendance</strong> : Pas de librairies lourdes (jQuery, Bootstrap), tout
+                                est codé en Vanilla JS.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Technical Structure -->
+        <section class="doc-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Structure <span class="text-primary">Technique</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="doc-grid">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-code"></i> Stack Technologique</h3>
+                        <div style="margin-top: 15px;">
+                            <span class="tech-tag">HTML5 Sémantique</span>
+                            <span class="tech-tag">CSS3 (Variables & Grid)</span>
+                            <span class="tech-tag">Vanilla JavaScript</span>
+                            <span class="tech-tag">Font Awesome 6</span>
+                        </div>
+                        <p style="margin-top: 15px;">Le site est conçu sans framework lourd pour garantir une
+                            performance maximale et une maintenance simplifiée.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><i class="fas fa-folder-open"></i> Organisation des Fichiers</h3>
+                        <p>Les ressources sont organisées par type pour faciliter les mises à jour :</p>
+                        <code class="path-code">/images/Etapes/  ← PDF et GPX des étapes</code>
+                        <code class="path-code">/images/Bandeau/  ← Logos partenaires</code>
+                        <code class="path-code">style.css        ← Design System global</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Maintenance -->
+        <section class="doc-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Guide de <span class="text-primary">Maintenance</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-tools"></i> Mettre à jour les documents d'étapes</h3>
+                    <p>Pour modifier les fichiers téléchargeables (GPX/PDF), remplacez simplement les fichiers dans le
+                        dossier suivant en respectant scrupuleusement le nommage :</p>
+                    <code class="path-code">images/Etapes/étape1.pdf (Carte & Profil)</code>
+                    <code class="path-code">images/Etapes/étape1.gpx (Trace GPX)</code>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Note : Le bouton "Carte" et "Profil"
+                        utilisent le même fichier PDF par défaut sur chaque page d'étape.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+                        <div class="footer-content">
+                <div class="footer-col footer-org">
+                    <img src="images/%20Picto_JauneEvenements.png" alt="JAUNE Evénements" class="footer-logo-org">
+                    <div class="org-info">
+                        <p>JAUNE Evénements - Association Loi 1901</p>
+                        <p>Association organisatrice du Circuit cycliste de Saône-et-Loire</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Le Circuit</h4>
+                    <a href="histoire.html">Histoire</a>
+                    <a href="palmares.html">Palmarès</a>
+                    <a href="benevoles.html">Bénévoles</a>
+                    <a href="organisation.html">Organisation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>La Course</h4>
+                    <a href="parcours.html">Parcours</a>
+                    <a href="equipes.html">Équipes</a>
+                    <a href="partenaires.html">Partenaires</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Medias</h4>
+                    <a href="contact.html">Contact</a>
+                    <a href="photos.html">Photos</a>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/lecircuitdeSaoneetLoire" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lecircuitdesaoneetloire/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@LECIRCUITDESAONELOIRE-qe6rf" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Circuit de Saône-et-Loire. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

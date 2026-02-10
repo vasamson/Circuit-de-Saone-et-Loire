@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Bénévoles - Circuit de Saône-et-Loire</title>
+    <meta name="description" content="Un immense merci à tous les bénévoles du Circuit de Saône-et-Loire.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="benevoles-page">
+
+    <!-- Navigation -->
+    <nav class="navbar text-dark">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu left">
+                <a href="histoire.html" class="nav-link">Histoire</a>
+                <a href="palmares.html" class="nav-link">Palmarès</a>
+                <a href="benevoles.html" class="nav-link">Bénévoles</a>
+                <a href="organisation.html" class="nav-link">Organisation</a>
+            </div>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <h1><b>Circuit de Saône-et-Loire</b></h1>
+                </a>
+            </div>
+            <div class="nav-menu right">
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="equipes.html" class="nav-link">Équipes</a>
+                <a href="partenaires.html" class="nav-link">Partenaires</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header-light ">
+        <div class="container">
+            <h1 class="section-title">Nos <span class="text-primary">Bénévoles</span></h1>
+        </div>
+    </header>
+
+    <!-- Large Photo Section -->
+    <section class="section-volunteer-photo">
+        <div class="container">
+            <div class="photo-placeholder">
+                <img src="images/hero.png" alt="Photo de groupe des bénévoles" class="volunteer-group-photo">
+                <p class="photo-caption">L'équipe des bénévoles du Circuit de Saône-et-Loire</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Names Section : The "71" -->
+    <section class="section-names">
+        <div class="container">
+            <div class="intro-names">
+                <h2>Le cœur de la course</h2>
+                <div class="section-line-center"></div>
+                <p>Découvrez les noms de celles et ceux qui s'engagent chaque jour pour faire vivre cette épopée.</p>
+            </div>
+
+            <div class="names-71-container" id="names71">
+                <!-- Les noms seront injectés ici en JS pour former le 71 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-org">
+                    <img src="images/%20Picto_JauneEvenements.png" alt="JAUNE Evénements" class="footer-logo-org">
+                    <div class="org-info">
+                        <p>JAUNE Evénements - Association Loi 1901</p>
+                        <p>Association organisatrice du Circuit cycliste de Saône-et-Loire</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Le Circuit</h4>
+                    <a href="histoire.html">Histoire</a>
+                    <a href="palmares.html">Palmarès</a>
+                    <a href="benevoles.html">Bénévoles</a>
+                    <a href="organisation.html">Organisation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>La Course</h4>
+                    <a href="parcours.html">Parcours</a>
+                    <a href="equipes.html">Équipes</a>
+                    <a href="partenaires.html">Partenaires</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Medias</h4>
+                    <a href="contact.html">Contact</a>
+                    <a href="photos.html">Photos</a>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/lecircuitdeSaoneetLoire" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lecircuitdesaoneetloire/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@LECIRCUITDESAONELOIRE-qe6rf" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Circuit de Saône-et-Loire. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('names71');
+            const volunteerNames = [
+                "Thomas Bernard", "Marie Dubois", "Jean Petit", "Julie Robert", "Nicolas Richard",
+                "Sophie Durand", "Pierre Moreau", "Anabelle Simon", "Lucas Laurent", "Océane Lefebvre",
+                "Michel Martin", "Catherine Garcia", "Pauline Bernard", "David Boyer", "Sylvie Martin",
+                "Alain Mercier", "Benoît Blanc", "Christelle Legrand", "Dominique Garnier", "Eric Faure",
+                "Françoise Rousseau", "Gérard Vincent", "Hélène Gautier", "Isabelle Muller", "Jacques Lambert",
+                "Kevin Fontaine", "Laetitia Roux", "Marc Chevalier", "Nathalie Morin", "Olivier Meyer",
+                "Philippe Philippe", "Quentin Picard", "René Guyot", "Stéphane Lucas", "Thierry Brun",
+                "Valérie Barbier", "William Arnaud", "Yannick Giraud", "Zoé Henry", "Adrien Dumas",
+                "Béatrice Brunet", "Claude Colin", "Daniel Noel", "Estelle Mazet", "Fabrice Vidal",
+                "Geneviève Pascal", "Hugo Lebrun", "Irène Meunier", "Julien Millet", "Karine Raymond",
+                "Laurent Parent", "Mélanie Carpentier", "Noël Denis", "Odile Payet", "Patrick Klein",
+                "Rose Bruno", "Serge Lacroix", "Tatiana Petit", "Ursule Bousquet", "Victor Dupont",
+                "Aline Masson", "Bertrand Morel", "Cécile Girard", "Denis Fournier", "Emilie Bonnet",
+                "Florian Andre", "Gaëlle Lefevre", "Hubert Mercier", "Ingrid Roussel", "Jérôme Muller",
+                "Léa Guerin", "Mathieu Lemoine", "Nadine Boyer", "Pascal Boucher", "Rémi Renard",
+                "Sandrine Gaillard", "Tristan Fabre", "Véronique Hubert", "Xavier Faivre"
+            ];
+
+            const fullList = [...volunteerNames, ...volunteerNames, ...volunteerNames];
+
+            const gridCells = [
+                // Le 7
+                { r: 1, c: 2 }, { r: 1, c: 3 }, { r: 1, c: 4 }, { r: 1, c: 5 }, { r: 1, c: 6 }, { r: 1, c: 7 }, { r: 1, c: 8 },
+                { r: 2, c: 8 }, { r: 3, c: 7 }, { r: 4, c: 6 }, { r: 5, c: 5 }, { r: 6, c: 4 }, { r: 7, c: 3 }, { r: 8, c: 3 },
+
+                // Le 1
+                { r: 1, c: 14 }, { r: 2, c: 13 }, { r: 2, c: 14 }, { r: 3, c: 14 }, { r: 4, c: 14 }, { r: 5, c: 14 },
+                { r: 6, c: 14 }, { r: 7, c: 14 }, { r: 8, c: 14 }, { r: 9, c: 13 }, { r: 9, c: 14 }, { r: 9, c: 15 }
+            ];
+
+            gridCells.forEach((cell, index) => {
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'volunteer-name-item';
+                nameSpan.innerText = fullList[index % fullList.length];
+                nameSpan.style.gridRow = cell.r;
+                nameSpan.style.gridColumn = cell.c;
+
+                const randomSize = 0.8 + Math.random() * 0.4;
+                nameSpan.style.fontSize = `${randomSize}rem`;
+
+                container.appendChild(nameSpan);
+            });
+        });
+    </script>
+</body>
+
+</html>

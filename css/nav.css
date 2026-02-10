@@ -1,0 +1,137 @@
+/* Consolidating Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: all 0.4s ease;
+    padding: 1.5rem 0;
+}
+
+.navbar.scrolled,
+.navbar.text-dark {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.nav-logo h1 {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.navbar.scrolled .nav-logo h1,
+.navbar.text-dark .nav-logo h1 {
+    color: var(--black);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-link,
+.navbar.text-dark .nav-link {
+    color: var(--black);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 1150px) {
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+        position: relative;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: var(--black);
+        transition: 0.3s ease;
+    }
+
+    .navbar:not(.scrolled):not(.text-dark) .nav-toggle span {
+        background: var(--white);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-menu .nav-link {
+        color: var(--black) !important;
+        font-size: 1.5rem;
+    }
+
+    .nav-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1060;
+    }
+
+    .nav-logo h1 {
+        font-size: 1rem;
+        color: var(--black) !important;
+    }
+
+    .navbar:not(.scrolled):not(.text-dark) .nav-logo h1 {
+        color: var(--white) !important;
+    }
+}
