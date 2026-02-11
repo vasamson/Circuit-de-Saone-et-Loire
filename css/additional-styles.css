@@ -1,0 +1,70 @@
+/* ===================================
+   DOWNLOAD POSTER SECTION
+   =================================== */
+.download-poster-section {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.download-poster-section .btn {
+    font-size: 1.1rem;
+    padding: 1.2rem 2.5rem;
+}
+
+/* ===================================
+   CONTACT PAGE - JAUNE LOGO
+   =================================== */
+.contact-logo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-jaune-logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===================================
+   VOLUNTEER CTA
+   =================================== */
+.volunteer-cta {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.volunteer-cta .btn {
+    font-size: 1.1rem;
+    padding: 1.2rem 2.5rem;
+}
+
+/* ===================================
+   EDITOS GRID - 5 CARDS LAYOUT
+   =================================== */
+.editos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .editos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .editos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Make sure the 5th card spans appropriately on larger screens */
+@media (min-width: 1200px) {
+    .editos-grid .edito-card:nth-child(5) {
+        grid-column: 2 / 3;
+    }
+}
