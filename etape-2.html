@@ -10,6 +10,35 @@
     <link rel="stylesheet" href="style.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+        .map-popup-custom .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-popup-custom .leaflet-popup-content {
+            margin: 12px 15px;
+        }
+
+        .map-popup-custom h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            margin-bottom: 8px !important;
+        }
+
+        .map-popup-custom p {
+            font-size: 14px !important;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="traces.js"></script>
 </head>
 
 <body class="stage-detail-page">
@@ -68,7 +97,7 @@
         <div class="stage-hero-meta">
             <div class="container">
                 <div class="stage-badge">Étape 2</div>
-                <p class="stage-info-text">Samedi 9 Mai 2026 &bull; 160.6 km &bull; 2800m D+</p>
+                <p class="stage-info-text">Samedi 9 Mai 2026 &bull; 164.6 km &bull; 2468m D+</p>
             </div>
         </div>
     </header>
@@ -80,13 +109,14 @@
                 <div class="stage-main-info">
                     <section class="stage-section">
                         <h3 class="section-title">Aperçu de l'étape</h3>
-                        <p>Une étape d'exception pour un triple anniversaire : les 40 ans de la victoire de Bernard
-                            Hinault, les 50 ans d'organisation d'A. Pradier, et le centenaire de la Cave de Lugny.
-                        </p>
-                        <p>Le parcours totalise 170km, incluant une section en ligne de 90km et un circuit final de 20km
-                            à parcourir 4 fois au cœur du vignoble mâconnais. Avec 2800m de dénivelé, c'est l'étape
-                            reine de cette édition.</p>
+                        <p>Une étape historique à double titre : elle célèbre la victoire de Bernard Hinault à
+                            Chardonnay il y a 50 ans, mais aussi le centenaire de la Cave de Lugny.</p>
+                        <p>Avec 164,6 km et 2468 mètres de dénivelé positif, c'est l'étape reine de cette édition. Le
+                            parcours exigeant traverse le vignoble mâconnais avec des ascensions redoutables comme le
+                            Col des Chèvres.</p>
                     </section>
+
+
 
                     <section class="stage-section">
                         <h3 class="section-title">Le Profil</h3>
@@ -94,33 +124,40 @@
                             <img src="images/profil2.jpeg" alt="Profil de l'étape" class="profile-img">
                             <div class="climb-details">
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 1 - KM 13.7</span>
+                                    <span class="climb-cat">Sprint - KM 13.7</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 2 - KM 32</span>
+                                    <span class="climb-cat">Sprint - KM 32</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG1 - KM 41.6</span>
+                                    <span class="climb-cat">GPM1 - KM 41.6</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG2 - KM 49.2</span>
+                                    <span class="climb-cat">GPM1 - KM 49.2</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG3 - KM 56.2</span>
+                                    <span class="climb-cat">GPM2 - KM 56.2</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG4 - KM 76</span>
+                                    <span class="climb-cat">GPM1 - KM 76</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG5 - KM 85.8</span>
+                                    <span class="climb-cat">GPM3 - KM 85.8</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 3 - KM 107.7</span>
+                                    <span class="climb-cat">Sprint - KM 107.7</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 4 - KM 143</span>
+                                    <span class="climb-cat">Sprint - KM 143</span>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    <section class="stage-section">
+                        <h3 class="section-title">Parcours interactif</h3>
+                        <div id="poi-map"
+                            style="height: 500px; width: 100%; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--white);">
                         </div>
                     </section>
                 </div>
@@ -175,8 +212,8 @@
                                 </tr>
                                 <tr>
                                     <td>Chardonnay (Arrivée)</td>
-                                    <td>160.6</td>
-                                    <td>17:13</td>
+                                    <td>164.6</td>
+                                    <td>17:15</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -317,6 +354,73 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('poi-map').setView([46.50, 4.85], 11);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            var goldIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#C2945D; width:18px; height:18px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4);'></div>",
+                iconSize: [18, 18],
+                iconAnchor: [9, 9]
+            });
+
+            var startIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#2ecc71; width:24px; height:24px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;'><i class='fas fa-play' style='color:white; font-size:10px; margin-left: 2px;'></i></div>",
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            var finishIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#e74c3c; width:24px; height:24px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;'><i class='fas fa-flag-checkered' style='color:white; font-size:12px;'></i></div>",
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            var pois = [
+                { name: "Chardonnay", coords: [46.511, 4.871], desc: "Ville Départ et Arrivée connue pour ses vins blancs et la victoire de Bernard Hinault il y a 50 ans." },
+                { name: "Km 23 - Lugny", coords: [46.471, 4.810], desc: "Célèbre pour son château fort et son vignoble dont les crus peuvent être dégustés dans sa grande cave." },
+                { name: "Km 32 - Azé", coords: [46.432, 4.761], desc: "Site historique avec notamment ses grottes préhistoriques et son église Romane." },
+                { name: "Km 54 - Blanot", coords: [46.471, 4.734], desc: "Village situé au pied du Mont Saint-Romain abritant les célèbres grottes de Blanot." },
+                { name: "Km 76 - Col des chèvres", coords: [46.564, 4.852], desc: "Passage à proximité du site médiéval de Brancion." },
+                { name: "Km 82 - Tournus", coords: [46.564, 4.912], desc: "Ville célèbre pour ses ruelles pittoresques, son abbaye Saint-Philibert et sa gastronomie." }
+            ];
+
+            // Tracé réel de l'étape (GPX)
+            var routeCoords = ETAPES_TRACES.etape2;
+
+            var routeLine = L.polyline(routeCoords, {
+                color: '#C2945D',
+                weight: 4,
+                opacity: 0.8,
+                lineJoin: 'round'
+            }).addTo(map);
+
+            // Marqueurs Départ et Arrivée
+            L.marker(routeCoords[0], { icon: startIcon }).addTo(map).bindPopup("<b>Départ : Chardonnay</b>", { className: 'map-popup-custom' });
+            L.marker(routeCoords[routeCoords.length - 1], { icon: finishIcon }).addTo(map).bindPopup("<b>Arrivée : Chardonnay</b>", { className: 'map-popup-custom' });
+
+            // Ajuster la vue pour englober tout le tracé
+            map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
+
+            pois.forEach(function (poi) {
+                var fullDesc = (typeof cityData !== 'undefined' && cityData[poi.name]) ? cityData[poi.name].text : poi.desc;
+                L.marker(poi.coords, { icon: goldIcon }).addTo(map)
+                    .bindPopup(`
+                        <div class="map-popup-custom">
+                            <h4 style="margin:0; color:#C2945D; font-weight:bold;">${poi.name}</h4>
+                            <p style="margin:8px 0 0 0;">${fullDesc}</p>
+                        </div>
+                    `, { minWidth: 250, maxWidth: 350, className: 'map-popup-custom' });
+            });
+        });
+    </script>
 </body>
 
 </html>

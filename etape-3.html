@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="style.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+        .map-popup-custom .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-popup-custom .leaflet-popup-content {
+            margin: 12px 15px;
+        }
+
+        .map-popup-custom h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            margin-bottom: 8px !important;
+        }
+
+        .map-popup-custom p {
+            font-size: 14px !important;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="traces.js"></script>
 </head>
 
 <body class="stage-detail-page">
@@ -67,7 +96,7 @@
         <div class="stage-hero-meta">
             <div class="container">
                 <div class="stage-badge">Étape 3</div>
-                <p class="stage-info-text">Dimanche 10 Mai 2026 &bull; 154 km &bull; 2116m D+</p>
+                <p class="stage-info-text">Dimanche 10 Mai 2026 &bull; 159.7 km &bull; 2111m D+</p>
             </div>
         </div>
     </header>
@@ -79,13 +108,14 @@
                 <div class="stage-main-info">
                     <section class="stage-section">
                         <h3 class="section-title">Aperçu de l'étape</h3>
-                        <p>La dernière étape de cette édition 2026 rend hommage à Claude Repérant avec le "Souvenir
-                            Claude Repérant". Le peloton partira de Digoin pour rejoindre St Vallier.
-                        </p>
-                        <p>Après 90km de course en ligne, les coureurs entreront sur un circuit final de 16km à
-                            parcourir 4 fois. Un final nerveux qui pourrait encore bouleverser le classement général
-                            final.</p>
+                        <p>La cité faïencière de Digoin accueille le départ de cette ultime étape. Le parcours de 159,7
+                            km (dont 3 km de fictif) traverse 18 communes pour rejoindre le bassin minier.</p>
+                        <p>Après 82 km de parcours en ligne, les coureurs s'affronteront sur un circuit final de 74,7 km
+                            répartis sur 4,3 tours. Un tracé nerveux avec 2111 mètres de dénivelé positif pour conclure
+                            cette édition 2026.</p>
                     </section>
+
+
 
                     <section class="stage-section">
                         <h3 class="section-title">Le Profil</h3>
@@ -93,36 +123,37 @@
                             <img src="images/profil3.jpeg" alt="Profil de l'étape" class="profile-img">
                             <div class="climb-details">
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG1 - KM 6.2</span>
+                                    <span class="climb-cat">GPM3 - KM 6.2</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 1 - KM 27.3</span>
+                                    <span class="climb-cat">Sprint - KM 27.3</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG2 - KM 36.5</span>
+                                    <span class="climb-cat">GPM1 - KM 36.5</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG3 - KM 47.7</span>
-                                </div>
-                                <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 2 - KM 61.3</span>
+                                    <span class="climb-cat">GPM3 - KM 47.7</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG4 - KM 69.4</span>
+                                    <span class="climb-cat">GPM1 - KM 69.4</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 3 - KM 91.1</span>
+                                    <span class="climb-cat">Sprint - KM 91.1</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG5 - KM 98</span>
+                                    <span class="climb-cat">GPM3 - KM 98</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 4 - KM 123.9</span>
-                                </div>
-                                <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 5 - KM 140.3</span>
+                                    <span class="climb-cat">Sprint - KM 123.9</span>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    <section class="stage-section">
+                        <h3 class="section-title">Parcours interactif</h3>
+                        <div id="poi-map"
+                            style="height: 500px; width: 100%; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--white);">
                         </div>
                     </section>
                 </div>
@@ -182,8 +213,8 @@
                                 </tr>
                                 <tr>
                                     <td>Saint-Vallier (Arrivée)</td>
-                                    <td>156.7</td>
-                                    <td>16:40</td>
+                                    <td>159.7</td>
+                                    <td>17:15</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -324,6 +355,73 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('poi-map').setView([46.55, 4.15], 10);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            var goldIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#C2945D; width:18px; height:18px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4);'></div>",
+                iconSize: [18, 18],
+                iconAnchor: [9, 9]
+            });
+
+            var startIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#2ecc71; width:24px; height:24px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;'><i class='fas fa-play' style='color:white; font-size:10px; margin-left: 2px;'></i></div>",
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            var finishIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#e74c3c; width:24px; height:24px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;'><i class='fas fa-flag-checkered' style='color:white; font-size:12px;'></i></div>",
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            var pois = [
+                { name: "Ville Départ - Digoin", coords: [46.481, 3.980], desc: "Réputée pour le travail de ses faïenciers et son illustre pont canal de 243 m de long." },
+                { name: "Km 15 - Neuvy-Grandchamp", coords: [46.591, 3.931], desc: "Commune réputée pour son Musée Charollais du Machinisme Agricole." },
+                { name: "Km 30 - Saint-Agnan", coords: [46.505, 3.961], desc: "Passage devant la maison de Claude REPERANT, à qui cette étape est dédiée." },
+                { name: "Km 61 - Saint-Aubin-en Charollais", coords: [46.496, 4.215], desc: "Passage au cœur du Charollais, région de renommée pour sa race de bétail bovine." },
+                { name: "Km 84 - Pouilloux", coords: [46.606, 4.356], desc: "Parcours longeant l’aérodrome du Bassin Minier." },
+                { name: "Ville Arrivée - Saint-Vallier", coords: [46.643, 4.364], desc: "L’une des plus vastes communes urbanisées de France, connue pour son École de Cirque Gus Circus." }
+            ];
+
+            // Tracé réel de l'étape (GPX)
+            var routeCoords = ETAPES_TRACES.etape3;
+
+            var routeLine = L.polyline(routeCoords, {
+                color: '#C2945D',
+                weight: 4,
+                opacity: 0.8,
+                lineJoin: 'round'
+            }).addTo(map);
+
+            // Marqueurs Départ et Arrivée
+            L.marker(routeCoords[0], { icon: startIcon }).addTo(map).bindPopup("<b>Départ : Digoin</b>", { className: 'map-popup-custom' });
+            L.marker(routeCoords[routeCoords.length - 1], { icon: finishIcon }).addTo(map).bindPopup("<b>Arrivée : Saint-Vallier</b>", { className: 'map-popup-custom' });
+
+            // Ajuster la vue pour englober tout le tracé
+            map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
+
+            pois.forEach(function (poi) {
+                var fullDesc = (typeof cityData !== 'undefined' && cityData[poi.name]) ? cityData[poi.name].text : poi.desc;
+                L.marker(poi.coords, { icon: goldIcon }).addTo(map)
+                    .bindPopup(`
+                        <div class="map-popup-custom">
+                            <h4 style="margin:0; color:#C2945D; font-weight:bold;">${poi.name}</h4>
+                            <p style="margin:8px 0 0 0;">${fullDesc}</p>
+                        </div>
+                    `, { minWidth: 250, maxWidth: 350, className: 'map-popup-custom' });
+            });
+        });
+    </script>
 </body>
 
 </html>

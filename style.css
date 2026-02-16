@@ -760,15 +760,11 @@ a {
 .stage-details h4 {
     margin: 0;
     text-transform: uppercase;
-    font-size: 1.4rem;
-    /* Uniformisé avec .specs */
-}
-
-/* .specs inside h4 */
-.stage-details .specs {
-    font-size: 1.4rem;
-    color: var(--gray);
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    color: var(--black);
+    letter-spacing: 0.5px;
 }
 
 .stage-icon {
@@ -2385,19 +2381,13 @@ a {
 }
 
 .stage-cities {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
     color: var(--black);
-}
-
-.stage-specs {
-    display: flex;
-    gap: 2rem;
-    font-size: 1.1rem;
-    color: var(--dark-gray);
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .stage-content-placeholder {
@@ -3908,7 +3898,7 @@ body.teaser-mode .teams-section {
     margin-right: 15px;
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .photo-item img {
@@ -3928,6 +3918,7 @@ body.teaser-mode .teams-section {
     0% {
         transform: translateX(0);
     }
+
     100% {
         /* 7 images * (300px + 15px margin) = 2205px */
         transform: translateX(-2205px);
@@ -3945,9 +3936,67 @@ body.teaser-mode .teams-section {
         0% {
             transform: translateX(0);
         }
+
         100% {
             /* 7 images * (200px + 10px margin) = 1470px */
             transform: translateX(-1470px);
         }
+    }
+}
+
+/* ===================================
+   POINTS OF INTEREST (POI)
+   =================================== */
+.poi-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.poi-list li {
+    margin-bottom: 2rem;
+    padding-left: 0;
+}
+
+.poi-list li strong {
+    display: block;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.poi-list li strong::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.poi-text {
+    display: block;
+    padding-left: 1.2rem;
+    color: var(--gray);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.poi-content {
+    /* Simple wrapper, no more card styles */
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .poi-list li {
+        margin-bottom: 1.5rem;
     }
 }

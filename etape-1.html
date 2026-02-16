@@ -10,6 +10,35 @@
     <link rel="stylesheet" href="style.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+        .map-popup-custom .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-popup-custom .leaflet-popup-content {
+            margin: 12px 15px;
+        }
+
+        .map-popup-custom h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            margin-bottom: 8px !important;
+        }
+
+        .map-popup-custom p {
+            font-size: 14px !important;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="traces.js"></script>
 </head>
 
 <body class="stage-detail-page">
@@ -68,7 +97,7 @@
         <div class="stage-hero-meta">
             <div class="container">
                 <div class="stage-badge">Étape 1</div>
-                <p class="stage-info-text">Vendredi 8 Mai 2026 &bull; 145.3 km &bull; 1363m D+</p>
+                <p class="stage-info-text">Vendredi 8 Mai 2026 &bull; 149.8 km &bull; 1384m D+</p>
             </div>
         </div>
     </header>
@@ -80,13 +109,15 @@
                 <div class="stage-main-info">
                     <section class="stage-section">
                         <h3 class="section-title">Aperçu de l'étape</h3>
-                        <p>Cette première étape relie Le Creusot (nouvelle place) à Pierre de Bresse sur un tracé de
-                            145km. Un parcours quasiment identique à celui de l'édition 1995.
+                        <p>Le Creusot, ville Grand-Départ du Circuit, est mondialement réputée pour son
+                            industrialisation (Industeel, Framatome, Alstom, Safran). Cette première étape de 149,8 km
+                            emmène le peloton vers la Bresse bourguignonne avec un final sur circuit à Pierre-de-Bresse.
                         </p>
-                        <p>La course se compose d'une section en ligne de 105km suivie d'un circuit final de 10km à
-                            parcourir 4 fois. Une étape technique qui mettra les coureurs à l'épreuve dès l'ouverture.
-                        </p>
+                        <p>Le parcours comprend 4,5 km de fictif, 105,7 km de parcours en ligne et 39,6 km répartis sur
+                            4 tours de circuit final, totalisant 1384 mètres de dénivelé positif.</p>
                     </section>
+
+
 
                     <section class="stage-section">
                         <h3 class="section-title">Le Profil</h3>
@@ -94,24 +125,34 @@
                             <img src="images/profil1.jpeg" alt="Profil de l'étape" class="profile-img">
                             <div class="climb-details">
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG1 - KM 12.3</span>
+                                    <span class="climb-cat">GPM3 - KM 12.3</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 1 - KM 19.3</span>
+                                    <span class="climb-cat">Sprint - KM 19.3</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG2 - KM 38</span>
+                                    <span class="climb-cat">GPM1 - KM 38</span>
                                 </div>
                                 <div class="climb-item mg">
-                                    <span class="climb-cat">MG3 - KM 46.5</span>
+                                    <span class="climb-cat">GPM2 - KM 46.5</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 2 - KM 61.5</span>
+                                    <span class="climb-cat">Sprint - KM 61.5</span>
                                 </div>
                                 <div class="climb-item sprint">
-                                    <span class="climb-cat">Sprint 3 - KM 105.7</span>
+                                    <span class="climb-cat">Sprint - KM 105.7</span>
+                                </div>
+                                <div class="climb-item sprint">
+                                    <span class="climb-cat">Sprint - KM 125.5</span>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    <section class="stage-section">
+                        <h3 class="section-title">Parcours interactif</h3>
+                        <div id="poi-map"
+                            style="height: 500px; width: 100%; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--white);">
                         </div>
                     </section>
                 </div>
@@ -166,8 +207,8 @@
                                 </tr>
                                 <tr>
                                     <td>Pierre-de-Bresse (Arrivée)</td>
-                                    <td>145.3</td>
-                                    <td>17:11</td>
+                                    <td>149.8</td>
+                                    <td>17:15</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -306,6 +347,77 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('poi-map').setView([46.88, 4.85], 10);
+
+            L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=YOUR_API_KEY', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Standard OSM tiles if no API key
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            var goldIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#C2945D; width:18px; height:18px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4);'></div>",
+                iconSize: [18, 18],
+                iconAnchor: [9, 9]
+            });
+
+            var startIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#2ecc71; width:24px; height:24px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;'><i class='fas fa-play' style='color:white; font-size:10px; margin-left: 2px;'></i></div>",
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            var finishIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#e74c3c; width:24px; height:24px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;'><i class='fas fa-flag-checkered' style='color:white; font-size:12px;'></i></div>",
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
+
+            var pois = [
+                { name: "Le Creusot", coords: [46.806, 4.432], desc: "Ville Grand-Départ du Circuit mondialement réputée pour son industrialisation." },
+                { name: "Km 50 - Rully", coords: [46.877, 4.739], desc: "Village connu pour ses AOP en vin rouge et blanc et son château médiéval." },
+                { name: "Km 57 - Chagny", coords: [46.911, 4.753], desc: "Ville réputée pour ses tuileries et son restaurant gastronomique Lameloise." },
+                { name: "Km 81 - Verdun sur le Doubs", coords: [46.896, 5.023], desc: "Ville de confluence où le Doubs se jette dans la Saône." },
+                { name: "Pierre-de-Bresse", coords: [46.883, 5.263], desc: "Ville d'Arrivée connue pour son château du 17ème siècle." }
+            ];
+
+            // Tracé réel de l'étape (GPX)
+            var routeCoords = ETAPES_TRACES.etape1;
+
+            var routeLine = L.polyline(routeCoords, {
+                color: '#C2945D',
+                weight: 4,
+                opacity: 0.8,
+                lineJoin: 'round'
+            }).addTo(map);
+
+            // Marqueurs Départ et Arrivée
+            L.marker(routeCoords[0], { icon: startIcon }).addTo(map).bindPopup("<b>Départ : Le Creusot</b>", { className: 'map-popup-custom' });
+            L.marker(routeCoords[routeCoords.length - 1], { icon: finishIcon }).addTo(map).bindPopup("<b>Arrivée : Pierre-de-Bresse</b>", { className: 'map-popup-custom' });
+
+            // Ajuster la vue pour englober tout le tracé
+            map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
+
+            pois.forEach(function (poi) {
+                var fullDesc = (typeof cityData !== 'undefined' && cityData[poi.name]) ? cityData[poi.name].text : poi.desc;
+                L.marker(poi.coords, { icon: goldIcon }).addTo(map)
+                    .bindPopup(`
+                        <div class="map-popup-custom">
+                            <h4 style="margin:0; color:#C2945D; font-weight:bold;">${poi.name}</h4>
+                            <p style="margin:8px 0 0 0;">${fullDesc}</p>
+                        </div>
+                    `, { minWidth: 250, maxWidth: 350, className: 'map-popup-custom' });
+            });
+        });
+    </script>
 </body>
 
 </html>
