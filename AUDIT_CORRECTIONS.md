@@ -76,3 +76,46 @@
 - Tous les boutons "En savoir +" supprimés de la page partenaires
 - Page partenaires resserrée à 1100px max-width
 - Titres des catégories partenaires centrés avec underline doré
+
+### Date: 2026-02-16 (Audit Complet)
+
+#### 1. **Navigation Mobile (Menu & Overlay)**
+- ✅ **Problème**: Le menu mobile affichait des liens "fantômes" en arrière-plan lorsqu'il était fermé (problème d'opacité/visibilité).
+- ✅ **Problème**: Le logo du site chevauchait les liens du menu lorsque celui-ci était ouvert.
+- ✅ **Solution**:
+  - Implémentation d'un masquage agressif avec `display: none` pour le menu lorsqu'il est inactif.
+  - Ajout d'une classe `nav-active` sur la barre de navigation via JS pour un contrôle global.
+  - Masquage automatique du logo (`opacity: 0`) dès que le menu est actif.
+  - Harmonisation du fond (blanc opaque) et du z-index (1050) pour une lisibilité parfaite.
+
+#### 2. **Section Bénévoles (Bannière Photo)**
+- ✅ **Problème**: Les photos de la bannière défilante étaient écrasées (squashed) sur mobile.
+- ✅ **Solution**:
+  - Utilisation de `object-fit: cover` sur les images.
+  - Ajustement de la largeur des items photo (300px → 180px) et de l'animation de défilement pour mobile.
+  - Correction d'un conflit CSS entre la galerie et le bandeau défilant.
+
+#### 3. **Bandes Partenaires (Marquees)**
+- ✅ **Problème**: Les logos dans les bandeaux défilants étaient trop petits ou déformés sur mobile.
+- ✅ **Solution**:
+  - Ajout de `object-fit: contain` pour préserver les proportions.
+  - Réduction de la hauteur des logos (110px → 60px) et de l'espacement (gap) spécifiquement pour mobile.
+  - Ajustement de la durée de l'animation pour un défilement fluide sur petits écrans.
+
+#### 4. **Titres de Pages et Padding**
+- ✅ **Problème**: Les titres des en-têtes (ex: "LE PARCOURS OFFICIEL") touchaient les bords de l'écran sur mobile.
+- ✅ **Solution**:
+  - Ajout systématique d'un padding horizontal de 20px sur les titres de pages.
+  - Ajustement de la taille de police (ex: 5rem → 2.5rem) pour les headers split et classiques.
+
+### Statut Global
+- 🎨 **Esthétique**: Site jugé "propre" et premium sur toutes les pages.
+- 📱 **Responsivité**: Vérifiée sur Desktop (1920px), Tablette (768px) et Mobile (375px).
+- 🛠️ **Consistance**: Navigation et footer uniformes sur l'ensemble du site.
+
+### Tests Effectués le 2026-02-16
+- [x] Vérification du menu mobile sur Index, Parcours, Bénévoles, Histoire.
+- [x] Contrôle du défilement des logos partenaires (Majeurs et Officiels).
+- [x] Test de la galerie photo (Photos.html) en mode grille et empilé.
+- [x] Vérification de l'absence de chevauchement texte/image sur la page Histoire.
+- [x] Validation du masquage du logo lors de l'ouverture du menu.

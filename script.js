@@ -28,18 +28,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('teaser-mode');
     }
 
-    if (navToggle && navMenus.length > 0) {
+    const navbar = document.querySelector('.navbar');
+    if (navToggle && navMenus.length > 0 && navbar) {
         navToggle.addEventListener('click', () => {
+            const isActive = !navToggle.classList.contains('active');
             navToggle.classList.toggle('active');
-            navMenus.forEach(menu => menu.classList.toggle('active')); // Toggle for all menus
-            document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : '';
+            navbar.classList.toggle('nav-active');
+            navMenus.forEach(menu => menu.classList.toggle('active'));
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
     }
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navToggle?.classList.remove('active');
-            navMenus.forEach(menu => menu.classList.remove('active')); // Remove for all menus
+            navbar?.classList.remove('nav-active');
+            navMenus.forEach(menu => menu.classList.remove('active'));
             document.body.style.overflow = '';
         });
     });
