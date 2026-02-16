@@ -1,4 +1,16 @@
 // ===================================
+// PRELOADER
+// ===================================
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('loaded');
+        }, 500); // Small delay for smooth feel
+    }
+});
+
+// ===================================
 // NAVIGATION & CORE
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
