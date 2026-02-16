@@ -4000,3 +4000,38 @@ body.teaser-mode .teams-section {
         margin-bottom: 1.5rem;
     }
 }
+
+/* ===================================
+   LEGAL & CONTENT PAGES
+   =================================== */
+.legal-page .navbar {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.legal-main {
+    max-width: 900px !important;
+    line-height: 1.8;
+}
+
+.legal-main h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    color: var(--secondary);
+    margin-top: 3rem;
+}
+
+.legal-main p {
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.legal-main a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.legal-main a:hover {
+    text-decoration: underline;
+}
