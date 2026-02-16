@@ -25,14 +25,54 @@
 
         .map-popup-custom h4 {
             font-family: 'Outfit', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 8px !important;
         }
 
         .map-popup-custom p {
+            font-family: 'Outfit', sans-serif;
             font-size: 14px !important;
-            line-height: 1.5;
+            line-height: 1.6;
             color: #555;
+        }
+
+        .map-interaction-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fdf8f3;
+            color: #C2945D;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            border-left: 4px solid #C2945D;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .map-interaction-hint i {
+            font-size: 18px;
+            color: #C2945D;
+        }
+
+        .pulse-marker {
+            animation: pulse-gold 2s infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(194, 148, 93, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(194, 148, 93, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(194, 148, 93, 0);
+            }
         }
     </style>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -152,6 +192,11 @@
 
                     <section class="stage-section">
                         <h3 class="section-title">Parcours interactif</h3>
+                        <div class="map-interaction-hint">
+                            <i class="fas fa-hand-pointer"></i>
+                            <span><b>Carte interactive :</b> Cliquez sur les points dorés pour explorer le patrimoine et
+                                les curiosités de cette étape.</span>
+                        </div>
                         <div id="poi-map"
                             style="height: 500px; width: 100%; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--white);">
                         </div>
@@ -364,7 +409,7 @@
             }).addTo(map);
 
             var goldIcon = L.divIcon({
-                className: 'custom-div-icon',
+                className: 'custom-div-icon pulse-marker',
                 html: "<div style='background-color:#C2945D; width:18px; height:18px; border-radius:50%; border:3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.4);'></div>",
                 iconSize: [18, 18],
                 iconAnchor: [9, 9]
@@ -385,12 +430,12 @@
             });
 
             var pois = [
-                { name: "Ville Départ - Digoin", coords: [46.481, 3.980], desc: "Réputée pour le travail de ses faïenciers et son illustre pont canal de 243 m de long." },
-                { name: "Km 15 - Neuvy-Grandchamp", coords: [46.591, 3.931], desc: "Commune réputée pour son Musée Charollais du Machinisme Agricole." },
-                { name: "Km 30 - Saint-Agnan", coords: [46.505, 3.961], desc: "Passage devant la maison de Claude REPERANT, à qui cette étape est dédiée." },
-                { name: "Km 61 - Saint-Aubin-en Charollais", coords: [46.496, 4.215], desc: "Passage au cœur du Charollais, région de renommée pour sa race de bétail bovine." },
-                { name: "Km 84 - Pouilloux", coords: [46.606, 4.356], desc: "Parcours longeant l’aérodrome du Bassin Minier." },
-                { name: "Ville Arrivée - Saint-Vallier", coords: [46.643, 4.364], desc: "L’une des plus vastes communes urbanisées de France, connue pour son École de Cirque Gus Circus." }
+                { name: "Digoin", coords: [46.481, 3.980], desc: "Ville Départ. Digoin, qui doit avant tout sa réputation et son histoire à la qualité du travail de ses faïenciers depuis plusieurs siècles. Mais Digoin c’est aussi une notoriété due au tourisme lié au canal du centre et au canal latéral à la Loire, avec notamment son illustre pont canal de 243 m de long, véritable prouesse architecturale qui enjambe la Loire." },
+                { name: "Km 15 - Neuvy-Grandchamp", coords: [46.591, 3.931], desc: "Traversée de Neuvy-Grandchamp, commune réputée pour son Musée Charollais du Machinisme Agricole." },
+                { name: "Km 30 - Saint-Agnan", coords: [46.505, 3.961], desc: "Commune de Saint-Agnan hameau de Saint-Denis, passage devant la maison de Claude REPERANT, à qui cette étape sera dédiée." },
+                { name: "Km 61 - Saint-Aubin-en Charollais", coords: [46.496, 4.215], desc: "Saint-Aubin-en Charollais : passage au cœur du Charollais région de grande renommée pour sa race de bétail, la Charollaise." },
+                { name: "Km 84 - Pouilloux", coords: [46.606, 4.356], desc: "Pouilloux : parcours longeant l’aérodrome où il est possible de passer son baptême de l’air, voire d’apprendre à voler grâce à l’Aéro club du Bassin Minier." },
+                { name: "Saint-Vallier", coords: [46.643, 4.364], desc: "Ville Arrivée. Saint-Vallier qui, avec ses 24,21 km2, est l’une des plus vastes communes urbanisées de France. Ses multiples infrastructures permettent d’y pratiquer de nombreux sports et activités dont l’une d’entre elles est unique en Saône-et-Loire, l’École de Cirque Gus Circus." }
             ];
 
             // Tracé réel de l'étape (GPX)

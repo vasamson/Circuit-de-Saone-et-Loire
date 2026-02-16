@@ -73,27 +73,27 @@ const cityData = {
     "Le Creusot": {
         img: "images/creusot.jpg",
         title: "Le Creusot",
-        text: "Nichée au cœur de la Bourgogne, Le Creusot est une ville au patrimoine industriel exceptionnel. Berceau de l'empire Schneider, elle a façonné l'histoire de la métallurgie française. Aujourd'hui, cette cité dynamique conjugue héritage historique et modernité, avec son château de la Verrerie, ses équipements sportifs de premier plan et son cadre naturel préservé. Ville de départ emblématique, Le Creusot offre aux coureurs un tremplin idéal vers l'aventure cycliste."
+        text: "Ville Grand-Départ du Circuit. Le Creusot mondialement réputée pour son industrialisation dans la sidérurgie (Industeel), le nucléaire (Framatome), le Ferroviaire (Alstom) et l’aéronautique (Safran)."
     },
     "Digoin": {
         img: "images/digoin.jpg",
         title: "Digoin",
-        text: "Au confluent de la Loire, de l'Arroux et du canal du Centre, Digoin est la cité de l'eau par excellence. Son majestueux pont-canal, chef-d'œuvre d'architecture du XIXe siècle, enjambe la Loire sur 243 mètres. Capitale de la céramique, la ville perpétue un savoir-faire artisanal séculaire. Entre patrimoine fluvial, traditions artisanales et douceur de vivre bourguignonne, Digoin accueille les coureurs dans un écrin de charme et d'authenticité."
+        text: "Ville Départ. Digoin, qui doit avant tout sa réputation et son histoire à la qualité du travail de ses faïenciers depuis plusieurs siècles. Mais Digoin c’est aussi une notoriété due au tourisme lié au canal du centre et au canal latéral à la Loire, avec notamment son illustre pont canal de 243 m de long, véritable prouesse architecturale qui enjambe la Loire."
     },
     "Saint-Vallier": {
         img: "images/saintvallier.jpg",
         title: "Saint-Vallier",
-        text: "Commune dynamique du bassin minier montcellien, Saint-Vallier incarne la reconversion réussie d'un territoire industriel. Dotée d'infrastructures sportives modernes et de nombreux espaces verts, la ville offre un cadre de vie agréable à ses habitants. Son tissu associatif vivant et son engagement dans le sport en font une ville d'arrivée parfaite pour célébrer l'effort des coureurs et la passion du cyclisme."
+        text: "Ville Arrivée. Saint-Vallier qui, avec ses 24,21 km2, est l’une des plus vastes communes urbanisées de France. Ses multiples infrastructures permettent d’y pratiquer de nombreux sports et activités dont l’une d’entre elles est unique en Saône-et-Loire, l’École de Cirque Gus Circus."
     },
     "Chardonnay": {
         img: "images/chardonnay.jpg",
         title: "Chardonnay",
-        text: "Village viticole de renommée mondiale, Chardonnay a donné son nom au cépage blanc le plus célèbre de la planète. Perché sur les coteaux du Mâconnais, ce joyau bourguignon offre des panoramas à couper le souffle sur les vignobles dorés. Entre tradition viticole millénaire, patrimoine architectural préservé et paysages vallonnés, Chardonnay propose aux coureurs un parcours exigeant dans un décor de carte postale, où chaque virage révèle la beauté de la Bourgogne du Sud."
+        text: "Ville Départ et Arrivée. Chardonnay connue pour ses vins blancs dont le célèbre cépage porte le même nom que celui de la commune, mais aussi pour sa course cycliste historique, là où Bernard Hinault s’imposait il y a 50 ans avant de devenir, le célèbre champion que l’on connait aujourd’hui (quintuple vainqueur du Tour de France et un palmarès exceptionnel)."
     },
     "Pierre-de-Bresse": {
         img: "images/pierredebresse.jpg",
         title: "Pierre-de-Bresse",
-        text: "Capitale de la Bresse bourguignonne, Pierre-de-Bresse rayonne autour de son magnifique château du XVIIe siècle qui abrite l'Écomusée de la Bresse. Cette étape culturelle majeure permet de découvrir l'architecture bressane typique, les traditions rurales et l'art de vivre bressan. Entre bocages verdoyants, fermes à pans de bois et patrimoine préservé, Pierre-de-Bresse offre aux coureurs une traversée bucolique au cœur d'un terroir d'exception."
+        text: "Ville Arrivée. Pierre-de-Bresse connue pour son château du 17ème siècle classé monument historique et qui abrite actuellement l’écomusée de la Bresse."
     }
 };
 
