@@ -80,6 +80,35 @@ document.addEventListener('DOMContentLoaded', () => {
             openJauneEventModal();
         });
     }
+
+    // ===================================
+    // COUNTDOWN TIMER
+    // ===================================
+    const countdownTimer = document.getElementById('countdown-timer');
+    if (countdownTimer) {
+        const targetDate = new Date('2026-05-08T13:30:00').getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                countdownTimer.innerHTML = "LA COURSE A COMMENCÉ !";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Format desired: J-130   21h 34min 24sec
+            countdownTimer.innerHTML = `<span class="text-primary">J-${days}</span> &nbsp;&nbsp; ${hours}h ${minutes}min ${seconds}sec`;
+        };
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    }
 });
 
 // ===================================
