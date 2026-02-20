@@ -14,19 +14,31 @@ window.addEventListener('load', () => {
 // NAVIGATION & CORE
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenus = document.querySelectorAll('.nav-menu'); // Changed to querySelectorAll
-    const navLinks = document.querySelectorAll('.nav-link');
+    // ===================================
+    // CONFIGURATION & GESTION MAINTENANCE
+    // ===================================
+    // Mettre à true pour activer la page d'attente, false pour le site normal
+    const MAINTENANCE_MODE = true;
 
-    // ===================================
-    // TEASER CONFIGURATION
-    // ===================================
-    // Mettre à false pour tout afficher, true pour flouter
+    // Mettre à false pour tout afficher, true pour flouter les équipes (mode teaser)
     const TEASER_MODE = true;
+
+    if (MAINTENANCE_MODE) {
+        document.body.classList.add('in-maintenance');
+        injectMaintenanceOverlay();
+        startMaintenanceCountdown();
+        return; // Arrete l'exécution du reste du script
+    }
 
     if (TEASER_MODE) {
         document.body.classList.add('teaser-mode');
     }
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenus = document.querySelectorAll('.nav-menu'); // Changed to querySelectorAll
+    const navLinks = document.querySelectorAll('.nav-link');
+
+
 
     const navbar = document.querySelector('.navbar');
     if (navToggle && navMenus.length > 0 && navbar) {
@@ -112,6 +124,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===================================
+// SCROLL EFFECTS
+// ===================================
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
+    }
+});
+
+// ===================================
 // CITY DATA & MODAL
 // ===================================
 const cityData = {
@@ -184,23 +215,76 @@ function openJauneEventModal() {
 }
 
 // ===================================
-// SCROLL EFFECTS
+// GESTION MAINTENANCE
 // ===================================
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }
+function injectMaintenanceOverlay() {
+    const overlay = document.createElement('div');
+    overlay.id = 'maintenance-overlay';
+    overlay.innerHTML = `
+        <div class="maintenance-content">
+            <img src="images/Generique_Horizontal_Bleu.png" alt="Circuit Saône & Loire" class="maintenance-logo-img">
+            <h1 class="maintenance-title">Site en <span class="text-primary">construction</span></h1>
+            
+            <h3 class="maintenance-countdown-title">Départ dans :</h3>
+            <div class="maintenance-timer">
+                <div class="maintenance-time-unit">
+                    <span id="m-days" class="maintenance-time-value">00</span>
+                    <span class="maintenance-time-label">Jours</span>
+                </div>
+                <div class="maintenance-time-unit">
+                    <span id="m-hours" class="maintenance-time-value">00</span>
+                    <span class="maintenance-time-label">Heures</span>
+                </div>
+                <div class="maintenance-time-unit">
+                    <span id="m-mins" class="maintenance-time-value">00</span>
+                    <span class="maintenance-time-label">Minutes</span>
+                </div>
+                <div class="maintenance-time-unit">
+                    <span id="m-secs" class="maintenance-time-value">00</span>
+                    <span class="maintenance-time-label">Secondes</span>
+                </div>
+            </div>
 
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
-    }
-});
+            <p class="maintenance-text">Nous préparons quelque chose de grand pour l'édition 2026. <br><span class="highlight-text">Nous lançons le site officiel à J-71 !</span></p>
+            
+            <div class="maintenance-socials">
+                <a href="https://www.facebook.com/lecircuitdeSaoneetLoire" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/lecircuitdesaoneetloire/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@LECIRCUITDESAONELOIRE-qe6rf" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+}
+
+function startMaintenanceCountdown() {
+    const targetDate = new Date('2026-05-08T13:30:00').getTime();
+
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) return;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const dEl = document.getElementById('m-days');
+        const hEl = document.getElementById('m-hours');
+        const mEl = document.getElementById('m-mins');
+        const sEl = document.getElementById('m-secs');
+
+        if (dEl) dEl.innerText = days.toString().padStart(2, '0');
+        if (hEl) hEl.innerText = hours.toString().padStart(2, '0');
+        if (mEl) mEl.innerText = minutes.toString().padStart(2, '0');
+        if (sEl) sEl.innerText = seconds.toString().padStart(2, '0');
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+}
 
 // Hello Message
 console.log('%c🚴 Circuit de Saône-et-Loire 🚴', 'font-size: 20px; font-weight: bold; color: #C2945D;');
