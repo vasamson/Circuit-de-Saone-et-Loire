@@ -76,6 +76,47 @@
                 box-shadow: 0 0 0 0 rgba(194, 148, 93, 0);
             }
         }
+
+        .tribute-card {
+            background: #fdf8f3;
+            border-left: 5px solid #C2945D;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .tribute-icon {
+            font-size: 2.5rem;
+            color: #C2945D;
+            flex-shrink: 0;
+        }
+
+        .tribute-content h4 {
+            margin: 0 0 10px 0;
+            color: #C2945D;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-family: 'Nature Spirit', serif;
+        }
+
+        .tribute-content p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            font-family: var(--font-primary);
+        }
+
+        @media (max-width: 600px) {
+            .tribute-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
     </style>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -153,6 +194,20 @@
                         <p>Avec 164,6 km et 2468 mètres de dénivelé positif, c'est l'étape reine de cette édition. Le
                             parcours exigeant traverse le vignoble mâconnais avec des ascensions redoutables comme le
                             Col des Chèvres.</p>
+
+                        <div class="tribute-card">
+                            <div class="tribute-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="tribute-content">
+                                <h4>Étape dédiée à Alain Pradier</h4>
+                                <p>Cette étape rend hommage à <strong>Alain Pradier</strong>, pilier du cyclisme
+                                    bourguignon et organisateur d'exception. Créateur du Grand Prix de Chardonnay en
+                                    1976 (remporté par Bernard Hinault), ancien Président du Comité de Bourgogne et
+                                    médaillé d’Or de la FFC, il a marqué l'histoire du vélo par son engagement sans
+                                    faille.</p>
+                            </div>
+                        </div>
                     </section>
 
 
