@@ -206,7 +206,7 @@ function openJauneEventModal() {
     const modalTitle = modal.querySelector('.modal-body h2');
     const modalText = modal.querySelector('.modal-body p');
 
-    if (modalImg) modalImg.src = "images/ Picto_JauneEvenements.png";
+    if (modalImg) modalImg.src = "images/jaune-evenements.png";
     if (modalTitle) modalTitle.innerText = "JAUNE Événements";
     if (modalText) modalText.innerText = "JAUNE Événements est l'association organisatrice du Circuit de Saône-et-Loire. Créée en 1965, cette association loi 1901 rassemble des passionnés de cyclisme dévoués à la promotion de ce sport en Bourgogne. Chaque année, bénévoles et organisateurs œuvrent avec passion pour faire vivre cette épreuve historique et offrir aux coureurs un événement d'exception.";
 
@@ -222,7 +222,7 @@ function injectMaintenanceOverlay() {
     overlay.id = 'maintenance-overlay';
     overlay.innerHTML = `
         <div class="maintenance-content">
-            <img src="images/Generique_Horizontal_Bleu.png" alt="Circuit Saône & Loire" class="maintenance-logo-img">
+            <img src="images/generique-bleu.png" alt="Circuit Saône & Loire" class="maintenance-logo-img">
             <h1 class="maintenance-title">Site en <span class="text-primary">construction</span></h1>
             
             <h3 class="maintenance-countdown-title">Départ dans :</h3>

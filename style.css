@@ -3352,21 +3352,21 @@ a {
    DECORATIVE MOTIFS
    =================================== */
 .bg-motif-top {
-    background-image: url('images/SlidesMotif_Bleu 2.png');
+    background-image: url('images/slides-motif-bleu2.png');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
 
 .bg-motif-bottom {
-    background-image: url('images/SlidesMotif_Bleu 1.png');
+    background-image: url('images/slides-motif-bleu1.png');
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
 
 .bg-motif-both {
-    background-image: url('images/SlidesMotif_Bleu 2.png'), url('images/SlidesMotif_Bleu 1.png');
+    background-image: url('images/slides-motif-bleu2.png'), url('images/slides-motif-bleu1.png');
     background-position: top center, bottom center;
     background-repeat: no-repeat, no-repeat;
     background-size: 100% auto, 100% auto;
@@ -4218,7 +4218,7 @@ body.teaser-mode .teams-section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%), url('images/V2 2.png');
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%), url('images/v2-2.png');
     background-size: cover;
     background-position: center;
     z-index: 99999;
