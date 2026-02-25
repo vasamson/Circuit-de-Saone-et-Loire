@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURATION & GESTION MAINTENANCE
     // ===================================
     // Mettre à true pour activer la page d'attente, false pour le site normal
-    const MAINTENANCE_MODE = false;
+    const MAINTENANCE_MODE = true;
 
     // Mettre à false pour tout afficher, true pour flouter les équipes (mode teaser)
     const TEASER_MODE = true;
