@@ -48,10 +48,10 @@
     --primary-color: #C2945D;
     /* Vibrant Racing Red */
     --primary-dark: #C2945D;
-    --black: #000000;
-    --charcoal: #121212;
-    --dark-gray: #222222;
-    --gray: #888888;
+    --black: #0B1F50;
+    --charcoal: #0B1F50;
+    --dark-gray: #0B1F50;
+    --gray: #0B1F50;
     --light-gray: #f4f4f4;
     --white: #ffffff;
 
@@ -848,7 +848,7 @@ a {
 
 .stage-icon {
     margin-left: auto;
-    color: #ccc;
+    color: #0B1F50;
     font-size: 1.5rem;
 
     font-family: 'Nature Spirit';
@@ -1455,7 +1455,7 @@ a {
 
 .stage-icon {
     margin-left: auto;
-    color: #ccc;
+    color: #0B1F50;
 }
 
 .parcours-map-card {
@@ -1510,7 +1510,7 @@ a {
 .jersey-white {
     background: #ffffff;
     border: 1px solid #ccc;
-    color: #333;
+    color: #0B1F50;
 }
 
 .jersey-blue {
@@ -1575,7 +1575,7 @@ a {
     font-size: 0.95rem;
     /* Smaller text */
     line-height: 1.6;
-    color: #444;
+    color: #0B1F50;
     margin-bottom: 1.5rem;
     font-style: italic;
     font-weight: 400;
@@ -1718,13 +1718,13 @@ a {
 }
 
 .social-content p {
-    color: #888;
+    color: #0B1F50;
     font-size: 1.1rem;
     font-weight: 300;
 }
 
 .social-card:hover .social-content p {
-    color: #555;
+    color: #0B1F50;
 }
 
 /* Hover effect - just scale, colors already applied */
@@ -1851,7 +1851,7 @@ a {
     flex-wrap: wrap;
     gap: 20px;
     font-size: 0.85rem;
-    color: #666;
+    color: #0B1F50;
 }
 
 .footer-legal {
@@ -1932,7 +1932,7 @@ a {
 .spotlight-year {
     font-size: 5rem;
     font-weight: 800;
-    color: rgba(0, 0, 0, 0.05);
+    color: rgba(11, 31, 80, 0.05);
     position: absolute;
     top: -10px;
     left: 20px;
@@ -2048,7 +2048,7 @@ a {
 }
 
 .record-holder {
-    color: #aaa;
+    color: #0B1F50;
     font-size: 0.9rem;
 }
 
@@ -2229,7 +2229,7 @@ a {
 
 .intro-text-full p {
     font-size: 1.15rem;
-    color: #444;
+    color: #0B1F50;
     margin-bottom: 2rem;
     line-height: 1.8;
 }
@@ -2251,7 +2251,7 @@ a {
 
 .palmares-table .cancelled td {
     background-color: #f9f9f9 !important;
-    color: #999;
+    color: #0B1F50;
     font-style: italic;
     font-size: 0.9rem;
     text-align: center;
@@ -2958,7 +2958,7 @@ a {
 }
 
 .climb-item.mg .climb-cat {
-    color: #e74c3c;
+    color: #0B1F50;
 }
 
 .climb-item.sprint {
@@ -2966,7 +2966,7 @@ a {
 }
 
 .climb-item.sprint .climb-cat {
-    color: #27ae60;
+    color: #0B1F50;
 }
 
 .climb-name {
@@ -3240,7 +3240,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #bbb;
+    color: #0B1F50;
     font-family: var(--font-primary);
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -3303,7 +3303,7 @@ a {
     text-align: center;
     font-family: var(--font-primary);
     font-weight: 700;
-    color: #333;
+    color: #0B1F50;
     text-transform: uppercase;
     transition: all 0.3s ease;
     cursor: default;
@@ -3667,7 +3667,7 @@ a {
 }
 
 .page-header-light .section-title {
-    color: #000000 !important;
+    color: #0B1F50 !important;
     font-size: 4.5rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -3676,7 +3676,7 @@ a {
 }
 
 .page-header-light .section-title span {
-    color: #000000 !important;
+    color: #0B1F50 !important;
 }
 
 .page-header-light p {
@@ -3797,7 +3797,7 @@ a {
 .partner-info-container p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #333;
+    color: #0B1F50;
     margin-bottom: 2.5rem;
     max-width: 800px;
 }
@@ -3813,7 +3813,7 @@ a {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    color: #002758;
+    color: #0B1F50;
     text-decoration: underline;
     font-size: 0.95rem;
 }
@@ -3829,7 +3829,7 @@ a {
 }
 
 .partner-link:hover {
-    color: #ED1C24;
+    color: #0B1F50;
 }
 
 /* ===================================
@@ -4112,7 +4112,7 @@ body.teaser-mode .teams-section {
 .legal-main p {
     font-family: 'Outfit', sans-serif;
     font-size: 1.05rem;
-    color: #444;
+    color: #0B1F50;
     margin-bottom: 1.5rem;
 }
 
