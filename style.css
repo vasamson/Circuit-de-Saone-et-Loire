@@ -3743,7 +3743,8 @@ a {
 
     .partner-logo-container img {
         margin: 0 auto;
-        max-width: 220px;
+        width: 220px;
+        height: 140px;
     }
 
     .partner-links {
@@ -3761,7 +3762,8 @@ a {
 
 @media (max-width: 600px) {
     .partner-logo-container img {
-        max-width: 180px;
+        width: 180px;
+        height: 120px;
     }
 
     .partner-category-title {
@@ -3779,9 +3781,14 @@ a {
 }
 
 .partner-logo-container img {
-    max-width: 300px;
-    height: auto;
+    width: 380px;
+    height: 240px;
+    object-fit: contain;
     display: block;
+}
+
+.partner-logo-container img.logo-new {
+    height: 180px;
 }
 
 .partner-info-container {
