@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonce Lancement - Circuit de Saône-et-Loire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Nature Spirit';
+            src: url('fonts/NatureSpiritRegular.otf') format('opentype');
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'Advent Pro';
+            src: url('fonts/advent-Re.otf') format('opentype');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Advent Pro';
+            src: url('fonts/advent-Bd1.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        :root {
+            --primary-color: #C2945D;
+            --black: #0B1F50;
+            --white: #ffffff;
+            --bg-light: #f4f4f4;
+            --font-primary: 'Advent Pro', sans-serif;
+            --font-display: 'Nature Spirit', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 40px;
+            /* Increased top/bottom padding to give space for motifs */
+            background-image: url('images/slides-motif-bleu2.png'), url('images/slides-motif-bleu1.png');
+            background-position: top center, bottom center;
+            background-repeat: no-repeat, no-repeat;
+            background-size: 100% auto, 100% auto;
+            background-attachment: scroll;
+        }
+
+        .announcement-card {
+            background: var(--white);
+            max-width: 900px;
+            width: 100%;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(11, 31, 80, 0.2);
+            border: 1px solid rgba(194, 148, 93, 0.2);
+        }
+
+        .card-header {
+            background-color: var(--black);
+            background-image: url('images/v2-2.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+        }
+
+        .card-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(11, 31, 80, 0.7), rgba(11, 31, 80, 0.3));
+        }
+
+        .card-body {
+            padding: 60px 80px;
+        }
+
+        .headline {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .main-text {
+            font-size: 1.15rem;
+            color: var(--black);
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fdfaf7;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(194, 148, 93, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            width: 30px;
+            text-align: center;
+        }
+
+        .feature-text {
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background: var(--bg-light);
+            border-radius: 25px;
+            margin-bottom: 40px;
+        }
+
+        .cta-url {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--black);
+            display: block;
+            margin-top: 10px;
+        }
+
+        .signature {
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 40px;
+            text-align: center;
+        }
+
+        .signature img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        .signature p {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--black);
+        }
+
+        .signature span {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .announcement-card {
+                border-radius: 0;
+            }
+
+            .card-body {
+                padding: 40px 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-url {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="announcement-card">
+        <div class="card-header"></div>
+
+        <div class="card-body">
+            <h2 class="headline">Notre nouveau site internet est en ligne ! 🚀</h2>
+
+            <p class="main-text">Bonjour,<br><br>
+                Nous avons le grand plaisir de vous annoncer le lancement officiel du nouveau site internet du
+                <strong>Circuit de Saône-et-Loire</strong> !<br><br>
+                Pensé pour être la vitrine de notre passion commune pour le cyclisme et de notre beau territoire, ce
+                nouvel espace a été conçu pour offrir une expérience moderne et dynamique à tous nos passionnés.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🗺️</div>
+                    <div class="feature-text">Parcours & Profils 2026</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📜</div>
+                    <div class="feature-text">Histoire & Palmarès</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-text">Nos Partenaires</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📸</div>
+                    <div class="feature-text">Photos & Actualités</div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <p
+                    style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-color);">
+                    Découvrez l'expérience sur</p>
+                <span class="cta-url">circuit-71.com</span>
+            </div>
+
+            <p class="main-text" style="font-size: 1rem; line-height: 1.5; margin-bottom: 0;">
+                En tant que partenaire, ville étape ou collectivité, votre engagement est au cœur de cette aventure.
+                N'hésitez pas à partager ce lien sur vos réseaux sociaux et auprès de vos communautés pour faire
+                rayonner ensemble cette 54ème édition.
+            </p>
+
+            <div class="signature">
+                <img src="images/jaune-evenements.png" alt="Jaune Événements">
+                <p>L'Équipe d'organisation du Circuit de Saône-et-Loire</p>
+                <span>Jaune Événements</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

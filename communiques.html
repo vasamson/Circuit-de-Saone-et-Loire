@@ -4,21 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Bénévoles - Circuit de Saône-et-Loire</title>
-    <meta name="description" content="Un immense merci à tous les bénévoles du Circuit de Saône-et-Loire.">
+    <title>Communiqués de presse - Circuit de Saône-et-Loire</title>
+    <meta name="description" content="Communiqués de presse officiels du Circuit de Saône-et-Loire.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/pin.png">
-    <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cp-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #0B1F50;
+            transition: transform 0.2s ease;
+        }
+
+        .cp-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .cp-icon {
+            width: 80px;
+            height: 96px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 14px rgba(11, 31, 80, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 1.5px solid #e8edf5;
+            gap: 6px;
+        }
+
+        .cp-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 22px;
+            height: 22px;
+            background: #e74c3c;
+            border-bottom-left-radius: 6px;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+
+        .cp-icon i {
+            font-size: 2.2rem;
+            color: #e74c3c;
+        }
+
+        .cp-icon .cp-format {
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #e74c3c;
+            text-transform: uppercase;
+        }
+
+        .cp-item .cp-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            line-height: 1.35;
+            color: #0B1F50;
+        }
+
+        .cp-item .cp-date {
+            font-size: 0.75rem;
+            color: #8a9ab8;
+        }
+
+        .cp-item:hover .cp-icon {
+            box-shadow: 0 6px 22px rgba(11, 31, 80, 0.18);
+            border-color: #C2945D;
+        }
+
+        .cp-item:hover .cp-icon i {
+            color: #C2945D;
+        }
+
+        .cp-item:hover .cp-icon .cp-format {
+            color: #C2945D;
+        }
+
+        .cp-note {
+            margin-top: 2.5rem;
+            padding: 1rem 1.4rem;
+            background: #fdf8f3;
+            border-left: 4px solid #C2945D;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #5a6a8a;
+            line-height: 1.6;
+        }
+
+        .cp-note a {
+            color: #C2945D;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
-<body class="benevoles-page">
+<body class="photos-page">
     <nav class="navbar text-dark">
         <div class="nav-container">
             <button class="nav-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
             <div class="nav-menu left">
                 <a href="histoire.html" class="nav-link">Histoire</a>
@@ -40,73 +142,78 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="page-header-light ">
+    <header class="page-header">
         <div class="container">
-            <h1 class="section-title">Nos <span class="text-primary">Bénévoles</span></h1>
+            <h1 class="page-title">Communiqués de presse</h1>
+            <div class="decorative-line"></div>
         </div>
     </header>
 
-    <!-- Photo Banner Section -->
-    <section class="section-photo-banner">
-        <div class="photo-marquee-wrapper">
-            <div class="photo-marquee">
-                <!-- Set 1 -->
-                <div class="photo-item"><img src="images/benevoles/54513116972_ce0485b27d_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54514366035_e2093ac22e_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515244086_90454a06ed_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515586390_64823cadd0_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516730484_312cd88078_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516780533_f9d59f061c_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516892210_827d02fedc_k.jpg" alt="Bénévole"></div>
-
-                <!-- Set 2 -->
-                <div class="photo-item"><img src="images/benevoles/54513116972_ce0485b27d_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54514366035_e2093ac22e_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515244086_90454a06ed_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515586390_64823cadd0_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516730484_312cd88078_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516780533_f9d59f061c_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516892210_827d02fedc_k.jpg" alt="Bénévole"></div>
-
-                <!-- Set 3 -->
-                <div class="photo-item"><img src="images/benevoles/54513116972_ce0485b27d_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54514366035_e2093ac22e_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515244086_90454a06ed_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515586390_64823cadd0_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516730484_312cd88078_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516780533_f9d59f061c_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516892210_827d02fedc_k.jpg" alt="Bénévole"></div>
-
-                <!-- Set 4 (Just to be safe for 4k screens) -->
-                <div class="photo-item"><img src="images/benevoles/54513116972_ce0485b27d_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54514366035_e2093ac22e_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515244086_90454a06ed_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54515586390_64823cadd0_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516730484_312cd88078_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516780533_f9d59f061c_k.jpg" alt="Bénévole"></div>
-                <div class="photo-item"><img src="images/benevoles/54516892210_827d02fedc_k.jpg" alt="Bénévole"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteer Intro CTA -->
-    <section class="section-names">
+    <main style="padding: 3rem 0 5rem; background: #f5f7fa;">
         <div class="container">
-            <div class="intro-names">
-                <h2>Le cœur de la course</h2>
-                <div class="section-line-center"></div>
-                <p>Découvrez les noms de celles et ceux qui s'engagent chaque jour pour faire vivre cette épopée.</p>
-                <div class="volunteer-cta">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVVsqe4ec-mdaNUvqEtQ-RTPW3rPZz_ou3rJOYkJrbJbBOuQ/viewform?usp=header"
-                        class="btn btn-primary" target="_blank">
-                        <i class="fas fa-heart"></i> Devenir bénévole
-                    </a>
-                </div>
+            <p style="color:#5a6a8a; font-size:0.95rem; margin-bottom:0.5rem;">
+                Téléchargez librement nos communiqués officiels.
+            </p>
+
+            <div class="cp-grid">
+
+                <a href="communiques/CP-lancement-54e-edition.pdf" class="cp-item" download>
+                    <div class="cp-icon">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="cp-format">PDF</span>
+                    </div>
+                    <span class="cp-title">Lancement 54ème édition</span>
+                    <span class="cp-date">Fév. 2026</span>
+                </a>
+
+                <a href="communiques/CP-parcours-2026.pdf" class="cp-item" download>
+                    <div class="cp-icon">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="cp-format">PDF</span>
+                    </div>
+                    <span class="cp-title">Parcours 2026</span>
+                    <span class="cp-date">Jan. 2026</span>
+                </a>
+
+                <a href="communiques/CP-equipes-2026.pdf" class="cp-item" download>
+                    <div class="cp-icon">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="cp-format">PDF</span>
+                    </div>
+                    <span class="cp-title">Équipes engagées 2026</span>
+                    <span class="cp-date">Mar. 2026</span>
+                </a>
+
+                <a href="communiques/CP-resultats-2025.pdf" class="cp-item" download>
+                    <div class="cp-icon">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="cp-format">PDF</span>
+                    </div>
+                    <span class="cp-title">Résultats 53ème édition</span>
+                    <span class="cp-date">Mai 2025</span>
+                </a>
+
+                <a href="communiques/CP-lancement-53e-edition.pdf" class="cp-item" download>
+                    <div class="cp-icon">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="cp-format">PDF</span>
+                    </div>
+                    <span class="cp-title">Lancement 53ème édition</span>
+                    <span class="cp-date">Jan. 2025</span>
+                </a>
+
             </div>
+
+            <p class="cp-note">
+                <i class="fas fa-envelope" style="margin-right:6px; color:#C2945D;"></i>
+                Vous êtes journaliste ou représentant d'un média ?
+                <a href="contact.html">Contactez-nous</a> pour recevoir nos communiqués en avant-première ou demander
+                une accréditation presse.
+            </p>
         </div>
-    </section>
-    <!-- Official Partners & Suppliers Section -->
+    </main>
+
+    <!-- Partners -->
     <div class="partners-section">
         <h3 class="partners-title">Ils nous soutiennent</h3>
         <div class="partners-marquee-container">
@@ -129,7 +236,7 @@
                 <img src="images/bandeau-3/radenne.jpg.webp" alt="Radenne" class="partner-logo">
                 <img src="images/bandeau-3/scob.jpg" alt="SCOB" class="partner-logo">
                 <img src="images/bandeau-3/panenka.png" alt="Panenka" class="partner-logo">
-                <!-- Duplicate for seamless scroll -->
+                <!-- Duplicate -->
                 <img src="images/bandeau-3/kyriad.jpg" alt="Kyriad" class="partner-logo">
                 <img src="images/bandeau-3/ab.png" alt="AB" class="partner-logo">
                 <img src="images/bandeau-3/audabe.png" alt="Audabe" class="partner-logo">
@@ -151,6 +258,7 @@
             </div>
         </div>
     </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -204,7 +312,6 @@
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 
 </html>
