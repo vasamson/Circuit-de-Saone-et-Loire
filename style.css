@@ -3606,6 +3606,15 @@ a {
     object-fit: cover;
 }
 
+.modal-img.is-logo {
+    height: 180px;
+    object-fit: contain;
+    padding: 2rem;
+    background: #fdfdfd;
+    display: block;
+    margin: 20px auto 0;
+}
+
 .modal-body {
     padding: 2.5rem;
 }

@@ -187,7 +187,10 @@ function openCityModal(cityName) {
         text: "Découvrez cette charmante commune de Saône-et-Loire, étape clé de notre épreuve cycliste."
     };
 
-    if (modalImg) modalImg.src = data.img;
+    if (modalImg) {
+        modalImg.src = data.img;
+        modalImg.classList.remove('is-logo');
+    }
     if (modalTitle) modalTitle.innerText = data.title;
     if (modalText) modalText.innerText = data.text;
 
@@ -206,9 +209,12 @@ function openJauneEventModal() {
     const modalTitle = modal.querySelector('.modal-body h2');
     const modalText = modal.querySelector('.modal-body p');
 
-    if (modalImg) modalImg.src = "images/jaune-evenements.png";
+    if (modalImg) {
+        modalImg.src = "images/jaune-evenements.png";
+        modalImg.classList.add('is-logo');
+    }
     if (modalTitle) modalTitle.innerText = "JAUNE Événements";
-    if (modalText) modalText.innerText = "JAUNE Événements est l'association organisatrice du Circuit de Saône-et-Loire. Créée en 1965, cette association loi 1901 rassemble des passionnés de cyclisme dévoués à la promotion de ce sport en Bourgogne. Chaque année, bénévoles et organisateurs œuvrent avec passion pour faire vivre cette épreuve historique et offrir aux coureurs un événement d'exception.";
+    if (modalText) modalText.innerText = "L’association JAUNE Événements, est un club cycliste fondé en 2025 et affilié à la Fédération Française de Cyclisme. L'association loi 1901 rassemble des passionnés de vélo sous toutes ses formes et dévoués à la promotion de ce sport en Bourgogne. Outre la pratique régulière du cyclisme entre amis, l’association à plusieurs objectifs : organiser des manifestations sportives, telles que le Circuit Cycliste de Saône-et-Loire. Le but étant de conserver cette course historique dans le calendrier élite français et le vélo de haute compétition dans notre département. Organiser des manifestation extra-sportives dans le but de promouvoir plusieurs pratiques sportives, de soutenir la formation et le développement de jeunes talents, la pratique de compétitions, la promotion des déplacements doux, le sport tourisme et la promotion des lieux où les manifestations se déroulent. Enfin, l’ambition de JAUNE Evénements est également de pouvoir offrir une partie des bénéfices générés par ses organisations, à des associations caritatives, actions de solidarité ou à des œuvres d’intérêt public.";
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
