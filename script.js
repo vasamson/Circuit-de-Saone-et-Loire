@@ -121,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateCountdown, 1000);
         updateCountdown();
     }
+
+    // Initialize Floating Ad
+    setTimeout(initFloatingAd, 5000);
 });
 
 // ===================================
@@ -290,6 +293,78 @@ function startMaintenanceCountdown() {
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
+}
+
+// ===================================
+// FLOATING AD (CYCLO BERNARD THEVENET)
+// ===================================
+function initFloatingAd() {
+    // Generate Widget
+    const widget = document.createElement('div');
+    widget.className = 'ad-floating-widget';
+    widget.innerHTML = `
+        <span class="ad-widget-close">&times;</span>
+        <img src="images/bandeau-3/LOGOCyclo.jpg" alt="Cyclo Bernard Thévenet" class="ad-widget-img">
+        <div class="ad-widget-content">
+            <h4>La Cyclo Bernard THEVENET</h4>
+            <button class="ad-widget-btn">Découvrir</button>
+        </div>
+    `;
+    document.body.appendChild(widget);
+
+    // Show with animation
+    setTimeout(() => widget.classList.add('active'), 100);
+
+    // Close listener
+    widget.querySelector('.ad-widget-close').addEventListener('click', () => {
+        widget.classList.remove('active');
+        setTimeout(() => widget.remove(), 600);
+    });
+
+    // Open Modal listener
+    widget.querySelector('.ad-widget-btn').addEventListener('click', () => {
+        openAdModal();
+        widget.classList.remove('active');
+    });
+}
+
+function openAdModal() {
+    const modal = document.querySelector('.modal');
+    if (!modal) return;
+
+    const modalImg = modal.querySelector('.modal-img');
+    const modalTitle = modal.querySelector('.modal-body h2');
+    const modalText = modal.querySelector('.modal-body p');
+
+    if (modalImg) {
+        modalImg.src = "images/bandeau-3/LOGOCyclo.jpg";
+        modalImg.classList.add('is-logo');
+        modalImg.style.padding = "20px";
+    }
+
+    if (modalTitle) modalTitle.innerText = "La Cyclo Bernard THEVENET";
+
+    if (modalText) {
+        modalText.innerHTML = `
+            <p style="color: var(--primary-color); font-weight: 700; font-size: 1.2rem; margin-bottom: 5px;">Samedi 30 mai 2026 à Vitry-en-Charollais</p>
+            <p style="font-weight: 600; font-style: italic; margin-bottom: 20px;">Sur les routes d’un Champion !</p>
+            
+            <p>L’épreuve se déroule au cœur du bocage du Charolais/Brionnais, sur des routes vallonnées caractéristiques de la région : paysages verdoyants, bosses régulières, faible circulation, loin des centres urbanisés et sur les routes d’entraînement historiques où Bernard Thévenet a forgé ses qualités de grimpeur.</p>
+            
+            <p><b>3 parcours sont proposés</b> au départ de Vitry-en-Charollais.</p>
+            
+            <p>L’évènement propose aussi une dimension conviviale et gastronomique avec un repas d’après-course autour de produits AOP locaux (pavé de bœuf et fromage de chèvre). Un moment de partage qui prolonge parfaitement l’effort et ancre encore davantage l’épreuve dans son territoire.</p>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="https://www.labernardthevenet.fr" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Plus d’informations & Inscriptions
+                </a>
+            </div>
+        `;
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
 // Hello Message
