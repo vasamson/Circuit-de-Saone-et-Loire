@@ -149,12 +149,12 @@ const cityData = {
     "Le Creusot": {
         img: "images/creusot.jpg",
         title: "Le Creusot",
-        text: "Ville Grand-Départ du Circuit. Le Creusot mondialement réputée pour son industrialisation dans la sidérurgie (Industeel), le nucléaire (Framatome), le Ferroviaire (Alstom) et l’aéronautique (Safran)."
+        text: "Le Creusot mondialement réputée pour son industrialisation dans la sidérurgie (Industeel), le nucléaire (Framatome), le Ferroviaire (Alstom) et l’aéronautique (Safran). Le Creusot n’en demeure pas moins une ville verte avec ses nombreux parcs et jardins : le Parc de la Verrerie et son Château ainsi que le Parc des Combes, désigné 2ème destination touristique du département (71) grâce à sa vingtaine d’attractions. La culture est omniprésente avec deux festivals au cours de l’été et des parcours d’art urbain à travers la ville. Le Creusot est également une ville étudiante, abritant le 2ème pôle universitaire de Bourgogne et des formations de haut niveau dont certains cursus internationaux."
     },
     "Digoin": {
         img: "images/digoin.jpg",
         title: "Digoin",
-        text: "Ville Départ. Digoin, qui doit avant tout sa réputation et son histoire à la qualité du travail de ses faïenciers depuis plusieurs siècles. Mais Digoin c’est aussi une notoriété due au tourisme lié au canal du centre et au canal latéral à la Loire, avec notamment son illustre pont canal de 243 m de long, véritable prouesse architecturale qui enjambe la Loire."
+        text: "Au cœur du Charolais, aux portes de la Bourgogne du Sud, à la frontière entre Allier et Saône-et-Loire, Digoin vit et revit grâce à son âme généreuse, son riche passé et sa situation géographique privilégiée.<br><br>Digoin, c’est d’abord un carrefour fluvial. L’eau est omniprésente, à tel point qu’on ne peut gagner le cœur même de la cité sans traverser un pont. Une spécificité qui vaut à cette ville le surnom « d’île Charolaise ». Bordée par la Loire, Digoin s’impose comme un point de passage incontournable dès l’époque gallo-romaine. Haut-lieu du transit de marchandises, la cité est au Moyen-âge une petite bourgade habitée par des paysans et des mariniers. Les canaux construits au XIXème siècle permettent son développement, une nouvelle activité apparaît : la céramique. C’est l’époque des cités ouvrières et d’une vie quotidienne rythmée au son des sirènes des usines. Aujourd’hui, la Loire et les canaux se savourent par le biais d’une promenade dominicale sur les quais ou d’une sortie vélo en famille sur les voies vertes.<br><br>Digoin, c’est aussi une population généreuse et solidaire, des valeurs fortes issues de la tradition ouvrière. Une culture du partage, une célébration de la mixité qui nourrissent aujourd’hui encore l’important tissu associatif, les nombreux clubs sportifs et les incontournables évènements, organisés par des bénévoles, qui rythment notre vie locale tout au long de l’année. Cette culture de l’accueil et de la convivialité sont des atouts indéniables pour amorcer avec humanité les défis de demain.<br><br>Digoin enfin, c’est une promesse d’avenir. Après une période de mutation de son industrie, la cité ligérienne a de beaux jours devant elle. L’arrivée de l’autoroute A79 aux portes de la commune, le développement économique toujours plus prometteur dessine une petite ville à taille humaine où il y fait bon vivre, travailler… et se divertir ! N’oublions pas notre saison estivale et touristique : avec ses 50 évènements, marchés nocturnes et autres bars éphémères en bord de Loire. Une véritable vitrine du dynamisme retrouvé de notre cité.<br><br>Vous l’avez compris, Digoin c’est un cadre naturel préservé, une population accueillante et une offre de services en constante évolution.<br><br><b>Infos pratiques :</b><br>🌐 Site : <a href='https://www.digoin.fr' target='_blank' style='color: var(--primary-color);'>digoin.fr</a><br>🔵 Facebook : ville de Digoin<br>📷 Insta : villededigoin<br>🔴 Youtube : ville de Digoin"
     },
     "Saint-Vallier": {
         img: "images/saintvallier.jpg",
@@ -192,7 +192,7 @@ function openCityModal(cityName) {
         modalImg.classList.remove('is-logo');
     }
     if (modalTitle) modalTitle.innerText = data.title;
-    if (modalText) modalText.innerText = data.text;
+    if (modalText) modalText.innerHTML = data.text;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';

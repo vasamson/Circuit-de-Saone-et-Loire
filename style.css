@@ -3577,12 +3577,29 @@ a {
 .modal-content {
     background: var(--white);
     max-width: 700px;
-    width: 90%;
+    width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
     border-radius: 12px;
-    overflow: hidden;
     position: relative;
     transform: scale(0.9);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
 }
 
 .modal.active .modal-content {
