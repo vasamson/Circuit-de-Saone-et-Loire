@@ -122,8 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCountdown();
     }
 
-    // Initialize Floating Ad
-    setTimeout(initFloatingAd, 5000);
+    // Initialize Floating Ad (Home page only)
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '';
+    if (isHomePage) {
+        setTimeout(initFloatingAd, 5000);
+    }
 });
 
 // ===================================
