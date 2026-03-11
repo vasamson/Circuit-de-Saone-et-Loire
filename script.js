@@ -85,13 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Jaune Événement Logo Click Listener
-    const jauneLogo = document.querySelector('.clickable-jaune-logo');
-    if (jauneLogo) {
-        jauneLogo.addEventListener('click', (e) => {
+    const jauneLogos = document.querySelectorAll('.clickable-jaune-logo');
+    jauneLogos.forEach(logo => {
+        logo.addEventListener('click', (e) => {
             e.preventDefault();
             openJauneEventModal();
         });
-    }
+    });
 
     // ===================================
     // COUNTDOWN TIMER
