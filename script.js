@@ -219,7 +219,7 @@ function openCityModal(cityName) {
 // ===================================
 const jerseyData = {
     "Général": {
-        img: "images/Maillots/général.png",
+        img: "images/Maillots/general.png",
         title: "Maillot Jaune - Classement Général",
         text: "Le maillot iconique qui récompense le leader du classement général de l'épreuve."
     },
@@ -244,7 +244,7 @@ const jerseyData = {
         text: "Ce maillot récompense le leader du classement du combiné ou le coureur régional."
     },
     "Département": {
-        img: "images/Maillots/département.png",
+        img: "images/Maillots/departement.png",
         title: "Maillot du Département de Saône-et-Loire",
         text: "Un maillot spécial aux couleurs du département récompensant de beaux efforts."
     }
