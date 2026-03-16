@@ -84,6 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Jersey Click Listeners
+    const jerseys = document.querySelectorAll('.clickable-jersey');
+    jerseys.forEach(jersey => {
+        jersey.addEventListener('click', (e) => {
+            e.preventDefault();
+            const name = jersey.getAttribute('data-jersey');
+            if (name) openJerseyModal(name);
+        });
+    });
+
     // Jaune Événement Logo Click Listener
     const jauneLogos = document.querySelectorAll('.clickable-jaune-logo');
     jauneLogos.forEach(logo => {
@@ -196,6 +206,65 @@ function openCityModal(cityName) {
     if (modalImg) {
         modalImg.src = data.img;
         modalImg.classList.remove('is-logo');
+    }
+    if (modalTitle) modalTitle.innerText = data.title;
+    if (modalText) modalText.innerHTML = data.text;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// ===================================
+// JERSEY DATA & MODAL
+// ===================================
+const jerseyData = {
+    "Général": {
+        img: "images/Maillots/général.png",
+        title: "Maillot Jaune - Classement Général",
+        text: "Le maillot iconique qui récompense le leader du classement général de l'épreuve."
+    },
+    "Sprint": {
+        img: "images/Maillots/sprint.png",
+        title: "Maillot Vert - Classement par Points",
+        text: "Ce maillot distingue le coureur le plus rapide et régulier, leader du classement par points."
+    },
+    "Montagne": {
+        img: "images/Maillots/montagne.png",
+        title: "Maillot à Pois - Classement de la Montagne",
+        text: "Le maillot destiné au meilleur grimpeur, ayant cumulé le plus de points aux sommets répertoriés."
+    },
+    "Jeune": {
+        img: "images/Maillots/jeune.png",
+        title: "Maillot Blanc - Classement du Meilleur Jeune",
+        text: "Le maillot blanc récompense le coureur âgé de moins de 23 ans le mieux placé au classement général."
+    },
+    "Région Bourgogne Franche-Comté": {
+        img: "images/Maillots/region.png",
+        title: "Maillot de la Région BFC - Combiné",
+        text: "Ce maillot récompense le leader du classement du combiné ou le coureur régional."
+    },
+    "Département": {
+        img: "images/Maillots/département.png",
+        title: "Maillot du Département de Saône-et-Loire",
+        text: "Un maillot spécial aux couleurs du département récompensant de beaux efforts."
+    }
+};
+
+function openJerseyModal(jerseyName) {
+    const modal = document.querySelector('.modal');
+    if (!modal) return;
+
+    const modalImg = modal.querySelector('.modal-img');
+    const modalTitle = modal.querySelector('.modal-body h2');
+    const modalText = modal.querySelector('.modal-body p');
+
+    const data = jerseyData[jerseyName];
+    if (!data) return;
+
+    if (modalImg) {
+        modalImg.src = data.img;
+        modalImg.classList.remove('is-logo');
+        modalImg.style.padding = "20px";
     }
     if (modalTitle) modalTitle.innerText = data.title;
     if (modalText) modalText.innerHTML = data.text;
