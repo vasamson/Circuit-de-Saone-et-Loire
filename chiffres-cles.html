@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiffres Clés - Circuit de Saône-et-Loire</title>
+    <meta name="description" content="Les chiffres clés de l'édition 2026 du Circuit de Saône-et-Loire.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/pin.png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .stats-hero {
+            background: var(--black);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-hero::before {
+            content: '71';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40vw;
+            font-family: var(--font-display);
+            color: rgba(194, 148, 93, 0.05);
+            line-height: 1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .stats-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-71 {
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 20vw, 15rem);
+            line-height: 0.8;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .highlight-label {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 700;
+        }
+
+        .stats-container {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .stats-grid-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: -50px;
+        }
+
+        .stat-card-premium {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-bottom: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .stat-card-premium .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .stat-card-premium .stat-value {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            line-height: 1;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .stat-card-premium .stat-unit {
+            font-size: 1.5rem;
+            margin-left: 5px;
+            color: var(--primary-color);
+        }
+
+        .stat-card-premium .stat-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        .stats-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .stats-intro p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .budget-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+
+        .budget-item {
+            background: var(--white);
+            padding: 40px;
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+        }
+
+        .budget-value {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .budget-label {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .highlight-71 {
+                font-size: 8rem;
+            }
+            .stat-card-premium .stat-value {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="chiffres-page">
+    <nav class="navbar text-dark">
+        <div class="nav-container">
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu left">
+                <a href="histoire.html" class="nav-link">Histoire</a>
+                <a href="palmares.html" class="nav-link">Palmarès</a>
+                <a href="benevoles.html" class="nav-link">Bénévoles</a>
+                <a href="organisation.html" class="nav-link">Organisation</a>
+                <a href="chiffres-cles.html" class="nav-link">Chiffres Clés</a>
+            </div>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <h1><b>Circuit de Saône-et-Loire</b></h1>
+                </a>
+            </div>
+            <div class="nav-menu right">
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="equipes.html" class="nav-link">Équipes</a>
+                <a href="partenaires.html" class="nav-link">Nos soutiens</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Focus 71 -->
+    <header class="stats-hero">
+        <div class="container stats-hero-content">
+            <span class="highlight-71">71</span>
+            <h2 class="highlight-label">Communes Traversées</h2>
+        </div>
+    </header>
+
+    <main class="stats-container">
+        <div class="container">
+            <div class="stats-intro">
+                <p>Le Circuit de Saône-et-Loire, c'est bien plus qu'une simple course cycliste. C'est un défi logistique, une aventure humaine et une vitrine exceptionnelle pour notre département "71". Voici l'édition 2026 en quelques chiffres.</p>
+                <div style="margin-top: 30px;">
+                    <a href="chiffres-cles-a4.html" target="_blank" class="btn btn-outline dark">
+                        <i class="fas fa-print"></i> Version A4 Paysage
+                    </a>
+                </div>
+            </div>
+
+            <div class="stats-grid-premium">
+                <!-- KM -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-route"></i></div>
+                    <div class="stat-value">474</div>
+                    <div class="stat-label">Kilomètres de course</div>
+                </div>
+
+                <!-- D+ -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="stat-value">5963<span class="stat-unit">m</span></div>
+                    <div class="stat-label">Dénivelé Positif Cumulé</div>
+                </div>
+
+                <!-- Étapes -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-flag-checkered"></i></div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Étapes de légende</div>
+                </div>
+
+                <!-- Coureurs -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-bicycle"></i></div>
+                    <div class="stat-value">108</div>
+                    <div class="stat-label">Coureurs au départ</div>
+                </div>
+
+                <!-- Bénévoles -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-value">300</div>
+                    <div class="stat-label">Bénévoles mobilisés</div>
+                </div>
+
+                <!-- Repas -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="stat-value">950</div>
+                    <div class="stat-label">Repas servis</div>
+                </div>
+
+                <!-- Chambres -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-bed"></i></div>
+                    <div class="stat-value">325</div>
+                    <div class="stat-label">Chambres d'hôtel</div>
+                </div>
+
+                <!-- Equipes -->
+                <div class="stat-card-premium">
+                    <div class="stat-icon"><i class="fas fa-shirt"></i></div>
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Équipes de haut niveau</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-org">
+                    <img src="images/jaune-evenements.png" alt="JAUNE Événements"
+                        class="footer-logo-org clickable-jaune-logo" style="cursor: pointer;">
+                    <div class="org-info">
+                        <p>JAUNE Événements</p>
+                        <p>Association loi 1901</p>
+                        <p>Club FFC organisateur</p>
+                        <p>Circuit Cycliste de Saône-et-Loire</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Le Circuit</h4>
+                    <a href="histoire.html">Histoire</a>
+                    <a href="palmares.html">Palmarès</a>
+                    <a href="benevoles.html">Bénévoles</a>
+                    <a href="organisation.html">Organisation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>La Course</h4>
+                    <a href="parcours.html">Parcours</a>
+                    <a href="equipes.html">Équipes</a>
+                    <a href="partenaires.html">Nos soutiens</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Medias</h4>
+                    <a href="contact.html">Contact</a>
+                    <a href="photos.html">Photos</a>
+                    <a href="communiques.html">Communiqués</a>
+                    <a href="presse.html">Presse</a>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/lecircuitdeSaoneetLoire" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lecircuitdesaoneetloire/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@LECIRCUITDESAONELOIRE-qe6rf" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Circuit de Saône-et-Loire. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions Légales</a>
+                    <a href="confidentialite.html">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal">
+        <div class="close-modal">&times;</div>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-img">
+            <div class="modal-body">
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
