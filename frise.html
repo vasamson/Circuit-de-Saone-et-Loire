@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frise Chronologique</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: transparent !important; /* Fond vide */
+            font-family: var(--font-primary), sans-serif;
+            color: var(--black);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .custom-frise-wrapper {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .custom-frise {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            position: relative;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-frise::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--primary-color);
+            transform: translateY(-50%);
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        .custom-frise::after {
+            display: none !important; /* Pour ignorer les contraintes externes au cas où */
+        }
+
+        .custom-frise-item {
+            display: grid;
+            grid-template-rows: 1fr auto 1fr;
+            align-items: center;
+            justify-items: center;
+            position: relative;
+            z-index: 2;
+            height: 350px;
+        }
+
+        .custom-frise-item::after {
+            display: none !important;
+        }
+
+        .frise-top {
+            align-self: end;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .frise-bottom {
+            align-self: start;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .custom-frise-dot {
+            width: 24px;
+            height: 24px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 0px transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 5;
+        }
+
+        .custom-frise-item:hover .custom-frise-dot {
+            background-color: var(--primary-color);
+            box-shadow: 0 0 0 8px rgba(194, 148, 93, 0.3);
+        }
+
+        .custom-frise-date {
+            font-family: var(--font-display), serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .custom-frise-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+            max-width: 220px;
+            line-height: 1.4;
+            color: var(--black);
+            margin: 0;
+            padding: 0;
+        }
+
+        .custom-frise-logo {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Responsive pour petits écrans */
+        @media (max-width: 900px) {
+            .custom-frise {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+                gap: 40px;
+            }
+
+            .custom-frise::before {
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                width: 4px;
+                height: 100%;
+                transform: translateX(-50%);
+            }
+
+            .custom-frise-item {
+                grid-template-columns: 1fr auto 1fr;
+                grid-template-rows: 1fr;
+                height: auto;
+                width: 100%;
+                gap: 20px;
+            }
+
+            .frise-top {
+                align-self: center;
+                padding-bottom: 0;
+                text-align: right;
+                align-items: flex-end;
+            }
+
+            .frise-bottom {
+                align-self: center;
+                padding-top: 0;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .custom-frise-text {
+                text-align: left;
+            }
+            
+            .custom-frise-item:nth-child(even) .frise-top {
+                order: 3;
+                text-align: left;
+                align-items: flex-start;
+            }
+            
+            .custom-frise-item:nth-child(even) .frise-bottom {
+                order: 1;
+                text-align: right;
+                align-items: flex-end;
+            }
+            
+            .custom-frise-item:nth-child(even) .custom-frise-text {
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-frise-wrapper">
+        <div class="custom-frise">
+            <!-- 1. Mi-décembre -->
+            <div class="custom-frise-item">
+                <div class="frise-top">
+                    <img src="images/jaune-evenements.png" alt="Jaune Événement" class="custom-frise-logo">
+                    <div class="custom-frise-date">Mi-décembre</div>
+                </div>
+                <div class="custom-frise-dot"></div>
+                <div class="frise-bottom">
+                    <p class="custom-frise-text">Reprise de l'organisation par Jaune Événement</p>
+                </div>
+            </div>
+
+            <!-- 2. J-100 -->
+            <div class="custom-frise-item">
+                <div class="frise-top">
+                    <div class="custom-frise-date">J-100</div>
+                </div>
+                <div class="custom-frise-dot"></div>
+                <div class="frise-bottom">
+                    <p class="custom-frise-text">Annonce de l'édition 2026</p>
+                </div>
+            </div>
+
+            <!-- 3. J-71 -->
+            <div class="custom-frise-item">
+                <div class="frise-top">
+                    <div class="custom-frise-date">J-71</div>
+                </div>
+                <div class="custom-frise-dot"></div>
+                <div class="frise-bottom">
+                    <p class="custom-frise-text">Lancement du site internet</p>
+                </div>
+            </div>
+
+            <!-- 4. J-30 -->
+            <div class="custom-frise-item">
+                <div class="frise-top">
+                    <div class="custom-frise-date">J-30</div>
+                </div>
+                <div class="custom-frise-dot"></div>
+                <div class="frise-bottom">
+                    <p class="custom-frise-text">Présentation officielle</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
