@@ -3607,6 +3607,7 @@ a {
     width: 95%;
     max-height: 85vh;
     overflow-y: auto;
+    overflow-x: hidden;
     border-radius: 12px;
     position: relative;
     transform: scale(0.9);
@@ -3646,13 +3647,21 @@ a {
 
 .modal-img {
     width: 100%;
-    height: 400px;
-    object-fit: contain;
+    height: 400px; /* Refined height */
+    object-fit: cover;
+    display: block;
     background: #fafafa;
 }
 
-.modal-img.is-logo {
-    height: 180px;
+@media (max-width: 768px) {
+    .modal-img {
+        height: 250px; /* Smarter height for mobile */
+    }
+}
+
+.modal-img.is-logo,
+.modal-img.is-jersey {
+    height: 250px;
     object-fit: contain;
     padding: 2rem;
     background: #fdfdfd;

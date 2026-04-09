@@ -205,7 +205,7 @@ function openCityModal(cityName) {
 
     if (modalImg) {
         modalImg.src = data.img;
-        modalImg.classList.remove('is-logo');
+        modalImg.classList.remove('is-logo', 'is-jersey');
     }
     if (modalTitle) modalTitle.innerText = data.title;
     if (modalText) modalText.innerHTML = data.text;
@@ -264,6 +264,7 @@ function openJerseyModal(jerseyName) {
     if (modalImg) {
         modalImg.src = data.img;
         modalImg.classList.remove('is-logo');
+        modalImg.classList.add('is-jersey');
         modalImg.style.padding = "20px";
     }
     if (modalTitle) modalTitle.innerText = data.title;
@@ -287,6 +288,7 @@ function openJauneEventModal() {
     if (modalImg) {
         modalImg.src = "images/jaune-evenements.png";
         modalImg.classList.add('is-logo');
+        modalImg.classList.remove('is-jersey');
     }
     if (modalTitle) modalTitle.innerText = "JAUNE Événements";
     if (modalText) modalText.innerText = "L’association JAUNE Événements, est un club cycliste fondé en 2025 et affilié à la Fédération Française de Cyclisme. L'association loi 1901 rassemble des passionnés de vélo sous toutes ses formes et dévoués à la promotion de ce sport en Bourgogne. Outre la pratique régulière du cyclisme entre amis, l’association à plusieurs objectifs : organiser des manifestations sportives, telles que le Circuit Cycliste de Saône-et-Loire. Le but étant de conserver cette course historique dans le calendrier élite français et le vélo de haute compétition dans notre département. Organiser des manifestation extra-sportives dans le but de promouvoir plusieurs pratiques sportives, de soutenir la formation et le développement de jeunes talents, la pratique de compétitions, la promotion des déplacements doux, le sport tourisme et la promotion des lieux où les manifestations se déroulent. Enfin, l’ambition de JAUNE Evénements est également de pouvoir offrir une partie des bénéfices générés par ses organisations, à des associations caritatives, actions de solidarité ou à des œuvres d’intérêt public.";
