@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const MAINTENANCE_MODE = false;
 
     // Mettre à false pour tout afficher, true pour flouter les équipes (mode teaser)
-    const TEASER_MODE = true;
+    const TEASER_MODE = false;
 
     if (MAINTENANCE_MODE) {
         document.body.classList.add('in-maintenance');

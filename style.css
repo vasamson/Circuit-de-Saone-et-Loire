@@ -3376,71 +3376,98 @@ a {
    NEW PAGES STYLES
    =================================== */
 
-/* Equipes Page */
-.equipes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-    padding: 0 20px;
-    /* Force margin */
+/* Equipes Page - Text Only Presentation */
+.teams-presentation {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.team-card {
-    background: var(--white);
+.category-block {
+    margin-bottom: 5rem;
+    position: relative;
+    background: #fbfbfb;
+    padding: 3rem;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
 }
 
-.team-card:hover {
-    transform: translateY(-10px);
+.category-block.half {
+    margin-bottom: 0;
 }
 
-.team-header {
-    background: var(--light-gray);
-    padding: 2rem;
-    text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.team-jersey-img {
-    width: 150px;
-    height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-}
-
-.team-name {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    color: var(--black);
-}
-
-.team-body {
-    padding: 2rem;
-}
-
-.team-ds {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
+.category-badge {
+    position: absolute;
+    top: -20px;
+    left: 40px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 10px 25px;
+    font-family: var(--font-display);
     text-transform: uppercase;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
 
-.riders-list {
-    list-style: none;
+.category-badge.alternate {
+    background: var(--black);
+}
+
+.teams-simple-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.teams-simple-grid.one-col {
+    grid-template-columns: 1fr;
+}
+
+.team-item {
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    padding: 1rem 1.5rem;
+    background: var(--white);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.mini-jersey {
+    height: 80px; /* Slightly larger for better scaling */
+    width: auto;
+    transition: transform 0.3s ease;
+    image-rendering: -webkit-optimize-contrast; /* Sharpen on Mac/Safari */
+}
+
+.team-item:hover .mini-jersey {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.team-item:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transform: translateX(5px);
+}
+
+.special-categories {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 40px;
+    margin-top: 40px;
 }
 
-.riders-list li {
-    font-size: 0.95rem;
-    font-weight: 500;
+@media (max-width: 900px) {
+    .special-categories {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Partenaires Page */
