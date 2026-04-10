@@ -3457,6 +3457,50 @@ a {
     transform: translateX(5px);
 }
 
+.directvelo-link {
+    margin-left: auto;
+    font-size: 0.75rem;
+    background: #f0f0f0;
+    color: #cc0000;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    border: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+.directvelo-link:hover {
+    background: #cc0000;
+    color: white;
+    border-color: #cc0000;
+}
+
+.directvelo-link i {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .team-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .directvelo-link {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 .special-categories {
     display: grid;
     grid-template-columns: 1fr 1fr;
