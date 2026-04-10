@@ -3457,22 +3457,31 @@ a {
     transform: translateX(5px);
 }
 
+.team-item span {
+    flex: 1;
+    padding-right: 20px;
+    line-height: 1.2;
+}
+
 .directvelo-link {
-    margin-left: auto;
-    font-size: 0.75rem;
-    background: #f0f0f0;
-    color: #cc0000;
-    padding: 6px 12px;
-    border-radius: 4px;
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-size: 0.55rem;
+    background: #ffffff;
+    color: #999;
+    padding: 4px 10px;
+    border-radius: 2px;
     text-decoration: none;
     font-weight: 700;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     white-space: nowrap;
     border: 1px solid #eee;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .directvelo-link:hover {
@@ -3482,22 +3491,25 @@ a {
 }
 
 .directvelo-link i {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
 }
 
 @media (max-width: 600px) {
     .team-item {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        text-align: center;
+        text-align: left;
         padding: 1.5rem;
+        padding-bottom: 2rem;
     }
     
-    .directvelo-link {
-        margin-left: 0;
-        margin-top: 10px;
-        width: 100%;
-        justify-content: center;
+    .team-item span {
+        padding-right: 0;
+        font-size: 1.1rem;
+    }
+
+    .mini-jersey {
+        height: 60px;
     }
 }
 
