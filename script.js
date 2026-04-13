@@ -103,6 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Gallery Photo Click Listeners (Popup Lightbox)
+    const galleryPhotos = document.querySelectorAll('.photo-palette .photo-item img');
+    galleryPhotos.forEach(photo => {
+        photo.style.cursor = 'pointer';
+        photo.addEventListener('click', () => {
+            openGalleryModal(photo.src, photo.alt || "Photo Circuit Saône-et-Loire");
+        });
+    });
+
     // ===================================
     // COUNTDOWN TIMER
     // ===================================
@@ -320,6 +329,45 @@ function openJauneEventModal() {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+// ===================================
+// GALLERY MODAL (LIGHTBOX)
+// ===================================
+function openGalleryModal(src, alt) {
+    const modal = document.querySelector('.modal');
+    if (!modal) return;
+
+    const modalImg = modal.querySelector('.modal-img');
+    const modalTitle = modal.querySelector('.modal-body h2');
+    const modalText = modal.querySelector('.modal-body p');
+
+    if (modalImg) {
+        modalImg.src = src;
+        modalImg.alt = alt;
+        modalImg.classList.add('is-gallery-photo');
+        modalImg.classList.remove('is-logo', 'is-jersey');
+        modalImg.style.padding = "0";
+    }
+
+    if (modalTitle) modalTitle.innerText = "";
+    if (modalText) modalText.innerText = "";
+
+    // Optional: Hide the modal body for photos
+    const modalBody = modal.querySelector('.modal-body');
+    if (modalBody) modalBody.style.display = 'none';
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Reset modal body when closing
+    const closeBtn = modal.querySelector('.close-modal');
+    const closeHandler = () => {
+        if (modalBody) modalBody.style.display = 'block';
+        modalImg.classList.remove('is-gallery-photo');
+        closeBtn.removeEventListener('click', closeHandler);
+    };
+    closeBtn.addEventListener('click', closeHandler, { once: true });
 }
 
 // ===================================
