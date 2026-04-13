@@ -993,8 +993,8 @@ a {
     color: var(--dark-gray);
     line-height: 1.6;
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
+    flex-wrap: nowrap;
+    align-items: flex-start;
     justify-content: space-between;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
     padding-bottom: 0.5rem;
@@ -1008,9 +1008,9 @@ a {
 .org-list li .role {
     font-weight: 700;
     color: var(--black);
-    margin-right: 10px;
-    flex: 1;
-    min-width: 200px;
+    margin-right: 20px;
+    flex: 0 0 auto;
+    max-width: 50%;
 }
 
 .org-list li .role-title {
@@ -1028,6 +1028,8 @@ a {
 .org-list li .name {
     color: var(--dark-gray);
     font-weight: 500;
+    text-align: right;
+    flex: 1;
 }
 
 .org-list li .phone {
