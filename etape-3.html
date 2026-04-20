@@ -75,6 +75,47 @@
                 box-shadow: 0 0 0 0 rgba(194, 148, 93, 0);
             }
         }
+
+        .tribute-card {
+            background: #fdf8f3;
+            border-left: 5px solid #C2945D;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .tribute-icon {
+            font-size: 2.5rem;
+            color: #C2945D;
+            flex-shrink: 0;
+        }
+
+        .tribute-content h4 {
+            margin: 0 0 10px 0;
+            color: #C2945D;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-family: 'Nature Spirit', serif;
+        }
+
+        .tribute-content p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            font-family: var(--font-primary);
+        }
+
+        @media (max-width: 600px) {
+            .tribute-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
     </style>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -152,6 +193,26 @@
                         <p>Après 82 km de parcours en ligne, les coureurs s'affronteront sur un circuit final de 74,7 km
                             répartis sur 4,3 tours. Un tracé nerveux avec 2111 mètres de dénivelé positif pour conclure
                             cette édition 2026.</p>
+
+                        <div class="tribute-card">
+                            <div class="tribute-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="tribute-content">
+                                <h4>HOMMAGE À CLAUDE REPÉRANT</h4>
+                                <p>Claude fut Président de l'Union Cycliste Digoinaise dans les années 90. Après plusieurs
+                                    années à la tête du club, il a souhaité prendre un peu de recul car ses fonctions
+                                    professionnelles de directeur commercial ne lui laissaient pas beaucoup de temps
+                                    pour se consacrer au club. A l‘heure de la retraite, il revient dans le milieu du
+                                    cyclisme. Il réintégra le Comité Directeur de l’UC Digoin comme Vice-Président.</p>
+                                <p style="margin-top: 10px;">Par la suite, il a occupé de nombreuses fonctions d’élu. Il a
+                                    ainsi été Président du Comité Départemental de Saône-et-Loire (2008 - 2014), avant
+                                    de devenir Président du Comité Régional de Bourgogne jusqu’en 2017 et la fusion avec
+                                    la Franche-Comté. Il a par ailleurs été membre du conseil Fédéral de la Fédération
+                                    française de cyclisme. Il était depuis, membre du Comité Directeur du Circuit de
+                                    Saône-et-Loire.</p>
+                            </div>
+                        </div>
                     </section>
                     <section class="stage-section">
                         <h3 class="section-title">Le Profil</h3>
