@@ -4084,13 +4084,28 @@ body.teaser-mode .teams-section {
    =================================== */
 .download-poster-section {
     margin-top: 2rem;
-    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     padding: 1.5rem 0;
 }
 
 .download-poster-section .btn {
     font-size: 1.1rem;
     padding: 1.2rem 2.5rem;
+    min-width: 250px;
+}
+
+@media (max-width: 768px) {
+    .download-poster-section {
+        justify-content: center;
+    }
+    
+    .download-poster-section .btn {
+        width: 100%;
+        min-width: unset;
+    }
 }
 
 /* ===================================
