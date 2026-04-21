@@ -1,0 +1,223 @@
+:root {
+    --a4-width: 210mm;
+    --a4-height: 297mm;
+    --paper-white: #ffffff;
+    --border-color: #e2e8f0;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+.engages-page {
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+    font-family: 'Advent Pro', sans-serif;
+    color: var(--black);
+}
+
+.document-container {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f5f9;
+    min-height: 80vh;
+}
+
+.a4-sheet {
+    width: var(--a4-width);
+    height: var(--a4-height);
+    background: var(--paper-white);
+    padding: 8mm;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Header Compact */
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+.doc-logo {
+    height: 35px;
+    width: auto;
+}
+
+.doc-title-block {
+    text-align: right;
+}
+
+.doc-subtitle {
+    font-size: 0.65rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+/* Grid Layout */
+.teams-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, auto);
+    gap: 9px;
+    flex-grow: 1;
+}
+
+/* Team Mini Card */
+.team-mini-card {
+    border: 1px solid #f1f5f9;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-mini-header {
+    background-color: var(--charcoal);
+    padding: 4px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.team-mini-jersey {
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 50%;
+    padding: 2px;
+    border: 0.5px solid rgba(0,0,0,0.1);
+}
+
+.team-mini-name {
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mini-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mini-table td {
+    padding: 2.8px 5px;
+    font-size: 0.62rem;
+    line-height: 1.15;
+    border-bottom: 0.5px solid #f1f5f9;
+}
+
+.mini-dos {
+    font-weight: 900;
+    color: var(--primary-color);
+    width: 15px;
+}
+
+.mini-name {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.mini-cat {
+    font-size: 0.5rem;
+    color: #64748b;
+    text-align: right;
+}
+
+/* Footer Logos Compact */
+.doc-footer {
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partner-logos-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.partner-logos-row img {
+    height: 28px;
+}
+
+.footer-info {
+    font-size: 0.6rem;
+    color: #94a3b8;
+}
+
+/* PRINT RULES */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body, .engages-page, .document-container {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .no-print, 
+    .navbar, 
+    .footer, 
+    .page-header-light, 
+    .viewer-actions,
+    #preloader {
+        display: none !important;
+    }
+
+    .document-container {
+        display: block !important;
+        min-height: auto !important;
+        padding: 0 !important;
+    }
+
+    .a4-sheet {
+        box-shadow: none !important;
+        margin: 0 auto !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        padding: 8mm !important;
+        border: none !important;
+        background: white !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .team-mini-header {
+        background-color: #0B1F50 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .mini-dos {
+        color: #C2945D !important;
+    }
+}
