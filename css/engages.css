@@ -41,6 +41,19 @@
     print-color-adjust: exact;
 }
 
+@media (max-width: 210mm) {
+    .document-container {
+        padding: 20px 10px;
+        overflow-x: hidden;
+    }
+    .a4-sheet {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 5mm;
+    }
+}
+
 /* Header Compact */
 .doc-header {
     display: flex;
@@ -73,6 +86,19 @@
     grid-template-rows: repeat(6, auto);
     gap: 9px;
     flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .teams-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .teams-grid-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Team Mini Card */
