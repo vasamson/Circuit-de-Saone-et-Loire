@@ -214,7 +214,7 @@ const cityData = {
     "Chardonnay": {
         img: "images/chardonnay.jpg",
         title: "Chardonnay",
-        text: "Chardonnay connue pour ses vins blancs dont le célèbre cépage porte le même nom que celui de la commune, mais aussi pour sa course cycliste historique, là où Bernard Hinault s’imposait il y a 50 ans avant de devenir le célèbre champion que l’on connait aujourd’hui (palmarès exceptionnel & quintuple vainqueur du Tour de France et Champion du Monde à Sallanches, en 1980). Une étape historique à double titre : elle célèbre la victoire du champion breton à Chardonnay et son organisateur Alain Pradier, mais aussi le centenaire de la Cave de Lugny - Chardonnay. Aujourd’hui, la Cave de Lugny exploite près de 1 250 hectares de vignes en appellations d’origine protégée et propose une trentaine de cuvées, principalement en Mâcon blanc, mais aussi en Crémant de Bourgogne, Bourgogne rouge ou Mâcon rouge. Avec 164,6 km et 2468 mètres de dénivelé positif, c’est l’étape reine de cette édition 2026. Le parcours exigeant traverse le vignoble avec des ascensions redoutables comme le Col des Chèvres et le col de la Croix."
+        text: "Chardonnay connue pour ses vins blancs dont le célèbre cépage porte le même nom que celui de la commune, mais aussi pour sa course cycliste historique, là où Bernard Hinault s’imposait il y a 50 ans avant de devenir le célèbre champion que l’on connait aujourd’hui (palmarès exceptionnel & quintuple vainqueur du Tour de France et Champion du Monde à Sallanches, en 1980). Une étape historique à double titre : elle célèbre la victoire du champion breton à Chardonnay et son organisateur Alain Pradier, mais aussi le centenaire de la Cave de Lugny - Chardonnay. Aujourd’hui, la Cave de Lugny exploite près de 1 250 hectares de vignes en appellations d’origine protégée et propose une trentaine de cuvées, principalement en Mâcon blanc, mais aussi en Crémant de Bourgogne, Bourgogne rouge ou Mâcon rouge. Avec 164,6 km et 2468 mètres de dénivelé positif, c’est l’étape reine de cette 54ème édition. Le parcours exigeant traverse le vignoble avec des ascensions redoutables comme le Col des Chèvres et le col de la Croix."
     },
     "Pierre-de-Bresse": {
         img: "images/pierredebresse.jpg",
@@ -401,7 +401,7 @@ function injectMaintenanceOverlay() {
                 </div>
             </div>
 
-            <p class="maintenance-text">Nous préparons quelque chose de grand pour l'édition 2026. <br><span class="highlight-text">Nous lançons le site officiel à J-71 !</span></p>
+            <p class="maintenance-text">Nous préparons quelque chose de grand pour la 54ème édition. <br><span class="highlight-text">Nous lançons le site officiel à J-71 !</span></p>
             
             <div class="maintenance-socials">
                 <a href="https://www.facebook.com/lecircuitdeSaoneetLoire" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -489,7 +489,7 @@ function openAdModal() {
         modalImg.style.padding = "20px";
     }
 
-    if (modalTitle) modalTitle.innerText = "Liste des Engagés 2026";
+    if (modalTitle) modalTitle.innerText = "Liste des Engagés - 54ème édition";
 
     if (modalText) {
         modalText.innerHTML = `
