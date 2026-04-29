@@ -1889,13 +1889,28 @@ a {
         gap: 15px;
     }
 }
-    font-size: 0.85rem;
+
+.footer-bottom p {
+    font-size: 0.75rem;
     color: #0B1F50;
+    opacity: 0.8;
 }
 
 .footer-legal {
     display: flex;
     gap: 20px;
+}
+
+.footer-legal a {
+    font-size: 0.75rem;
+    color: #0B1F50;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-legal a:hover {
+    color: var(--primary-color);
+    opacity: 1;
 }
 
 /* ===================================
