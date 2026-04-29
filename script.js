@@ -443,7 +443,7 @@ function startMaintenanceCountdown() {
 }
 
 // ===================================
-// FLOATING AD (CYCLO BERNARD THEVENET)
+// FLOATING AD (LISTE DES ENGAGÉS)
 // ===================================
 function initFloatingAd() {
     // Generate Widget
@@ -451,9 +451,9 @@ function initFloatingAd() {
     widget.className = 'ad-floating-widget';
     widget.innerHTML = `
         <span class="ad-widget-close">&times;</span>
-        <img src="images/bandeau-3/LOGOCyclo.jpg" alt="Cyclo Bernard Thévenet" class="ad-widget-img">
+        <img src="images/generique-bleu.png" alt="Engagés" class="ad-widget-img">
         <div class="ad-widget-content">
-            <h4>La Cyclo Bernard THEVENET</h4>
+            <h4>Liste des Engagés Disponible !</h4>
             <button class="ad-widget-btn">Découvrir</button>
         </div>
     `;
@@ -484,27 +484,23 @@ function openAdModal() {
     const modalText = modal.querySelector('.modal-body p');
 
     if (modalImg) {
-        modalImg.src = "images/bandeau-3/LOGOCyclo.jpg";
+        modalImg.src = "images/generique-bleu.png";
         modalImg.classList.add('is-logo');
         modalImg.style.padding = "20px";
     }
 
-    if (modalTitle) modalTitle.innerText = "La Cyclo Bernard THEVENET";
+    if (modalTitle) modalTitle.innerText = "Liste des Engagés 2026";
 
     if (modalText) {
         modalText.innerHTML = `
-            <p style="color: var(--primary-color); font-weight: 700; font-size: 1.2rem; margin-bottom: 5px;">Samedi 30 mai 2026 à Vitry-en-Charollais</p>
-            <p style="font-weight: 600; font-style: italic; margin-bottom: 20px;">Sur les routes d’un Champion !</p>
+            <p style="color: var(--primary-color); font-weight: 700; font-size: 1.2rem; margin-bottom: 5px;">108 Partants • 18 Équipes</p>
+            <p style="font-weight: 600; font-style: italic; margin-bottom: 20px;">Le peloton est prêt pour la 54ème édition !</p>
             
-            <p>L’épreuve se déroule au cœur du bocage du Charolais/Brionnais, sur des routes vallonnées caractéristiques de la région : paysages verdoyants, bosses régulières, faible circulation, loin des centres urbanisés et sur les routes d’entraînement historiques où Bernard Thévenet a forgé ses qualités de grimpeur.</p>
-            
-            <p><b>3 parcours sont proposés</b> au départ de Vitry-en-Charollais.</p>
-            
-            <p>L’évènement propose aussi une dimension conviviale et gastronomique avec un repas d’après-course autour de produits AOP locaux (pavé de bœuf et fromage de chèvre). Un moment de partage qui prolonge parfaitement l’effort et ancre encore davantage l’épreuve dans son territoire.</p>
+            <p>Retrouvez la liste nominative complète des 108 coureurs qui s'élanceront sur les routes de Saône-et-Loire. Découvrez les forces en présence, des formations continentales aux sélections régionales de haut niveau.</p>
             
             <div style="margin-top: 30px; text-align: center;">
-                <a href="https://www.labernardthevenet.fr" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-external-link-alt"></i> Plus d’informations & Inscriptions
+                <a href="engages.html" class="btn btn-primary" style="padding: 12px 30px; border-radius: 50px;">
+                    <i class="fas fa-list-ul"></i> Découvrir la liste des engagés
                 </a>
             </div>
         `;
