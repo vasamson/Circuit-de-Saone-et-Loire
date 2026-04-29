@@ -301,8 +301,11 @@ a {
         left: 50%;
         transform: translateX(-50%);
         z-index: 1060;
-        width: 100%;
+        width: auto;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .nav-logo h1 {
@@ -310,8 +313,9 @@ a {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 200px;
+        max-width: 180px;
         padding: 0;
+        letter-spacing: 0.5px;
     }
 
     .navbar.nav-active .nav-logo {
@@ -333,7 +337,15 @@ a {
 
 @media (max-width: 600px) {
     .nav-logo h1 {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-logo h1 {
+        font-size: 0.7rem;
+        max-width: 130px;
     }
 }
 

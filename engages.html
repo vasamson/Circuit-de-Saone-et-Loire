@@ -51,20 +51,20 @@
     </nav>
 
     <!-- Page Header (consistent with other pages) -->
-    <header class="page-header-light no-print" style="padding-top: 120px; padding-bottom: 40px; background-color: white;">
-        <div class="container" style="text-align: center;">
+    <header class="page-header-light no-print">
+        <div class="container">
             <h1 class="section-title">Liste des <span class="text-primary">Engagés</span></h1>
         </div>
     </header>
 
     <div class="document-container">
         
-        <!-- Action bar for Web View -->
-        <div class="viewer-actions no-print" style="margin-bottom: 2rem; text-align: center;">
-            <p style="color: #64748b; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Document Officiel • Édition 2026</p>
-            <button onclick="window.print()" class="btn btn-primary" style="padding: 12px 30px; font-size: 1.1rem; border-radius: 50px;">
-                <i class="fas fa-file-pdf"></i> Imprimer / Télécharger PDF
-            </button>
+        <!-- Action bar for Web View (Intro text) -->
+        <div class="viewer-actions no-print" style="margin-bottom: 3rem; text-align: center; padding: 0 20px;">
+            <p style="color: #64748b; font-size: 1.1rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                Découvrez la liste officielle des 108 partants pour l'édition 2026 du Circuit de Saône-et-Loire. 
+                Retrouvez ci-dessous les 18 équipes sélectionnées et leurs coureurs engagés pour cette 54ème édition.
+            </p>
         </div>
 
         <!-- SINGLE A4 SHEET -->
@@ -72,7 +72,7 @@
             <header class="doc-header">
                 <img src="images/generique-bleu.png" alt="Logo CSL" class="doc-logo">
                 <div class="doc-title-block">
-                    <h2 style="color: #000; font-size: 1.1rem;">LISTE DES ENGAGÉS <span style="font-size: 0.75rem; color: var(--primary-color);">• ÉDITION 2026 • 107 COUREURS</span></h2>
+                    <h2 style="color: #000; font-size: 1.1rem;">LISTE DES ENGAGÉS <span style="font-size: 0.75rem; color: var(--primary-color);">• ÉDITION 2026 • 108 COUREURS</span></h2>
                     <span class="doc-subtitle">Document Officiel</span>
                 </div>
             </header>
@@ -361,6 +361,54 @@
                 </div>
             </footer>
         </div>
+
+        <!-- Action bar for Web View (Moved below) -->
+        <div class="viewer-actions no-print" style="margin-top: 4rem; margin-bottom: 5rem; text-align: center; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            <button onclick="window.print()" class="btn btn-primary" style="min-width: 280px; padding: 1.2rem 2rem;">
+                <i class="fas fa-print"></i> IMPRIMER LA LISTE
+            </button>
+            <button onclick="window.print()" class="btn btn-outline dark" style="min-width: 280px; padding: 1.2rem 2rem;">
+                <i class="fas fa-file-pdf"></i> TÉLÉCHARGER PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Official Partners & Suppliers Section -->
+    <div class="partners-section no-print">
+        <h3 class="partners-title">Ils nous soutiennent</h3>
+        <div class="partners-marquee-container">
+            <div class="partners-marquee">
+                <img src="images/bandeau-3/LOGOCyclo.jpg" alt="Cyclo" class="partner-logo">
+                <img src="images/bandeau-3/CaveLugny.jpg" alt="Cave de Lugny" class="partner-logo">
+                <img src="images/bandeau-3/CaveLugny_101.jpg" alt="Cave de Lugny" class="partner-logo">
+                <img src="images/bandeau-3/Italvet_2025_3c664648-6b08-4a5f-a160-89a7670e5c50.png.webp" alt="Italvet" class="partner-logo">
+                <img src="images/bandeau-3/ab.png" alt="AB" class="partner-logo">
+                <img src="images/bandeau-3/audabe.png" alt="Audabe" class="partner-logo">
+                <img src="images/bandeau-3/bep.png" alt="BEP" class="partner-logo">
+                <img src="images/bandeau-3/groupe-saint-aubin-logo-454-blanc-60.png" alt="Groupe Saint Aubin"
+                    class="partner-logo">
+
+                <img src="images/bandeau-3/jacob.png" alt="Jacob" class="partner-logo">
+                <img src="images/bandeau-3/votre-bureau.png" alt="Votre Bureau" class="partner-logo">
+                <img src="images/bandeau-3/scob.jpg" alt="SCOB" class="partner-logo">
+                <img src="images/bandeau-3/panenka.png" alt="Panenka" class="partner-logo">
+                <!-- Duplicate for seamless scroll -->
+                <img src="images/bandeau-3/LOGOCyclo.jpg" alt="Cyclo" class="partner-logo">
+                <img src="images/bandeau-3/CaveLugny.jpg" alt="Cave de Lugny" class="partner-logo">
+                <img src="images/bandeau-3/CaveLugny_101.jpg" alt="Cave de Lugny" class="partner-logo">
+                <img src="images/bandeau-3/Italvet_2025_3c664648-6b08-4a5f-a160-89a7670e5c50.png.webp" alt="Italvet" class="partner-logo">
+                <img src="images/bandeau-3/ab.png" alt="AB" class="partner-logo">
+                <img src="images/bandeau-3/audabe.png" alt="Audabe" class="partner-logo">
+                <img src="images/bandeau-3/bep.png" alt="BEP" class="partner-logo">
+                <img src="images/bandeau-3/groupe-saint-aubin-logo-454-blanc-60.png" alt="Groupe Saint Aubin"
+                    class="partner-logo">
+
+                <img src="images/bandeau-3/jacob.png" alt="Jacob" class="partner-logo">
+                <img src="images/bandeau-3/votre-bureau.png" alt="Votre Bureau" class="partner-logo">
+                <img src="images/bandeau-3/scob.jpg" alt="SCOB" class="partner-logo">
+                <img src="images/bandeau-3/panenka.png" alt="Panenka" class="partner-logo">
+            </div>
+        </div>
     </div>
 
     <!-- Official Footer -->
@@ -368,10 +416,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col footer-org">
-                    <img src="images/jaune-evenements.png" alt="JAUNE Événements" class="footer-logo-org">
+                    <img src="images/jaune-evenements.png" alt="JAUNE Événements"
+                        class="footer-logo-org clickable-jaune-logo" style="cursor: pointer;">
                     <div class="org-info">
-                        <p><b>JAUNE Événements</b></p>
+                        <p>JAUNE Événements</p>
                         <p>Association loi 1901</p>
+                        <p>Club FFC organisateur</p>
                         <p>Circuit Cycliste de Saône-et-Loire</p>
                     </div>
                 </div>
@@ -379,6 +429,7 @@
                     <h4>Le Circuit</h4>
                     <a href="histoire.html">Histoire</a>
                     <a href="palmares.html">Palmarès</a>
+                    <a href="benevoles.html">Bénévoles</a>
                     <a href="organisation.html">Organisation</a>
                 </div>
                 <div class="footer-col">
@@ -388,18 +439,41 @@
                     <a href="partenaires.html">Nos soutiens</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Suivez-nous</h4>
+                    <h4>Medias</h4>
+                    <a href="contact.html">Contact</a>
+                    <a href="photos.html">Photos</a>
+                    <a href="communiques.html">Communiqués</a>
+                    <a href="presse.html">Presse</a>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/lecircuitdeSaoneetLoire" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lecircuitdesaoneetloire/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@LECIRCUITDESAONELOIRE-qe6rf" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Circuit de Saône-et-Loire. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="mentions-legales.html">Mentions Légales</a>
+                    <a href="confidentialite.html">Confidentialité</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <div class="modal no-print">
+        <div class="close-modal">&times;</div>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-img">
+            <div class="modal-body">
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Simple preloader logic
