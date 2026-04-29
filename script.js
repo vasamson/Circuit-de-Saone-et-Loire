@@ -214,7 +214,7 @@ const cityData = {
     "Chardonnay": {
         img: "images/chardonnay.jpg",
         title: "Chardonnay",
-        text: "Ville Départ et Arrivée. Chardonnay connue pour ses vins blancs dont le célèbre cépage porte le même nom que celui de la commune, mais aussi pour sa course cycliste historique, là où Bernard Hinault s’imposait il y a 50 ans avant de devenir, le célèbre champion que l’on connait aujourd’hui (quintuple vainqueur du Tour de France et un palmarès exceptionnel)."
+        text: "Chardonnay connue pour ses vins blancs dont le célèbre cépage porte le même nom que celui de la commune, mais aussi pour sa course cycliste historique, là où Bernard Hinault s’imposait il y a 50 ans avant de devenir le célèbre champion que l’on connait aujourd’hui (palmarès exceptionnel & quintuple vainqueur du Tour de France et Champion du Monde à Sallanches, en 1980). Une étape historique à double titre : elle célèbre la victoire du champion breton à Chardonnay et son organisateur Alain Pradier, mais aussi le centenaire de la Cave de Lugny - Chardonnay. Aujourd’hui, la Cave de Lugny exploite près de 1 250 hectares de vignes en appellations d’origine protégée et propose une trentaine de cuvées, principalement en Mâcon blanc, mais aussi en Crémant de Bourgogne, Bourgogne rouge ou Mâcon rouge. Avec 164,6 km et 2468 mètres de dénivelé positif, c’est l’étape reine de cette édition 2026. Le parcours exigeant traverse le vignoble avec des ascensions redoutables comme le Col des Chèvres et le col de la Croix."
     },
     "Pierre-de-Bresse": {
         img: "images/pierredebresse.jpg",
