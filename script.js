@@ -275,7 +275,7 @@ const jerseyData = {
     "Combiné": {
         img: "images/Maillots/region.png",
         title: "Maillot de la Région BFC - Combiné",
-        text: "Ce maillot récompense le leader du classement du combiné ou le coureur régional."
+        text: "Ce maillot récompense le leader du classement du combiné."
     },
     "Points Chauds": {
         img: "images/Maillots/departement.png",
