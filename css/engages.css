@@ -241,10 +241,15 @@
         margin: 0;
     }
 
+    html, body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
     body, .engages-page, .document-container {
         background: white !important;
-        padding: 0 !important;
-        margin: 0 !important;
     }
 
     .no-print, 
@@ -263,15 +268,19 @@
 
     .document-container {
         display: block !important;
-        min-height: auto !important;
+        min-height: 0 !important;
+        height: 100% !important;
+        overflow: hidden !important;
         padding: 0 !important;
+        margin: 0 !important;
     }
 
     .a4-sheet {
         box-shadow: none !important;
-        margin: 0 auto !important;
-        width: 210mm !important;
-        height: 297mm !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 100% !important;
         padding: 5mm !important;
         border: none !important;
         background: white !important;
@@ -280,6 +289,8 @@
         flex-direction: column !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
     }
 
     .team-mini-header {
