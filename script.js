@@ -272,15 +272,15 @@ const jerseyData = {
         title: "Maillot Blanc - Classement du Meilleur Jeune",
         text: "Le maillot blanc récompense le coureur âgé de moins de 23 ans le mieux placé au classement général."
     },
-    "Région Bourgogne Franche-Comté": {
+    "Combiné": {
         img: "images/Maillots/region.png",
         title: "Maillot de la Région BFC - Combiné",
         text: "Ce maillot récompense le leader du classement du combiné ou le coureur régional."
     },
-    "Département": {
+    "Points Chauds": {
         img: "images/Maillots/departement.png",
-        title: "Maillot du Département de Saône-et-Loire",
-        text: "Un maillot spécial aux couleurs du département récompensant de beaux efforts."
+        title: "Maillot du Département de Saône-et-Loire - Points Chauds",
+        text: "Un maillot spécial aux couleurs du département récompensant le vainqueur du classement des points chauds."
     }
 };
 
