@@ -122,14 +122,82 @@
         </div>
     </section>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section">
+    <!-- La Course 2026 Section -->
+    <section class="course-live-section bg-light" style="padding: 80px 0;">
         <div class="container">
-            <div class="countdown-wrapper">
-                <div id="countdown-timer" class="countdown-timer">
-                    <!-- Format: J-130 21h34min24sec -->
-                    Chargement du décompte...
+            <div class="section-header">
+                <h2 class="section-title">La Course <span class="text-primary">2026</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="live-grid">
+                <h3><i class="fas fa-route"></i> Le Direct par étape</h3>
+                
+                <!-- Etapes Accordion -->
+                <div class="stages-live-container">
+                    
+                    <!-- Etape 1 (Active by default) -->
+                    <div class="stage-live-card active" onclick="toggleStage(this)">
+                        <div class="stage-live-header">
+                            <span class="day-label">Vendredi 8 Mai</span>
+                            <h4>Étape 1 : Le Creusot > Pierre de Bresse</h4>
+                            <div class="badge-live"><i class="fas fa-arrows-alt-h"></i> 149.8 km &bull; <i class="fas fa-mountain"></i> 1384m D+</div>
+                        </div>
+                        <div class="stage-live-content">
+                            <div class="stage-links">
+                                <a href="#" class="btn btn-primary"><i class="fas fa-bolt"></i> DirectVélo</a>
+                                <a href="#" class="btn btn-outline"><i class="fas fa-video"></i> Direct Vidéo</a>
+                                <a href="etape-1.html" class="btn btn-outline dark"><i class="fas fa-info-circle"></i> Détail de l'étape</a>
+                            </div>
+                            <div class="stage-results">
+                                <a href="#" class="btn-result"><i class="fas fa-list-ol"></i> Classements</a>
+                                <a href="#" class="btn-result"><i class="fas fa-camera"></i> Photos de l'étape</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etape 2 -->
+                    <div class="stage-live-card" onclick="toggleStage(this)">
+                        <div class="stage-live-header">
+                            <span class="day-label">Samedi 9 Mai</span>
+                            <h4>Étape 2 : Chardonnay > Chardonnay</h4>
+                            <div class="badge-live"><i class="fas fa-arrows-alt-h"></i> 164.6 km &bull; <i class="fas fa-mountain"></i> 2468m D+</div>
+                        </div>
+                        <div class="stage-live-content">
+                            <div class="stage-links">
+                                <a href="#" class="btn btn-primary"><i class="fas fa-bolt"></i> DirectVélo</a>
+                                <a href="#" class="btn btn-outline"><i class="fas fa-video"></i> Direct Vidéo</a>
+                                <a href="etape-2.html" class="btn btn-outline dark"><i class="fas fa-info-circle"></i> Détail de l'étape</a>
+                            </div>
+                            <div class="stage-results">
+                                <a href="#" class="btn-result"><i class="fas fa-list-ol"></i> Classements</a>
+                                <a href="#" class="btn-result"><i class="fas fa-camera"></i> Photos de l'étape</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etape 3 -->
+                    <div class="stage-live-card" onclick="toggleStage(this)">
+                        <div class="stage-live-header">
+                            <span class="day-label">Dimanche 10 Mai</span>
+                            <h4>Étape 3 : Digoin > St Vallier</h4>
+                            <div class="badge-live"><i class="fas fa-arrows-alt-h"></i> 159.7 km &bull; <i class="fas fa-mountain"></i> 2111m D+</div>
+                        </div>
+                        <div class="stage-live-content">
+                            <div class="stage-links">
+                                <a href="#" class="btn btn-primary"><i class="fas fa-bolt"></i> DirectVélo</a>
+                                <a href="#" class="btn btn-outline"><i class="fas fa-video"></i> Direct Vidéo</a>
+                                <a href="etape-3.html" class="btn btn-outline dark"><i class="fas fa-info-circle"></i> Détail de l'étape</a>
+                            </div>
+                            <div class="stage-results">
+                                <a href="#" class="btn-result"><i class="fas fa-list-ol"></i> Classements</a>
+                                <a href="#" class="btn-result"><i class="fas fa-camera"></i> Photos de l'étape</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </section>

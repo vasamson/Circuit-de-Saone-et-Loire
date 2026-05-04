@@ -141,11 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCountdown();
     }
 
-    // Initialize Floating Ad (Home page only)
-    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '';
-    if (isHomePage) {
-        setTimeout(initFloatingAd, 5000);
-    }
 
     // ===================================
     // TABS SYSTEM (Photos Page)
@@ -442,72 +437,20 @@ function startMaintenanceCountdown() {
     updateCountdown();
 }
 
-// ===================================
-// FLOATING AD (LISTE DES ENGAGÉS)
-// ===================================
-function initFloatingAd() {
-    // Generate Widget
-    const widget = document.createElement('div');
-    widget.className = 'ad-floating-widget';
-    widget.innerHTML = `
-        <span class="ad-widget-close">&times;</span>
-        <img src="images/generique-bleu.png" alt="Engagés" class="ad-widget-img">
-        <div class="ad-widget-content">
-            <h4>Liste des Engagés Disponible !</h4>
-            <button class="ad-widget-btn">Découvrir</button>
-        </div>
-    `;
-    document.body.appendChild(widget);
 
-    // Show with animation
-    setTimeout(() => widget.classList.add('active'), 100);
+// ===================================
+// STAGE ACCORDION TOGGLE
+// ===================================
+function toggleStage(card) {
+    if (card.classList.contains('active')) return;
 
-    // Close listener
-    widget.querySelector('.ad-widget-close').addEventListener('click', () => {
-        widget.classList.remove('active');
-        setTimeout(() => widget.remove(), 600);
+    // Remove active from all cards
+    document.querySelectorAll('.stage-live-card').forEach(c => {
+        c.classList.remove('active');
     });
 
-    // Open Modal listener
-    widget.querySelector('.ad-widget-btn').addEventListener('click', () => {
-        openAdModal();
-        widget.classList.remove('active');
-    });
-}
-
-function openAdModal() {
-    const modal = document.querySelector('.modal');
-    if (!modal) return;
-
-    const modalImg = modal.querySelector('.modal-img');
-    const modalTitle = modal.querySelector('.modal-body h2');
-    const modalText = modal.querySelector('.modal-body p');
-
-    if (modalImg) {
-        modalImg.src = "images/generique-bleu.png";
-        modalImg.classList.add('is-logo');
-        modalImg.style.padding = "20px";
-    }
-
-    if (modalTitle) modalTitle.innerText = "Liste des Engagés - 54ème édition";
-
-    if (modalText) {
-        modalText.innerHTML = `
-            <p style="color: var(--primary-color); font-weight: 700; font-size: 1.2rem; margin-bottom: 5px;">108 Partants • 18 Équipes</p>
-            <p style="font-weight: 600; font-style: italic; margin-bottom: 20px;">Le peloton est prêt pour la 54ème édition !</p>
-            
-            <p>Retrouvez la liste nominative complète des 108 coureurs qui s'élanceront sur les routes de Saône-et-Loire. Découvrez les forces en présence, des formations continentales aux sélections régionales de haut niveau.</p>
-            
-            <div style="margin-top: 30px; text-align: center;">
-                <a href="engages.html" class="btn btn-primary" style="padding: 12px 30px; border-radius: 50px;">
-                    <i class="fas fa-list-ul"></i> Découvrir la liste des engagés
-                </a>
-            </div>
-        `;
-    }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    // Add active to clicked card
+    card.classList.add('active');
 }
 
 // Hello Message
