@@ -4163,9 +4163,10 @@ body.teaser-mode .teams-section {
 }
 
 .download-poster-section .btn {
-    font-size: 1.1rem;
-    padding: 1.2rem 2.5rem;
-    min-width: 250px;
+    font-size: 0.85rem;
+    padding: 0.8rem 1.5rem;
+    min-width: 180px;
+    letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
