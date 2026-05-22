@@ -4950,3 +4950,328 @@ body.in-maintenance {
 .btn-result i {
     color: var(--primary-color);
 }
+
+/* ==========================================================================
+   MODAL MAILLOTS (JERSEYS) 2026 - STYLE PREMIUM
+   ========================================================================== */
+
+/* Modification du comportement modal pour les maillots */
+.modal-content.jersey-modal-layout {
+    max-width: 850px;
+    background: #fbfcfe;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(11, 31, 80, 0.4);
+    border: 1px solid rgba(194, 148, 93, 0.2);
+}
+
+.jersey-modal-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.jersey-modal-header {
+    background: linear-gradient(135deg, #0B1F50 0%, #17387a 100%);
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+    border-bottom: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.jersey-modal-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(194, 148, 93, 0.05));
+    pointer-events: none;
+    transform: skewX(-20deg);
+}
+
+.jersey-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.jersey-vector-badge {
+    width: 75px;
+    height: 75px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(194, 148, 93, 0.4);
+    padding: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
+}
+
+.jersey-vector-badge:hover {
+    transform: scale(1.1) rotate(8deg);
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.jersey-vector-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.jersey-header-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.jersey-sponsor-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.jersey-modal-title {
+    font-size: 1.8rem;
+    font-family: var(--font-primary);
+    margin: 0;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.jersey-modal-subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-weight: 500;
+}
+
+.jersey-modal-body-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 2rem;
+    padding: 2.2rem;
+    background: #fbfcfe;
+}
+
+.jersey-photo-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(11, 31, 80, 0.15);
+    border: 1px solid rgba(11, 31, 80, 0.08);
+    aspect-ratio: 4 / 5;
+    background: #fafafa;
+}
+
+.jersey-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: block;
+}
+
+.jersey-photo-wrapper:hover .jersey-photo {
+    transform: scale(1.04);
+}
+
+.jersey-photo-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(11, 31, 80, 0.9);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(194, 148, 93, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.jersey-info-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.winner-card {
+    background: linear-gradient(135deg, #0B1F50 0%, #152d6a 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: #ffffff;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(11, 31, 80, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.winner-card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(194, 148, 93, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.winner-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.winner-trophy-icon {
+    font-size: 1.4rem;
+    display: inline-block;
+    animation: trophyBounce 2s infinite ease-in-out;
+}
+
+@keyframes trophyBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
+}
+
+.winner-label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.winner-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.winner-name {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.winner-team {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+    line-height: 1.4;
+    font-family: var(--font-primary);
+}
+
+.winner-bib-badge {
+    align-self: flex-start;
+    background: var(--primary-color);
+    color: #0B1F50;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(194, 148, 93, 0.25);
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.jersey-desc-card {
+    background: #ffffff;
+    border: 1px solid rgba(11, 31, 80, 0.08);
+    border-radius: 12px;
+    padding: 1.4rem;
+    box-shadow: 0 4px 15px rgba(11, 31, 80, 0.02);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.jersey-desc-card h3 {
+    font-size: 1.05rem;
+    color: #0B1F50;
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(11, 31, 80, 0.08);
+    padding-bottom: 0.5rem;
+}
+
+.jersey-desc-card p {
+    font-size: 0.95rem;
+    color: #445479;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* RESPONSIVE DESIGN FOR JERSEY MODAL */
+@media (max-width: 768px) {
+    .modal-content.jersey-modal-layout {
+        max-width: 92%;
+        max-height: 90vh;
+    }
+
+    .jersey-modal-header {
+        padding: 1.2rem 1.2rem;
+    }
+
+    .jersey-header-left {
+        gap: 1rem;
+    }
+
+    .jersey-vector-badge {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+    }
+
+    .jersey-modal-title {
+        font-size: 1.35rem;
+    }
+
+    .jersey-modal-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .jersey-modal-body-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .jersey-photo-wrapper {
+        aspect-ratio: 1 / 1;
+        max-height: 320px;
+    }
+
+    .winner-name {
+        font-size: 1.45rem;
+    }
+}

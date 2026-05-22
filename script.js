@@ -218,9 +218,28 @@ const cityData = {
     }
 };
 
+function resetModalContent(modal) {
+    const modalContent = modal.querySelector('.modal-content');
+    if (!modalContent) return;
+
+    // Reset to default structure
+    modalContent.className = 'modal-content';
+    modalContent.removeAttribute('style');
+
+    modalContent.innerHTML = `
+        <img src="" alt="" class="modal-img">
+        <div class="modal-body">
+            <h2></h2>
+            <p></p>
+        </div>
+    `;
+}
+
 function openCityModal(cityName) {
     const modal = document.querySelector('.modal');
     if (!modal) return;
+
+    resetModalContent(modal);
 
     const modalImg = modal.querySelector('.modal-img');
     const modalTitle = modal.querySelector('.modal-body h2');
@@ -249,33 +268,69 @@ function openCityModal(cityName) {
 const jerseyData = {
     "Général": {
         img: "images/Maillots/general.png",
-        title: "Maillot Jaune - Classement Général",
-        text: "Le maillot iconique qui récompense le leader du classement général de l'épreuve."
+        photo: "images/Maillots popup/Jaune.jpg",
+        title: "Maillot Jaune",
+        subtitle: "Classement Général Individuel au Temps",
+        sponsor: "Maison Doucet",
+        winnerName: "Rémi LELANDAIS",
+        winnerTeam: "Bourg-en-Bresse Ain Cyclisme",
+        winnerBib: "14",
+        text: "Le maillot le plus prestigieux de l'épreuve, récompensant le leader du classement général individuel au temps. Porté avec fierté par le grand vainqueur final de la 54ème édition."
     },
     "Sprint": {
         img: "images/Maillots/sprint.png",
-        title: "Maillot Vert - Classement par Points",
-        text: "Ce maillot distingue le coureur le plus rapide et régulier, leader du classement par points."
+        photo: "images/Maillots popup/Vert.jpg",
+        title: "Maillot Vert",
+        subtitle: "Classement Général par Points",
+        sponsor: "SKODA Mâcon - Montceau - Chalon",
+        winnerName: "Rémi LELANDAIS",
+        winnerTeam: "Bourg-en-Bresse Ain Cyclisme",
+        winnerBib: "14",
+        text: "Ce maillot distingue le leader du classement par points, qui récompense la régularité du coureur lors des arrivées d'étapes et des sprints intermédiaires."
     },
     "Montagne": {
         img: "images/Maillots/montagne.png",
-        title: "Maillot à Pois - Classement de la Montagne",
-        text: "Le maillot destiné au meilleur grimpeur, ayant cumulé le plus de points aux sommets répertoriés."
+        photo: "images/Maillots popup/Rouge.jpg",
+        title: "Maillot Rouge",
+        subtitle: "Classement du Meilleur Grimpeur",
+        sponsor: "LECLERC Digoin - Le Breuil - Paray",
+        winnerName: "Maximilien JUILLARD",
+        winnerTeam: "VC Villefranche Beaujolais",
+        winnerBib: "22",
+        text: "Le maillot récompensant le meilleur grimpeur de l'épreuve. Les points sont attribués au sommet des différentes difficultés (cols et côtes) répertoriées tout au long du parcours."
     },
     "Jeune": {
         img: "images/Maillots/jeune.png",
-        title: "Maillot Blanc - Classement du Meilleur Jeune",
-        text: "Le maillot blanc récompense le coureur âgé de moins de 23 ans le mieux placé au classement général."
+        photo: "images/Maillots popup/Blanc.jpg",
+        title: "Maillot Blanc",
+        subtitle: "Classement du Meilleur Jeune",
+        sponsor: "Crédit Mutuel",
+        winnerName: "Tom LAMBERT WETZEL",
+        winnerTeam: "VC Villefranche Beaujolais",
+        winnerBib: "24",
+        text: "Ce maillot récompense le jeune coureur de moins de 23 ans le mieux placé au classement général individuel au temps, symbole d'avenir et de révélation sportive."
     },
     "Combiné": {
         img: "images/Maillots/region.png",
-        title: "Maillot de la Région BFC - Combiné",
-        text: "Ce maillot récompense le leader du classement du combiné."
+        photo: "images/Maillots popup/Gris.jpg",
+        title: "Maillot Gris",
+        subtitle: "Classement du Combiné",
+        sponsor: "Région Bourgogne-Franche-Comté",
+        winnerName: "Justin CORON",
+        winnerTeam: "VC Rouen 76",
+        winnerBib: "32",
+        text: "Ce maillot récompense le leader du classement du combiné, calculé selon les positions cumulées du coureur dans les différents classements (général, montagne, sprints)."
     },
     "Points Chauds": {
         img: "images/Maillots/departement.png",
-        title: "Maillot du Département de Saône-et-Loire - Points Chauds",
-        text: "Un maillot spécial aux couleurs du département récompensant le vainqueur du classement des points chauds."
+        photo: "images/Maillots popup/Or.jpg",
+        title: "Maillot Or",
+        subtitle: "Classement des Points Chauds",
+        sponsor: "Saône-et-Loire Le Département",
+        winnerName: "Jack BROUGH",
+        winnerTeam: "AVC Aix-en-Provence DOLE",
+        winnerBib: "3",
+        text: "Destiné au vainqueur du classement des Points Chauds, récompensant le coureur le plus combatif lors des sprints intermédiaires désignés tout au long des étapes."
     }
 };
 
@@ -283,21 +338,60 @@ function openJerseyModal(jerseyName) {
     const modal = document.querySelector('.modal');
     if (!modal) return;
 
-    const modalImg = modal.querySelector('.modal-img');
-    const modalTitle = modal.querySelector('.modal-body h2');
-    const modalText = modal.querySelector('.modal-body p');
+    const modalContent = modal.querySelector('.modal-content');
+    if (!modalContent) return;
 
     const data = jerseyData[jerseyName];
     if (!data) return;
 
-    if (modalImg) {
-        modalImg.src = data.img;
-        modalImg.classList.remove('is-logo');
-        modalImg.classList.add('is-jersey');
-        modalImg.style.padding = "20px";
-    }
-    if (modalTitle) modalTitle.innerText = data.title;
-    if (modalText) modalText.innerHTML = data.text;
+    // Reset first, and set custom class
+    modalContent.className = 'modal-content jersey-modal-layout';
+    modalContent.removeAttribute('style');
+
+    modalContent.innerHTML = `
+        <div class="jersey-modal-container">
+            <!-- Header: Icon, Sponsor, and Titles -->
+            <div class="jersey-modal-header">
+                <div class="jersey-header-left">
+                    <div class="jersey-vector-badge">
+                        <img src="${data.img}" alt="${data.title}" class="jersey-vector-img">
+                    </div>
+                    <div class="jersey-header-titles">
+                        <span class="jersey-sponsor-label">Parrainé par : <strong>${data.sponsor}</strong></span>
+                        <h2 class="jersey-modal-title">${data.title}</h2>
+                        <p class="jersey-modal-subtitle">${data.subtitle}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body: Grid with Podium Photo & Winner details -->
+            <div class="jersey-modal-body-grid">
+                <div class="jersey-photo-wrapper">
+                    <img src="${data.photo}" alt="Vainqueur ${data.title}" class="jersey-photo">
+                    <div class="jersey-photo-badge">Photo Officielle 2026</div>
+                </div>
+
+                <div class="jersey-info-column">
+                    <div class="winner-card">
+                        <div class="winner-card-header">
+                            <span class="winner-trophy-icon">🏆</span>
+                            <span class="winner-label">Vainqueur Final 2026</span>
+                        </div>
+                        <div class="winner-card-body">
+                            <div class="winner-name">${data.winnerName}</div>
+                            <div class="winner-team">${data.winnerTeam}</div>
+                            <div class="winner-bib-badge">Dossard N°${data.winnerBib}</div>
+                        </div>
+                    </div>
+
+                    <div class="jersey-desc-card">
+                        <h3>À propos de ce maillot</h3>
+                        <p>${data.text}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -310,6 +404,8 @@ function openJauneEventModal() {
     const modal = document.querySelector('.modal');
     if (!modal) return;
 
+    resetModalContent(modal);
+
     const modalImg = modal.querySelector('.modal-img');
     const modalTitle = modal.querySelector('.modal-body h2');
     const modalText = modal.querySelector('.modal-body p');
@@ -320,7 +416,7 @@ function openJauneEventModal() {
         modalImg.classList.remove('is-jersey');
     }
     if (modalTitle) modalTitle.innerText = "JAUNE Événements";
-    if (modalText) modalText.innerText = "L’association JAUNE Événements, est un club cycliste fondé en 2025 et affilié à la Fédération Française de Cyclisme. L'association loi 1901 rassemble des passionnés de vélo sous toutes ses formes et dévoués à la promotion de ce sport en Bourgogne. Outre la pratique régulière du cyclisme entre amis, l’association à plusieurs objectifs : organiser des manifestations sportives, telles que le Circuit Cycliste de Saône-et-Loire. Le but étant de conserver cette course historique dans le calendrier élite français et le vélo de haute compétition dans notre département. Organiser des manifestation extra-sportives dans le but de promouvoir plusieurs pratiques sportives, de soutenir la formation et le développement de jeunes talents, la pratique de compétitions, la promotion des déplacements doux, le sport tourisme et la promotion des lieux où les manifestations se déroulent. Enfin, l’ambition de JAUNE Evénements est également de pouvoir offrir une partie des bénéfices générés par ses organisations, à des associations caritatives, actions de solidarité ou à des œuvres d’intérêt public.";
+    if (modalText) modalText.innerText = "L’association JAUNE Événements, est un club cycliste fondé en 2025 et affilié à la Fédération Française de Cyclisme. L'association loi 1901 rassemble des passionnés de vélo sous toutes ses formes et dévoués à la promotion de ce sport en Bourgogne. Outre la pratique régulière du cyclisme entre amis, l’association à plusieurs objectifs : organiser des manifestations sportives, telles que le Circuit Cycliste de Saône-et-Loire. Le but étant de conserver cette course historique dans le calendrier élite français et le vélo de haute compétition dans notre département. Organiser des manifestation extra-sportives dans le but de promouvoir plusieurs pratiques sportives, de soutenir la formation et le développement de jeunes talents, la pratique de compétitions, la promotion des déplacements doux, le sport tourisme et la promotion des lieux où les manifestations se déroulent. Enfin, l’ambition de JAUNE Evénements is également de pouvoir offrir une partie des bénéfices générés par ses organisations, à des associations caritatives, actions de solidarité ou à des œuvres d’intérêt public.";
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -332,6 +428,8 @@ function openJauneEventModal() {
 function openGalleryModal(src, alt) {
     const modal = document.querySelector('.modal');
     if (!modal) return;
+
+    resetModalContent(modal);
 
     const modalImg = modal.querySelector('.modal-img');
     const modalTitle = modal.querySelector('.modal-body h2');
