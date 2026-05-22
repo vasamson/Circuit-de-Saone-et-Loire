@@ -5275,3 +5275,90 @@ body.in-maintenance {
         font-size: 1.45rem;
     }
 }
+
+/* ==========================================================================
+   GALERIE PHOTO - ALBUMS ÉTAPES - PLACEHOLDERS HUMORISTIQUES
+   ========================================================================== */
+
+.placeholder-gallery-card {
+    background: #ffffff;
+    border: 2px dashed rgba(194, 148, 93, 0.4);
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 4rem auto;
+    box-shadow: 0 10px 30px rgba(11, 31, 80, 0.04);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-color: rgba(194, 148, 93, 0.35);
+}
+
+.placeholder-gallery-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(11, 31, 80, 0.08);
+}
+
+.placeholder-icon-wrapper {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    animation: bikeRide 4s infinite linear;
+}
+
+@keyframes bikeRide {
+    0% { transform: translateX(-8px) rotate(0deg); }
+    50% { transform: translateX(8px) rotate(3deg); }
+    100% { transform: translateX(-8px) rotate(0deg); }
+}
+
+.placeholder-gallery-card h3 {
+    font-size: 1.6rem;
+    color: #0B1F50;
+    margin-bottom: 1rem;
+    font-family: var(--font-primary);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.placeholder-gallery-card p {
+    font-size: 1.05rem;
+    color: #445479;
+    line-height: 1.65;
+    margin-bottom: 1.8rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.placeholder-badge {
+    display: inline-block;
+    background: rgba(194, 148, 93, 0.12);
+    color: #a47c4b;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(194, 148, 93, 0.15);
+}
+
+@media (max-width: 768px) {
+    .placeholder-gallery-card {
+        padding: 3rem 1.5rem;
+        margin: 2.5rem auto;
+        max-width: 90%;
+    }
+
+    .placeholder-gallery-card h3 {
+        font-size: 1.35rem;
+    }
+
+    .placeholder-gallery-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+}
