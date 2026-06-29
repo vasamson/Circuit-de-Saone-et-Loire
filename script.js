@@ -149,22 +149,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabContents = document.querySelectorAll('.tab-content');
 
     if (tabButtons.length > 0) {
+        const activateTab = (tabId) => {
+            const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+            const targetContent = document.getElementById(tabId);
+            if (!targetBtn || !targetContent) return false;
+
+            tabButtons.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            targetBtn.classList.add('active');
+            targetContent.classList.add('active');
+            return true;
+        };
+
         tabButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-
-                // Add active class to clicked button and target content
-                btn.classList.add('active');
-                const targetContent = document.getElementById(tabId);
-                if (targetContent) {
-                    targetContent.classList.add('active');
-                }
+                activateTab(btn.getAttribute('data-tab'));
             });
         });
+
+        // Open the tab referenced by the URL hash (e.g. photos.html#etape-1)
+        const openHashTab = () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && activateTab(hash)) {
+                const tabsContainer = document.querySelector('.tabs-container');
+                if (tabsContainer) tabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+        openHashTab();
+        window.addEventListener('hashchange', openHashTab);
     }
 });
 
@@ -272,6 +285,8 @@ const jerseyData = {
         title: "Maillot Jaune",
         subtitle: "Classement Général Individuel au Temps",
         sponsor: "Maison Doucet",
+        partnerLogo: "images/bandeau-2/doucet.png",
+        partnerLink: "partenaires.html#partenaire-doucet",
         winnerName: "Rémi LELANDAIS",
         winnerTeam: "Bourg-en-Bresse Ain Cyclisme",
         winnerBib: "14",
@@ -283,6 +298,8 @@ const jerseyData = {
         title: "Maillot Vert",
         subtitle: "Classement Général par Points",
         sponsor: "SKODA Mâcon - Montceau - Chalon",
+        partnerLogo: "images/bandeau-2/skoda.png",
+        partnerLink: "partenaires.html#partenaire-suma",
         winnerName: "Rémi LELANDAIS",
         winnerTeam: "Bourg-en-Bresse Ain Cyclisme",
         winnerBib: "14",
@@ -294,6 +311,8 @@ const jerseyData = {
         title: "Maillot Rouge",
         subtitle: "Classement du Meilleur Grimpeur",
         sponsor: "LECLERC Digoin - Le Breuil - Paray",
+        partnerLogo: "images/bandeau-2/leclerc.png",
+        partnerLink: "partenaires.html#partenaire-leclerc",
         winnerName: "Maximilien JUILLARD",
         winnerTeam: "VC Villefranche Beaujolais",
         winnerBib: "22",
@@ -305,6 +324,8 @@ const jerseyData = {
         title: "Maillot Blanc",
         subtitle: "Classement du Meilleur Jeune",
         sponsor: "Crédit Mutuel",
+        partnerLogo: "images/bandeau-2/credit-mutuel.png",
+        partnerLink: "partenaires.html#partenaire-credit-mutuel",
         winnerName: "Tom LAMBERT WETZEL",
         winnerTeam: "VC Villefranche Beaujolais",
         winnerBib: "24",
@@ -316,6 +337,8 @@ const jerseyData = {
         title: "Maillot Gris",
         subtitle: "Classement du Combiné",
         sponsor: "Région Bourgogne-Franche-Comté",
+        partnerLogo: "images/bandeau-1/regionbfc.jpg.webp",
+        partnerLink: "partenaires.html#partenaire-region",
         winnerName: "Justin CORON",
         winnerTeam: "VC Rouen 76",
         winnerBib: "32",
@@ -327,6 +350,8 @@ const jerseyData = {
         title: "Maillot Or",
         subtitle: "Classement des Points Chauds",
         sponsor: "Saône-et-Loire Le Département",
+        partnerLogo: "images/bandeau-1/saoneetloire.png",
+        partnerLink: "partenaires.html#partenaire-departement",
         winnerName: "Jack BROUGH",
         winnerTeam: "AVC Aix-en-Provence DOLE",
         winnerBib: "3",
@@ -362,6 +387,9 @@ function openJerseyModal(jerseyName) {
                         <p class="jersey-modal-subtitle">${data.subtitle}</p>
                     </div>
                 </div>
+                ${data.partnerLogo ? `<a href="${data.partnerLink}" class="jersey-partner-logo" title="Découvrir ${data.sponsor} dans nos soutiens">
+                    <img src="${data.partnerLogo}" alt="${data.sponsor}">
+                </a>` : ``}
             </div>
 
             <!-- Body: Grid with Podium Photo & Winner details -->

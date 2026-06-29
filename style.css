@@ -4977,6 +4977,49 @@ body.in-maintenance {
     border-bottom: 4px solid var(--primary-color);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* Cliquable : logo du partenaire du maillot (en haut à droite) */
+.jersey-partner-logo {
+    position: relative;
+    z-index: 3;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px 14px;
+    max-width: 140px;
+    height: 64px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(194, 148, 93, 0.5);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.jersey-partner-logo:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    border-color: var(--primary-color);
+}
+
+.jersey-partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Décalage d'ancre pour éviter que la navbar fixe masque la section partenaire */
+.partner-row {
+    scroll-margin-top: 110px;
 }
 
 .jersey-modal-header::after {
@@ -5240,10 +5283,18 @@ body.in-maintenance {
 
     .jersey-modal-header {
         padding: 1.2rem 1.2rem;
+        gap: 0.8rem;
     }
 
     .jersey-header-left {
         gap: 1rem;
+    }
+
+    .jersey-partner-logo {
+        max-width: 88px;
+        height: 48px;
+        padding: 6px 8px;
+        border-radius: 9px;
     }
 
     .jersey-vector-badge {
