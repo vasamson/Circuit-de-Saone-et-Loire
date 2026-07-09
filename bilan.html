@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bilan de l'édition 2026 — Circuit de Saône-et-Loire</title>
     <meta name="description"
-        content="Bilan de l'édition 2026 du Circuit de Saône-et-Loire : chiffres clés, résultats, maillots, visibilité média et synthèse budgétaire.">
+        content="Bilan de l'édition 2026 du Circuit de Saône-et-Loire : chiffres clés, palmarès, maillots, visibilité média et budget.">
     <link rel="icon" href="images/pin.png">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
 
@@ -47,6 +47,7 @@
             --navy-2: #16306e;
             --gold: #C2945D;
             --gold-dark: #a97b45;
+            --gold-soft: #f4ece1;
             --yellow: #F2C230;
             --ink: #14203f;
             --muted: #5b6a86;
@@ -138,64 +139,82 @@
             font-weight: 700;
         }
 
-        .logo {
+        /* Titre BILAN de la page 1 */
+        .head.cover {
+            align-items: center;
+            padding-bottom: 14px;
+        }
+
+        .head.cover h1 {
+            font-size: 82px;
+            letter-spacing: .01em;
+            line-height: .86;
+        }
+
+        .head.cover .meta {
+            font-size: 13.5px;
+            margin-top: 10px;
+        }
+
+        .logos {
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logos .lg {
             text-align: center;
         }
 
-        .logo img {
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
+        .logos .lg img {
+            display: block;
+            height: 58px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .logo span {
+        .logos .lg.circuit img {
+            height: 46px;
+        }
+
+        .logos .lg span {
             display: block;
-            font-size: 8.5px;
+            font-size: 8px;
             letter-spacing: .16em;
             text-transform: uppercase;
             color: var(--muted);
-            margin-top: 5px;
+            margin-top: 6px;
         }
 
-        /* ============ HERO PHOTO ============ */
-        .hero {
-            position: relative;
+        .logos .sep {
+            width: 1px;
+            height: 46px;
+            background: var(--line);
+        }
+
+        .je-logo {
+            cursor: pointer;
+        }
+
+        /* ============ PAGE 1 — AFFICHE + CHIFFRES ============ */
+        .cover-grid {
+            display: grid;
+            grid-template-columns: 82mm 1fr;
+            gap: 18px;
+            padding-bottom: 20px;
+        }
+
+        .affiche {
+            border: 1px solid var(--line);
             border-radius: 12px;
             overflow: hidden;
-            height: 66mm;
-            margin-bottom: 16px;
-            background: #ccc;
+            background: var(--navy);
         }
 
-        .hero img {
+        .affiche img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 58%;
             display: block;
-        }
-
-        .hero .cap {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            padding: 30px 22px 16px;
-            background: linear-gradient(0deg, rgba(11, 31, 80, .9), transparent);
-            color: #fff;
-        }
-
-        .hero .cap .t {
-            font-family: var(--display);
-            font-size: 24px;
-            line-height: 1;
-        }
-
-        .hero .cap .s {
-            font-size: 12px;
-            color: rgba(255, 255, 255, .82);
-            margin-top: 5px;
         }
 
         /* ============ SECTION TITLE ============ */
@@ -203,7 +222,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin: 4px 0 14px;
+            margin: 0 0 12px;
         }
 
         .sec-h .bar {
@@ -229,144 +248,201 @@
             letter-spacing: .04em;
         }
 
-        /* ============ STAT GRID ============ */
+        /* ============ STATS (épurés) ============ */
         .stats {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            column-gap: 26px;
-            row-gap: 18px;
-            margin-bottom: 22px;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 0;
+            row-gap: 0;
         }
 
         .stat {
             display: flex;
-            gap: 14px;
-            align-items: flex-start;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--line);
+            align-items: baseline;
+            gap: 9px;
+            padding: 13px 0;
         }
 
-        .stat i {
-            font-size: 19px;
-            color: var(--gold);
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-            display: grid;
-            place-items: center;
-            border-radius: 10px;
-            background: rgba(194, 148, 93, .12);
-            margin-top: 2px;
+        .stat:nth-child(odd):not(.wide) {
+            padding-right: 12px;
         }
 
+        .stat:nth-child(even):not(.wide) {
+            padding-left: 12px;
+        }
+
+        /* chiffres alignés à droite : les libellés s'alignent parfaitement */
         .stat .num {
             font-size: 26px;
             font-weight: 700;
             color: var(--navy);
             line-height: 1;
-        }
-
-        .stat .num small {
-            font-size: 15px;
+            min-width: 52px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -.01em;
         }
 
         .stat .txt {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--ink);
             font-weight: 700;
             line-height: 1.2;
-            margin-top: 5px;
         }
 
         .stat .txt span {
             display: block;
             font-weight: 300;
             color: var(--muted);
-            font-size: 11.5px;
+            font-size: 10.5px;
+            letter-spacing: .01em;
+            margin-top: 2px;
         }
 
-        /* ============ ÉTAPES / PHOTOS ============ */
-        .stages {
+        /* antidopage & partenaires : lignes pleine largeur, alignées sur la grille */
+        .stat.wide {
+            grid-column: 1 / -1;
+        }
+
+
+
+        /* rangée de 4 cartes clés */
+        .keys {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 20px;
-            align-items: stretch;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
         }
 
+        .key {
+            background: var(--navy);
+            color: #fff;
+            border-radius: 12px;
+            padding: 12px 13px;
+        }
+
+        .key i {
+            font-size: 15px;
+            color: var(--yellow);
+        }
+
+        .key .hn {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 7px 0 5px;
+        }
+
+        .key .ht {
+            font-size: 10.5px;
+            line-height: 1.3;
+            color: #cdd5e4;
+        }
+
+        .keynote {
+            font-size: 8.5px;
+            color: var(--muted);
+            font-style: italic;
+            margin: 6px 0 10px;
+        }
+
+        /* ============ ÉTAPES ============ */
         .stage-list {
             list-style: none;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
         .stage {
-            display: flex;
-            align-items: center;
-            gap: 14px;
             border: 1px solid var(--line);
-            border-left: 4px solid var(--gold);
+            border-top: 4px solid var(--gold);
             border-radius: 10px;
-            padding: 11px 15px;
+            padding: 15px 15px;
             background: var(--bg-soft);
         }
 
+        /* police display sans accents -> on garde Advent Pro ici */
         .stage .n {
-            font-family: var(--display);
-            font-size: 21px;
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 10.5px;
             color: var(--gold-dark);
-            line-height: 1;
-            min-width: 30px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        /* répartit l'espace libre au lieu de le laisser en bas de page */
+        .grow {
+            margin-bottom: auto;
         }
 
         .stage .route {
             font-weight: 700;
             color: var(--navy);
-            font-size: 14.5px;
+            font-size: 13.5px;
+            line-height: 1.15;
+            margin: 3px 0 4px;
         }
 
         .stage .win {
-            font-size: 11.5px;
+            font-size: 11px;
             color: var(--muted);
-            margin-top: 1px;
+            line-height: 1.25;
         }
 
         .stage .win b {
             color: var(--ink);
             font-weight: 700;
-        }
-
-        .stage .km {
-            margin-left: auto;
-            font-size: 11px;
-            color: var(--muted);
-            text-align: right;
-            white-space: nowrap;
-        }
-
-        .side-photo {
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .side-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             display: block;
         }
 
-        .side-photo .lbl {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 20px 14px 10px;
-            background: linear-gradient(0deg, rgba(11, 31, 80, .85), transparent);
-            color: #fff;
-            font-size: 11.5px;
+        .stage .km {
+            font-size: 10.5px;
+            color: var(--gold-dark);
             font-weight: 700;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* rappel course */
+        .recap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+            padding-bottom: 20px;
+        }
+
+        .recap .r {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--navy);
+            border-radius: 10px;
+            padding: 14px 15px;
+            background: #fff;
+        }
+
+        .recap .r i {
+            font-size: 17px;
+            color: var(--gold);
+        }
+
+        .recap .rv {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .recap .rl {
+            font-size: 10.5px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-top: 3px;
         }
 
         /* ============ VAINQUEUR ============ */
@@ -374,17 +450,16 @@
             display: flex;
             gap: 18px;
             align-items: center;
-            background: #fbf1db;
-            border: 1px solid rgba(194, 148, 93, .35);
+            background: var(--gold-soft);
+            border: 1px solid #e2d3bd;
             border-radius: 14px;
-            padding: 16px 20px;
-            margin-bottom: 22px;
+            padding: 10px 18px;
+            margin-bottom: 10px;
         }
 
         .winner img {
             width: 66px;
             flex-shrink: 0;
-            filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .2));
         }
 
         .winner .wk {
@@ -408,21 +483,67 @@
             color: var(--muted);
         }
 
-        /* ============ MAILLOTS — liste verticale ============ */
+        .winner .wstats {
+            display: flex;
+            gap: 20px;
+            margin-top: 9px;
+            padding-top: 9px;
+            border-top: 1px solid #e2d3bd;
+        }
+
+        .winner .wstats .v {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .winner .wstats .l {
+            font-size: 8.5px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        .champs-h {
+            font-size: 9.5px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin: 9px 0 4px;
+        }
+
+        .morephotos {
+            margin-top: 7px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .morephotos b {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* ============ MAILLOTS ============ */
         .mlist {
             display: flex;
             flex-direction: column;
-            gap: 7px;
+            gap: 5px;
         }
 
         .mrow {
-            display: flex;
+            display: grid;
+            grid-template-columns: 36px 1.15fr 1fr 1.15fr;
             align-items: center;
             gap: 14px;
             border: 1px solid var(--line);
             border-left: 4px solid var(--gold);
             border-radius: 10px;
-            padding: 7px 15px;
+            padding: 4px 14px;
             background: #fff;
         }
 
@@ -430,7 +551,6 @@
             width: 36px;
             height: 36px;
             object-fit: contain;
-            flex-shrink: 0;
         }
 
         .mrow .cat {
@@ -450,8 +570,23 @@
             margin-top: 2px;
         }
 
+        .mrow .brand .bl {
+            font-size: 8.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 1;
+        }
+
+        .mrow .brand .bn {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--gold-dark);
+            line-height: 1.15;
+            margin-top: 3px;
+        }
+
         .mrow .wn2 {
-            margin-left: auto;
             text-align: right;
             line-height: 1.15;
         }
@@ -468,66 +603,158 @@
             color: var(--muted);
         }
 
+        .mrow .wn2 .dv {
+            font-size: 9px;
+            letter-spacing: .04em;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        /* bandeau champions de France */
+        .champs {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 0;
+            border: 1px solid #e2d3bd;
+            border-left: 4px solid var(--gold);
+            border-radius: 10px;
+            padding: 8px 14px;
+            background: var(--gold-soft);
+            font-size: 11px;
+            color: var(--ink);
+            line-height: 1.35;
+        }
+
+        .champs i {
+            color: var(--gold-dark);
+            font-size: 17px;
+            width: 22px;
+            text-align: center;
+        }
+
+        .champs b {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* mur de logos groupé */
+        .wallgroup {
+            margin-bottom: 5px;
+        }
+
+        .wg-h {
+            font-size: 8.5px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
         .team-line {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             margin-top: 7px;
-            border: 1px solid var(--line);
+            border: 1px solid #e8dcae;
             border-left: 4px solid var(--yellow);
             border-radius: 10px;
             padding: 9px 15px;
-            background: rgba(242, 194, 48, .08);
+            background: #fdf7e4;
+        }
+
+        .team-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+            margin-top: 7px;
+        }
+
+        .team-row .team-line {
+            margin-top: 0;
+            min-width: 0;
         }
 
         .team-line i {
             color: var(--gold-dark);
             font-size: 18px;
+            width: 22px;
+            text-align: center;
+        }
+
+        /* ============ PHOTOS (En images) ============ */
+        .duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .shot {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 38mm;
+            background: #dfe3ea;
+        }
+
+        .shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* ============ MÉDIAS ============ */
         .mstats {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 11px;
+            padding-bottom: 20px;
         }
 
         .mstat {
             border: 1px solid var(--line);
             border-radius: 11px;
-            padding: 13px 8px;
-            text-align: center;
+            padding: 13px 15px;
             background: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .mstat i {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--gold);
-            display: block;
-            margin-bottom: 7px;
+            width: 20px;
+            text-align: center;
         }
 
         .mstat .num {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
             color: var(--navy);
             line-height: 1;
         }
 
         .mstat .lab {
-            font-size: 9.5px;
+            font-size: 10px;
             color: var(--muted);
-            margin-top: 6px;
+            margin-top: 4px;
             line-height: 1.25;
         }
 
-        /* 4 doubles pages JSL */
+        .mstat .lab b {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
         .clips4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 9px;
-            height: 62mm;
+            height: 56mm;
         }
 
         .clips4 .c {
@@ -551,23 +778,18 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background: linear-gradient(0deg, rgba(11, 31, 80, .9), transparent);
+            background: var(--navy);
             color: #fff;
             font-size: 9.5px;
             font-weight: 700;
-            padding: 14px 8px 6px;
+            padding: 5px 8px;
             text-align: center;
         }
 
         .logo-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .logo-grid.three {
             grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
         }
 
         .brandbox {
@@ -599,7 +821,7 @@
         }
 
         .brandbox img {
-            max-height: 36px;
+            max-height: 34px;
             max-width: 100%;
             object-fit: contain;
         }
@@ -627,7 +849,7 @@
 
         .chip {
             font-size: 11.5px;
-            padding: 8px 12px;
+            padding: 10px 13px;
             border-radius: 9px;
             border: 1px solid var(--line);
             background: var(--bg-soft);
@@ -647,30 +869,127 @@
             font-size: 9.5px;
             color: var(--muted);
             font-style: italic;
-            margin-top: 12px;
+            margin-top: 7px;
             line-height: 1.4;
         }
 
-        /* ============ BUDGET ============ */
-        .budget-top {
-            display: grid;
-            grid-template-columns: 1fr 1.15fr;
-            gap: 20px;
-            margin-bottom: 13px;
-            align-items: stretch;
-        }
-
-        .budget-hero {
+        /* ============ PERSONNALITÉS PRÉSENTES ============ */
+        .vip {
+            display: flex;
+            align-items: center;
+            gap: 18px;
             background: var(--navy);
             color: #fff;
             border-radius: 14px;
-            padding: 18px 24px;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+        }
+
+        .vip i {
+            font-size: 25px;
+            color: var(--yellow);
+            width: 30px;
+            text-align: center;
+        }
+
+        .vip .vk {
+            font-size: 9.5px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        .vip .vn {
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.05;
+            margin: 3px 0;
+        }
+
+        .vip .vs {
+            font-size: 11.5px;
+            color: #cdd5e4;
+        }
+
+        .vgrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 11px;
+        }
+
+        .pcol {
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--gold);
+            border-radius: 10px;
+            padding: 9px 12px;
+            background: var(--bg-soft);
+        }
+
+        .pcol .ph {
+            font-size: 9.5px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .pcol ul {
+            list-style: none;
+        }
+
+        .pcol li {
+            font-size: 10.5px;
+            color: var(--muted);
+            line-height: 1.3;
+            padding: 3px 0 3px 11px;
+            position: relative;
+        }
+
+        .pcol li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .pcol li b {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* ============ BUDGET (1 page) ============ */
+        .bblock {
+            display: grid;
+            gap: 16px;
+            align-items: stretch;
+            margin-bottom: 11px;
+        }
+
+        .bblock.rec {
+            grid-template-columns: 62mm 1fr;
+        }
+
+        .bblock.dep {
+            grid-template-columns: 1fr 62mm;
+        }
+
+        .bbox {
+            background: var(--navy);
+            color: #fff;
+            border-radius: 14px;
+            padding: 14px 18px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .budget-hero .bk {
+        .bbox .bk {
             font-size: 11px;
             letter-spacing: .18em;
             text-transform: uppercase;
@@ -678,81 +997,57 @@
             font-weight: 700;
         }
 
-        .budget-hero .bt {
-            font-size: 40px;
+        .bbox .bt {
+            font-size: 33px;
             font-weight: 700;
             line-height: 1;
-            margin: 6px 0 5px;
+            margin: 7px 0 6px;
         }
 
-        .budget-hero .bs {
-            font-size: 12.5px;
-            color: rgba(255, 255, 255, .78);
+        .bbox .bs {
+            font-size: 11.5px;
+            color: #cdd5e4;
+            line-height: 1.35;
         }
 
-        .budget-hero .bmeta {
+        .bbox .bmeta {
             display: flex;
-            gap: 22px;
+            gap: 18px;
             margin-top: 12px;
             padding-top: 11px;
-            border-top: 1px solid rgba(255, 255, 255, .18);
+            border-top: 1px solid #35446b;
         }
 
-        .budget-hero .bmeta .v {
-            font-size: 22px;
+        .bbox .bmeta .v {
+            font-size: 19px;
             font-weight: 700;
         }
 
-        .budget-hero .bmeta .l {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .7);
+        .bbox .bmeta .l {
+            font-size: 9px;
+            color: #b6c0d4;
             text-transform: uppercase;
             letter-spacing: .08em;
-        }
-
-        .budget-photo {
-            border-radius: 14px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .budget-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .logowall {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 7px;
-            margin-bottom: 2px;
-        }
-
-        .logowall .brandbox {
-            height: 44px;
-        }
-
-        .logowall .brandbox img {
-            max-height: 34px;
+            line-height: 1.2;
+            margin-top: 2px;
         }
 
         .bars {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            justify-content: center;
+            gap: 5px;
         }
 
         .brow {
             display: grid;
-            grid-template-columns: 168px 1fr 96px;
+            grid-template-columns: 152px 1fr 52px;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .brow .blabel {
-            font-size: 12.5px;
+            font-size: 11.5px;
             font-weight: 700;
             color: var(--ink);
             text-align: right;
@@ -760,7 +1055,7 @@
         }
 
         .brow .btrack {
-            height: 20px;
+            height: 15px;
             background: var(--bg-soft);
             border-radius: 20px;
             overflow: hidden;
@@ -772,26 +1067,61 @@
             background: linear-gradient(90deg, var(--navy), var(--gold));
         }
 
-        .brow.rec .bfill {
+        .brow.r .bfill {
             background: linear-gradient(90deg, var(--gold), var(--navy));
         }
 
-        .brow.alt .bfill {
-            background: linear-gradient(90deg, #9aa7c2, #c9d2e3);
-        }
-
         .brow .bval {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--navy);
             white-space: nowrap;
+            text-align: right;
         }
 
-        .brow .bval small {
-            display: block;
-            font-size: 10px;
-            font-weight: 300;
-            color: var(--muted);
+        .logowall {
+            display: grid;
+            gap: 4px;
+        }
+
+        .logowall .brandbox {
+            height: 32px;
+            padding: 3px;
+        }
+
+        .logowall .brandbox img {
+            max-height: 24px;
+        }
+
+        /* 8 soutiens majeurs -> 1 rangée pleine, logos plus grands */
+        .logowall.c8 {
+            grid-template-columns: repeat(8, 1fr);
+        }
+
+        .logowall.c8 .brandbox {
+            height: 38px;
+        }
+
+        .logowall.c8 .brandbox img {
+            max-height: 30px;
+        }
+
+        /* 10 collectivités -> 2 rangées pleines */
+        .logowall.c5 {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .logowall.c5 .brandbox {
+            height: 34px;
+        }
+
+        .logowall.c5 .brandbox img {
+            max-height: 27px;
+        }
+
+        /* 17 mécènes */
+        .logowall.c9 {
+            grid-template-columns: repeat(9, 1fr);
         }
 
         /* ============ FOOTER ============ */
@@ -863,113 +1193,152 @@
 
 <body>
 
-    <p class="screen-hint">Aperçu écran — 5 pages A4. Pour exporter : Imprimer → Enregistrer au format PDF (marges :
+    <p class="screen-hint">Aperçu écran — 4 pages A4. Pour exporter : Imprimer → Enregistrer au format PDF (marges :
         aucune). · Astuce : cliquez sur le logo Jaune Événements 🔊</p>
 
-    <!-- ==================== PAGE 1 — VUE D'ENSEMBLE ==================== -->
+    <!-- ==================== PAGE 1 — BILAN / VUE D'ENSEMBLE ==================== -->
     <section class="page">
-        <header class="head">
+        <header class="head cover">
             <div>
-                <div class="kicker">Bilan de l'édition</div>
-                <h1>Circuit de Saône-et-Loire <span class="yr">2026</span></h1>
-                <p class="meta"><b>54ᵉ édition</b> · Du 8 au 10 mai · Course Élite Nationale</p>
+                <h1>Bilan <span class="yr">2026</span></h1>
+                <p class="meta"><b>54ᵉ édition</b> · 8, 9 &amp; 10 mai 2026 · Course Élite Nationale</p>
             </div>
-            <div class="logo">
-                <img src="images/jaune-evenements.png" alt="Jaune Événements">
-                <span>Organisation</span>
+            <div class="logos">
+                <div class="lg circuit"><img src="images/generique-bleu.png" alt="Circuit de Saône-et-Loire Cycliste"></div>
+                <div class="sep"></div>
+                <div class="lg"><img class="je-logo" src="images/jaune-evenements.png" alt="Jaune Événements">
+                    <span>Organisation</span>
+                </div>
             </div>
         </header>
 
-        <div class="hero">
-            <img src="images/Banque%20Photos/Banque%20photo%20Etape%203/55264143675_d88417963e_k.jpg"
-                alt="Arrivée de l'étape 3 à Saint-Vallier">
-            <div class="cap">
-                <div class="t">Trois jours de course en Saône-et-Loire</div>
+        <div class="cover-grid grow">
+            <div class="affiche">
+                <img src="images/affiche-CSL2026.jpg" alt="Affiche officielle du Circuit de Saône-et-Loire 2026">
+            </div>
+
+            <div>
+                <div class="sec-h"><span class="bar"></span>
+                    <h2>L'édition en chiffres</h2>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="num">102</div>
+                        <div class="txt">Coureurs au départ<span>17 équipes engagées</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">63</div>
+                        <div class="txt">Finisseurs<span>61 % des partants</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">10</div>
+                        <div class="txt">Nationalités<span>représentées</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">71</div>
+                        <div class="txt">Communes traversées<span>sur les 3 étapes</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">17</div>
+                        <div class="txt">Équipes<span>Élite Nationale</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">2 500</div>
+                        <div class="txt">Spectateurs<span>sur le week-end</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">+300</div>
+                        <div class="txt">Chambres d'hôtel<span>réservées sur le territoire</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">+100</div>
+                        <div class="txt">Bénévoles<span>mobilisés sur l'épreuve</span></div>
+                    </div>
+                    <div class="stat wide">
+                        <div class="num">12</div>
+                        <div class="txt">Coureurs contrôlés par l'AFLD<span>Agence française de lutte contre le
+                                dopage, sur 2 étapes</span></div>
+                    </div>
+                    <div class="stat wide">
+                        <div class="num">34</div>
+                        <div class="txt">Partenaires de l'épreuve<span>Publics et privés</span></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="sec-h"><span class="bar"></span>
-            <h2>L'édition en chiffres</h2>
-        </div>
-        <div class="stats">
-            <div class="stat"><i class="fa-solid fa-person-biking"></i>
-                <div>
-                    <div class="num">102</div>
-                    <div class="txt">Coureurs au départ<span>17 équipes engagées</span></div>
-                </div>
+        <div class="keys">
+            <div class="key">
+                <i class="fa-solid fa-medal"></i>
+                <div class="hn">7</div>
+                <div class="ht">Coureurs du top 20 Élite français au départ</div>
             </div>
-            <div class="stat"><i class="fa-solid fa-flag-checkered"></i>
-                <div>
-                    <div class="num">63</div>
-                    <div class="txt">Finisseurs<span>61 % des partants</span></div>
-                </div>
+            <div class="key">
+                <i class="fa-solid fa-gauge-high"></i>
+                <div class="hn">43,3 km/h</div>
+                <div class="ht">Moyenne générale de l'épreuve</div>
             </div>
-            <div class="stat"><i class="fa-solid fa-earth-europe"></i>
-                <div>
-                    <div class="num">10</div>
-                    <div class="txt">Nationalités<span>au départ</span></div>
-                </div>
+            <div class="key">
+                <i class="fa-solid fa-thumbs-up"></i>
+                <div class="hn">82 %</div>
+                <div class="ht">Des équipes satisfaites du parcours*</div>
             </div>
-            <div class="stat"><i class="fa-solid fa-location-dot"></i>
-                <div>
-                    <div class="num">71</div>
-                    <div class="txt">Communes traversées<span>Sur les 3 étapes</span></div>
-                </div>
-            </div>
-            <div class="stat"><i class="fa-solid fa-route"></i>
-                <div>
-                    <div class="num">3</div>
-                    <div class="txt">Étapes disputées<span>3 jours de course</span></div>
-                </div>
-            </div>
-            <div class="stat"><i class="fa-solid fa-sack-dollar"></i>
-                <div>
-                    <div class="num">129 772&nbsp;<small>€</small></div>
-                    <div class="txt">Budget total<span>Détail en page 3</span></div>
-                </div>
+            <div class="key">
+                <i class="fa-solid fa-rotate-right"></i>
+                <div class="hn">100 %</div>
+                <div class="ht">Des équipes souhaitent revenir en 2027*</div>
             </div>
         </div>
+        <p class="keynote">* Sondage réalisé auprès des 17 équipes engagées, après l'événement.</p>
 
         <div class="sec-h"><span class="bar"></span>
             <h2>Les trois étapes</h2>
         </div>
-        <div class="stages">
-            <ul class="stage-list">
-                <li class="stage">
-                    <span class="n">1</span>
-                    <div>
-                        <div class="route">Le Creusot → Pierre-de-Bresse</div>
-                        <div class="win">Vainqueur : <b>Raphaël Pottier</b> · AVC Aix-en-Provence</div>
-                    </div>
-                    <span class="km">Vendredi<br>8 mai</span>
-                </li>
-                <li class="stage">
-                    <span class="n">2</span>
-                    <div>
-                        <div class="route">Chardonnay → Chardonnay</div>
-                        <div class="win">Vainqueur : <b>Quentin Bezza</b> · SCO Dijon</div>
-                    </div>
-                    <span class="km">Samedi<br>9 mai</span>
-                </li>
-                <li class="stage">
-                    <span class="n">3</span>
-                    <div>
-                        <div class="route">Digoin → Saint-Vallier</div>
-                        <div class="win">Vainqueur : <b>Rémi Lelandais</b> · Bourg Ain Cyclisme</div>
-                    </div>
-                    <span class="km">Dimanche<br>10 mai</span>
-                </li>
-            </ul>
-            <div class="side-photo">
-                <img src="images/Banque%20Photos/Banque%20Etape%201/55263608926_b9b6e249ef_k.jpg"
-                    alt="Présentation des équipes">
-                <div class="lbl">Présentation officielle des équipes</div>
+        <ul class="stage-list">
+            <li class="stage">
+                <div class="n">Étape 1 · Ven. 8 mai</div>
+                <div class="route">Le Creusot → Pierre-de-Bresse</div>
+                <div class="win">Vainqueur<b>Raphaël Pottier</b>AVC Aix-en-Provence</div>
+                <div class="km">149,8 km · 1 384 m D+</div>
+            </li>
+            <li class="stage">
+                <div class="n">Étape 2 · Sam. 9 mai</div>
+                <div class="route">Chardonnay → Chardonnay</div>
+                <div class="win">Vainqueur<b>Quentin Bezza</b>SCO Dijon</div>
+                <div class="km">164,6 km · 2 468 m D+</div>
+            </li>
+            <li class="stage">
+                <div class="n">Étape 3 · Dim. 10 mai</div>
+                <div class="route">Digoin → Saint-Vallier</div>
+                <div class="win">Vainqueur<b>Rémi Lelandais</b>Bourg Ain Cyclisme</div>
+                <div class="km">159,7 km · 2 111 m D+</div>
+            </li>
+        </ul>
+
+        <div class="recap grow">
+            <div class="r"><i class="fa-solid fa-route"></i>
+                <div>
+                    <div class="rv">474,1 km</div>
+                    <div class="rl">Distance totale</div>
+                </div>
+            </div>
+            <div class="r"><i class="fa-solid fa-mountain"></i>
+                <div>
+                    <div class="rv">5 963 m</div>
+                    <div class="rl">Dénivelé positif</div>
+                </div>
+            </div>
+            <div class="r"><i class="fa-solid fa-shirt"></i>
+                <div>
+                    <div class="rv">6</div>
+                    <div class="rl">Maillots distinctifs</div>
+                </div>
             </div>
         </div>
 
         <footer class="foot">
             <span><span class="s">Jaune Événements</span> · Circuit de Saône-et-Loire 2026</span>
-            <span class="pg">Page 1 / 5</span>
+            <span class="pg">Page 1 / 4</span>
         </footer>
     </section>
 
@@ -977,13 +1346,15 @@
     <section class="page">
         <header class="head">
             <div>
-                <div class="kicker">Bilan de l'édition</div>
-                <h1>Palmarès &amp; <span class="yr">maillots distinctifs</span></h1>
-                <p class="meta">Les vainqueurs et les classements annexes de l'épreuve</p>
+                <div class="kicker">Bilan 2026</div>
+                <h1>Palmarès &amp; <span class="yr">maillots</span></h1>
             </div>
-            <div class="logo">
-                <img src="images/jaune-evenements.png" alt="Jaune Événements">
-                <span>Organisation</span>
+            <div class="logos">
+                <div class="lg circuit"><img src="images/generique-bleu.png" alt="Circuit de Saône-et-Loire Cycliste"></div>
+                <div class="sep"></div>
+                <div class="lg"><img class="je-logo" src="images/jaune-evenements.png" alt="Jaune Événements">
+                    <span>Organisation</span>
+                </div>
             </div>
         </header>
 
@@ -993,6 +1364,20 @@
                 <div class="wk">Vainqueur du classement général</div>
                 <div class="wn">Rémi Lelandais</div>
                 <div class="ws">Bourg Ain Cyclisme · 23 ans · ex-professionnel Arkéa–B&amp;B Hotels</div>
+                <div class="wstats">
+                    <div>
+                        <div class="v">10 h 42' 49"</div>
+                        <div class="l">Temps total</div>
+                    </div>
+                    <div>
+                        <div class="v">43,3 km/h</div>
+                        <div class="l">Moyenne</div>
+                    </div>
+                    <div>
+                        <div class="v">7ᵉ</div>
+                        <div class="l">Challenge Directvélo Amateur Élite</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1007,7 +1392,11 @@
                     <div class="cat">Maillot Jaune</div>
                     <div class="cl">Classement général</div>
                 </div>
-                <div class="wn2"><b>Rémi Lelandais</b><span>Bourg Ain Cyclisme</span></div>
+                <div class="brand">
+                    <div class="bl">Partenaire</div>
+                    <div class="bn">Maison Doucet</div>
+                </div>
+                <div class="wn2"><b>Rémi Lelandais</b><span>Bourg Ain Cyclisme</span><span class="dv">7ᵉ · Challenge Directvélo Amateur Élite</span></div>
             </div>
             <div class="mrow">
                 <img src="images/Maillots/jeune.png" alt="Maillot blanc">
@@ -1015,23 +1404,35 @@
                     <div class="cat">Maillot Blanc</div>
                     <div class="cl">Meilleur jeune</div>
                 </div>
-                <div class="wn2"><b>Tom Lambert Wetzel</b><span>VC Villefranche Beaujolais</span></div>
+                <div class="brand">
+                    <div class="bl">Partenaire</div>
+                    <div class="bn">Crédit Mutuel</div>
+                </div>
+                <div class="wn2"><b>Tom Lambert Wetzel</b><span>VC Villefranche Beaujolais</span><span class="dv">6ᵉ · Challenge Directvélo Amateur Élite</span></div>
             </div>
             <div class="mrow">
                 <img src="images/Maillots/sprint.png" alt="Maillot vert">
                 <div>
                     <div class="cat">Maillot Vert</div>
-                    <div class="cl">Meilleur grimpeur</div>
+                    <div class="cl">Classement des sprints</div>
                 </div>
-                <div class="wn2"><b>Maximilien Juillard</b><span>Classement de la montagne</span></div>
+                <div class="brand">
+                    <div class="bl">Partenaire</div>
+                    <div class="bn">SUMA × Skoda</div>
+                </div>
+                <div class="wn2"><b>Rémi Lelandais</b><span>Bourg Ain Cyclisme</span><span class="dv">7ᵉ · Challenge Directvélo Amateur Élite</span></div>
             </div>
             <div class="mrow">
                 <img src="images/Maillots/montagne.png" alt="Maillot rouge">
                 <div>
                     <div class="cat">Maillot Rouge</div>
-                    <div class="cl">Classement des sprints</div>
+                    <div class="cl">Meilleur grimpeur</div>
                 </div>
-                <div class="wn2"><b>Rémi Lelandais</b><span>Bourg Ain Cyclisme</span></div>
+                <div class="brand">
+                    <div class="bl">Partenaire</div>
+                    <div class="bn">Centres E.Leclerc</div>
+                </div>
+                <div class="wn2"><b>Maximilien Juillard</b><span>VC Villefranche Beaujolais</span><span class="dv">60ᵉ · Challenge Directvélo Amateur Élite</span></div>
             </div>
             <div class="mrow">
                 <img src="images/Maillots/departement.png" alt="Maillot or">
@@ -1039,7 +1440,11 @@
                     <div class="cat">Maillot Or</div>
                     <div class="cl">Classement des points chauds</div>
                 </div>
-                <div class="wn2"><b>Jack Brough</b><span>Points chauds</span></div>
+                <div class="brand">
+                    <div class="bl">Partenaire</div>
+                    <div class="bn">Département de Saône-et-Loire</div>
+                </div>
+                <div class="wn2"><b>Jack Brough</b><span>AVC Aix Provence Dole</span><span class="dv">101ᵉ · Challenge Directvélo Amateur Élite</span></div>
             </div>
             <div class="mrow">
                 <img src="images/Maillots/region.png" alt="Maillot Région">
@@ -1047,34 +1452,56 @@
                     <div class="cat">Maillot Région</div>
                     <div class="cl">Classement du combiné</div>
                 </div>
-                <div class="wn2"><b>Justin Coron</b><span>Combiné</span></div>
-            </div>
-            <div class="team-line">
-                <i class="fa-solid fa-trophy"></i>
-                <div>
-                    <div class="cat">Classement par équipes</div>
-                    <div class="cl">Moyon Percy</div>
+                <div class="brand">
+                    <div class="bl">Partenaire</div>
+                    <div class="bn">Région Bourgogne-Franche-Comté</div>
                 </div>
+                <div class="wn2"><b>Justin Coron</b><span>Moyon Percy Manche Normandie</span><span class="dv">147ᵉ · Challenge Directvélo Amateur Élite</span></div>
+            </div>
+            <div class="team-row">
+                <div class="team-line">
+                    <i class="fa-solid fa-trophy"></i>
+                    <div>
+                        <div class="cat">Classement par équipes</div>
+                        <div class="cl">Moyon Percy Manche Normandie</div>
+                    </div>
+                </div>
+                <div class="team-line">
+                    <i class="fa-solid fa-medal"></i>
+                    <div>
+                        <div class="cat">Souvenir Claude Repérant</div>
+                        <div class="cl">Lilian Tetard · Team Vittel N'side</div>
+                    </div>
+                </div>
+            </div>
+            <div class="champs-h">Info / Particularité</div>
+            <div class="champs">
+                <i class="fa-solid fa-award"></i>
+                <div>Aux Championnats de France Amateurs 2026, disputés à <b>La Tour-du-Pin</b> :
+                    <b>Louka Lesueur</b> (VC Rouen 76), <b>6ᵉ du classement général du Circuit 2026</b>, est devenu
+                    <b>Champion de France</b> — devant <b>Tom Lambert Wetzel</b>, <b>3ᵉ du Circuit 2026</b> et maillot
+                    blanc, sacré <b>vice-champion de France</b>.</div>
             </div>
         </div>
 
-        <div class="sec-h" style="margin-top:20px"><span class="bar"></span>
+        <div class="sec-h" style="margin-top:10px"><span class="bar"></span>
             <h2>En images</h2>
         </div>
-        <div class="stages" style="grid-template-columns:1fr 1fr;">
-            <div class="side-photo" style="height:62mm">
+        <div class="duo">
+            <div class="shot">
                 <img src="images/Banque%20Photos/Banque%20photo%20Etape%203/55263884328_cec2107067_k.jpg"
                     alt="Les lauréats de l'édition">
             </div>
-            <div class="side-photo" style="height:62mm">
-                <img src="images/Banque%20Photos/Banque%20photo%20Etape%202/55263926809_7b02efe519_k.jpg"
-                    alt="Un sprint sur les routes de Saône-et-Loire">
+            <div class="shot">
+                <img src="images/Banque%20Photos/Banque%20photo%20Etape%202/55264094395_6b968bb7c4_k.jpg"
+                    alt="Quentin Bezza vainqueur de l'étape 2 à Chardonnay">
             </div>
         </div>
+        <p class="morephotos">Pour plus de photos : <b>www.circuit-71.com</b> (rubrique photos)</p>
 
         <footer class="foot">
             <span><span class="s">Jaune Événements</span> · Circuit de Saône-et-Loire 2026</span>
-            <span class="pg">Page 2 / 5</span>
+            <span class="pg">Page 2 / 4</span>
         </footer>
     </section>
 
@@ -1082,67 +1509,82 @@
     <section class="page">
         <header class="head">
             <div>
-                <div class="kicker">Bilan de l'édition</div>
+                <div class="kicker">Bilan 2026</div>
                 <h1>Visibilité &amp; <span class="yr">impact média</span></h1>
-                <p class="meta">La couverture médiatique, digitale et l'activation des partenaires</p>
             </div>
-            <div class="logo">
-                <img src="images/jaune-evenements.png" alt="Jaune Événements">
-                <span>Organisation</span>
+            <div class="logos">
+                <div class="lg circuit"><img src="images/generique-bleu.png" alt="Circuit de Saône-et-Loire Cycliste"></div>
+                <div class="sep"></div>
+                <div class="lg"><img class="je-logo" src="images/jaune-evenements.png" alt="Jaune Événements">
+                    <span>Organisation</span>
+                </div>
             </div>
         </header>
 
         <div class="sec-h"><span class="bar"></span>
-            <h2>Les chiffres de la visibilité</h2>
+            <h2>Audience &amp; retombées</h2>
         </div>
-        <div class="mstats">
+        <div class="mstats grow">
             <div class="mstat"><i class="fa-solid fa-people-group"></i>
-                <div class="num">2 500</div>
-                <div class="lab">Spectateurs<br>sur le week-end</div>
+                <div>
+                    <div class="num">2 500</div>
+                    <div class="lab">Spectateurs au bord des routes, sur les 3 étapes du week-end</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-solid fa-newspaper"></i>
-                <div class="num">~120 000</div>
-                <div class="lab">Lecteurs JSL<br>(estimé)</div>
+                <div>
+                    <div class="num">~120 000</div>
+                    <div class="lab">Lecteurs du <b>Journal de Saône-et-Loire</b> (JSL), quotidien régional — estimé</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-solid fa-desktop"></i>
-                <div class="num">27 700</div>
-                <div class="lab">Impressions web<br>site officiel</div>
+                <div>
+                    <div class="num">27 700</div>
+                    <div class="lab">Impressions sur le site officiel de l'événement, <b>circuit-71.com</b></div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-solid fa-hand-pointer"></i>
-                <div class="num">9 020</div>
-                <div class="lab">Clics site<br>CTR moyen 34 %</div>
+                <div>
+                    <div class="num">9 020</div>
+                    <div class="lab">Clics sur <b>circuit-71.com</b> — taux de clic moyen de 34 %</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-brands fa-instagram"></i>
-                <div class="num">98 813</div>
-                <div class="lab">Vues Instagram<br>+127 abonnés · 13 850 comptes</div>
+                <div>
+                    <div class="num">98 813</div>
+                    <div class="lab">Vues sur le compte <b>Instagram</b> officiel de l'épreuve — +127 abonnés, 13 850 comptes touchés</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-solid fa-clapperboard"></i>
-                <div class="num">8 570</div>
-                <div class="lab">Vues Reels Insta<br>VC Villefranche</div>
+                <div>
+                    <div class="num">8 570</div>
+                    <div class="lab">Vues des Reels Instagram, réalisés par le <b>VC Villefranche Beaujolais</b> (interviews quotidiennes)</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-brands fa-youtube"></i>
-                <div class="num">11 000+</div>
-                <div class="lab">Vues YouTube<br>Antoine Grand · Team 74</div>
-            </div>
-            <div class="mstat"><i class="fa-solid fa-newspaper"></i>
-                <div class="num">4</div>
-                <div class="lab">Articles JSL<br>en doubles pages</div>
+                <div>
+                    <div class="num">11 000+</div>
+                    <div class="lab">Vues sur <b>YouTube</b>, sur les vidéos d'un youtubeur / influenceur spécialisé cyclisme</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-solid fa-bicycle"></i>
-                <div class="num">5</div>
-                <div class="lab">Articles<br>Directvelo</div>
+                <div>
+                    <div class="num">5</div>
+                    <div class="lab">Articles sur <b>Directvélo</b>, site web d'actualité n°1 spécialisé du cyclisme français</div>
+                </div>
             </div>
             <div class="mstat"><i class="fa-solid fa-tv"></i>
-                <div class="num">4</div>
-                <div class="lab">Villes · panneaux<br>numériques Agora</div>
+                <div>
+                    <div class="num">4</div>
+                    <div class="lab">Villes en <b>campagne d'affichage urbain</b> — panneaux numériques Agora Espace</div>
+                </div>
             </div>
         </div>
 
         <div class="sec-h"><span class="bar"></span>
-            <h2>4 doubles pages dans le JSL</h2>
-            <span class="hint">L'un des médias présents sur l'épreuve · ~120 000 lecteurs</span>
+            <h2>4 doubles pages dans le Journal de Saône-et-Loire</h2>
         </div>
-        <div class="clips4">
+        <div class="clips4 grow">
             <div class="c"><img src="presse/Presse1.png" alt="JSL — double page présentation">
                 <span class="tag">Présentation</span>
             </div>
@@ -1158,305 +1600,304 @@
         </div>
 
         <div class="sec-h" style="margin-top:18px"><span class="bar"></span>
-            <h2>Médias &amp; activation partenaires</h2>
+            <h2>Personnalités présentes sur l'épreuve</h2>
         </div>
-        <div class="activation">
+
+        <div class="vip">
+            <i class="fa-solid fa-landmark-dome"></i>
             <div>
-                <div class="mini-h">Ils ont couvert l'épreuve</div>
-                <div class="logo-grid three">
-                    <div class="brandbox">
-                        <div class="wm">JSL<small>4 doubles pages</small></div>
-                    </div>
-                    <div class="brandbox">
-                        <div class="wm">Directvelo<small>5 articles</small></div>
-                    </div>
-                    <div class="brandbox">
-                        <div class="wm">YouTube<small>Antoine Grand · T74</small></div>
-                    </div>
-                    <div class="brandbox"><img src="images/bandeau-3/LOGO RADIO SCOOP.png" alt="Radio Scoop"></div>
-                    <div class="brandbox">
-                        <div class="wm" style="font-size:11px">L'Exploitant<small>Agricole</small></div>
-                    </div>
-                    <div class="brandbox">
-                        <div class="wm" style="font-size:11px">Agora Espace<small>4 villes · panneaux</small></div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="mini-h">Activation partenaires &amp; villes</div>
-                <div class="chips">
-                    <span class="chip"><i class="fa-solid fa-city"></i><b>Villes étapes</b> — publications + affichage
-                        (71 communes)</span>
-                    <span class="chip"><i class="fa-solid fa-video"></i><b>VC Villefranche</b> — interviews quotidiennes
-                        + Reels Insta (8 570 vues)</span>
-                    <span class="chip"><i class="fa-solid fa-landmark"></i><b>Institutionnels</b> — présence du Ministre
-                        de l'Industrie S. Martin</span>
-                </div>
+                <div class="vk">Ministre délégué chargé de l'Industrie de France</div>
+                <div class="vn">Sébastien Martin</div>
+                <div class="vs">Présent à l'arrivée de l'étape 3 — dernière étape et arrivée finale, à Saint-Vallier</div>
             </div>
         </div>
 
-        <p class="note">* Estimation JSL basée sur la diffusion papier (~40 000 exemplaires / édition, 175 000 lecteurs
-            quotidiens) et l'audience digitale du site. Les 2 500 spectateurs présents sur le week-end ont vu les
-            maillots de leader portant les logos des partenaires.</p>
+        <div class="vgrid">
+            <div class="pcol">
+                <div class="ph">Les 5 maires des villes étapes</div>
+                <ul>
+                    <li><b>C. Landre</b> — Maire du Creusot</li>
+                    <li><b>A. Gruet</b> — Maire de Pierre-de-Bresse</li>
+                    <li><b>J.-C. Laugère</b> — Maire de Chardonnay</li>
+                    <li><b>D. Bême</b> — Maire de Digoin</li>
+                    <li><b>A. Philibert</b> — Maire de Saint-Vallier</li>
+                </ul>
+            </div>
+            <div class="pcol">
+                <div class="ph">Élus Région &amp; Département</div>
+                <ul>
+                    <li>Élus du <b>Conseil régional</b> de Bourgogne-Franche-Comté</li>
+                    <li>Élus du <b>Conseil départemental</b> de Saône-et-Loire</li>
+                    <li>Représentants de la <b>FFC</b>, du <b>Comité régional</b> et du <b>Comité départemental</b> de cyclisme</li>
+                    <li><b>Présidents de clubs</b> du territoire</li>
+                </ul>
+            </div>
+            <div class="pcol">
+                <div class="ph">Partenaires de l'épreuve</div>
+                <ul>
+                    <li>La plupart des <b>représentants des partenaires</b>, <b>mécènes</b> et <b>soutiens</b> de
+                        l'épreuve étaient présents sur les trois étapes</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="note">* Estimation JSL basée sur la diffusion papier du Journal de Saône-et-Loire (~40 000
+            exemplaires / édition, 175 000 lecteurs quotidiens) et sur l'audience digitale du site. L'épreuve a
+            également été relayée par Radio Scoop et L'Exploitant Agricole.</p>
 
         <footer class="foot">
             <span><span class="s">Jaune Événements</span> · Circuit de Saône-et-Loire 2026</span>
-            <span class="pg">Page 3 / 5</span>
+            <span class="pg">Page 3 / 4</span>
         </footer>
     </section>
 
-    <!-- ==================== PAGE 4 — BUDGET : RECETTES ==================== -->
+    <!-- ==================== PAGE 4 — BUDGET : RECETTES & DÉPENSES ==================== -->
     <section class="page">
         <header class="head">
             <div>
-                <div class="kicker">Bilan de l'édition · Budget</div>
-                <h1>Le budget — <span class="yr">Recettes</span></h1>
-                <p class="meta">D'où vient le budget : <b>partenaires</b>, collectivités et villes étapes</p>
+                <div class="kicker">Bilan 2026</div>
+                <h1>Le <span class="yr">budget</span></h1>
+                <p class="meta">Recettes &amp; dépenses de l'édition 2026 — <b>Budget en cours de validation finale</b></p>
             </div>
-            <div class="logo">
-                <img src="images/jaune-evenements.png" alt="Jaune Événements">
-                <span>Organisation</span>
+            <div class="logos">
+                <div class="lg circuit"><img src="images/generique-bleu.png" alt="Circuit de Saône-et-Loire Cycliste"></div>
+                <div class="sep"></div>
+                <div class="lg"><img class="je-logo" src="images/jaune-evenements.png" alt="Jaune Événements">
+                    <span>Organisation</span>
+                </div>
             </div>
         </header>
 
-        <div class="budget-top">
-            <div class="budget-hero">
-                <div class="bk">Budget total</div>
-                <div class="bt">129 772 €</div>
-                <div class="bs">Un budget financé par les partenaires privés, les mécènes, les collectivités et les
-                    villes étapes du territoire.</div>
+        <div class="sec-h"><span class="bar"></span>
+            <h2>Recettes</h2>
+            <span class="hint">D'où vient le budget</span>
+        </div>
+        <div class="bblock rec">
+            <div class="bbox">
+                <div class="bk">Total des recettes</div>
+                <div class="bt">131 672 €</div>
+                <div class="bs">Financées par les partenaires privés, les mécènes, les collectivités et les villes
+                    étapes du territoire.</div>
                 <div class="bmeta">
                     <div>
-                        <div class="v">40 %</div>
-                        <div class="l">partenaires privés</div>
+                        <div class="v">5</div>
+                        <div class="l">sources de<br>financement</div>
                     </div>
                     <div>
-                        <div class="v">26 %</div>
-                        <div class="l">villes étapes</div>
+                        <div class="v">57,22 %</div>
+                        <div class="l">partenaires privés,<br>mécènes &amp; FFC</div>
                     </div>
                 </div>
             </div>
-            <div class="budget-photo">
-                <img src="images/Banque%20Photos/Banque%20Etape%201/55263753033_93bcb445c5_k.jpg"
-                    alt="Le peloton au départ de l'épreuve">
+            <div class="bars">
+                <div class="brow r">
+                    <div class="blabel">Partenaires privés</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:100%"></div>
+                    </div>
+                    <div class="bval">39,39 %</div>
+                </div>
+                <div class="brow r">
+                    <div class="blabel">Villes étapes</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:64.3%"></div>
+                    </div>
+                    <div class="bval">25,31 %</div>
+                </div>
+                <div class="brow r">
+                    <div class="blabel">Subventions publiques</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:44.4%"></div>
+                    </div>
+                    <div class="bval">17,47 %</div>
+                </div>
+                <div class="brow r">
+                    <div class="blabel">Mécènes</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:40.2%"></div>
+                    </div>
+                    <div class="bval">15,85 %</div>
+                </div>
+                <div class="brow r">
+                    <div class="blabel">Engagements FFC</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:5%"></div>
+                    </div>
+                    <div class="bval">1,98 %</div>
+                </div>
             </div>
         </div>
 
         <div class="sec-h"><span class="bar"></span>
-            <h2>Répartition des recettes</h2>
-            <span class="hint">Total : 129 772 €</span>
+            <h2>Dépenses</h2>
+            <span class="hint">Où va le budget · 11 postes</span>
         </div>
-        <div class="bars">
-            <div class="brow rec">
-                <div class="blabel">Partenaires privés</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:100%"></div>
+        <div class="bblock dep">
+            <div class="bars">
+                <div class="brow">
+                    <div class="blabel">Hébergement &amp; restauration</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:100.0%"></div>
+                    </div>
+                    <div class="bval">27,70 %</div>
                 </div>
-                <div class="bval">51 870 €<small>39,97 %</small></div>
-            </div>
-            <div class="brow rec">
-                <div class="blabel">Villes étapes</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:64.3%"></div>
+                <div class="brow">
+                    <div class="blabel">Sécurité</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:39.4%"></div>
+                    </div>
+                    <div class="bval">10,92 %</div>
                 </div>
-                <div class="bval">33 332 €<small>25,68 %</small></div>
-            </div>
-            <div class="brow rec">
-                <div class="blabel">Subventions publiques</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:44.3%"></div>
+                <div class="brow">
+                    <div class="blabel">Infrastructures</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:37.6%"></div>
+                    </div>
+                    <div class="bval">10,42 %</div>
                 </div>
-                <div class="bval">23 000 €<small>17,72 %</small></div>
-            </div>
-            <div class="brow rec">
-                <div class="blabel">Mécènes</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:36.6%"></div>
+                <div class="brow">
+                    <div class="blabel">Véhicules</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:37.1%"></div>
+                    </div>
+                    <div class="bval">10,29 %</div>
                 </div>
-                <div class="bval">18 968 €<small>14,62 %</small></div>
-            </div>
-            <div class="brow rec">
-                <div class="blabel">Engagements FFC</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:5%"></div>
+                <div class="brow">
+                    <div class="blabel">FFC</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:34.3%"></div>
+                    </div>
+                    <div class="bval">9,50 %</div>
                 </div>
-                <div class="bval">2 602 €<small>2,01 %</small></div>
-            </div>
-        </div>
-
-        <div class="activation" style="margin-top:12px">
-            <div>
-                <div class="mini-h">Villes étapes &amp; collectivités</div>
-                <div class="chips">
-                    <span class="chip"><i class="fa-solid fa-city"></i><b>Villes étapes</b> — Le Creusot,
-                        Pierre-de-Bresse, Chardonnay, Digoin, Saint-Vallier</span>
-                    <span class="chip"><i class="fa-solid fa-landmark"></i><b>Subventions</b> — Département de
-                        Saône-et-Loire · Région Bourgogne-Franche-Comté</span>
+                <div class="brow">
+                    <div class="blabel">Marketing &amp; communication</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:29.8%"></div>
+                    </div>
+                    <div class="bval">8,25 %</div>
+                </div>
+                <div class="brow">
+                    <div class="blabel">Charges d'exploitation</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:23.2%"></div>
+                    </div>
+                    <div class="bval">6,42 %</div>
+                </div>
+                <div class="brow">
+                    <div class="blabel">Coordination &amp; animation</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:21.7%"></div>
+                    </div>
+                    <div class="bval">6,01 %</div>
+                </div>
+                <div class="brow">
+                    <div class="blabel">Prestations techniques · course</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:15.5%"></div>
+                    </div>
+                    <div class="bval">4,28 %</div>
+                </div>
+                <div class="brow">
+                    <div class="blabel">Animations &amp; prestations</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:14.2%"></div>
+                    </div>
+                    <div class="bval">3,92 %</div>
+                </div>
+                <div class="brow">
+                    <div class="blabel">Présentation officielle</div>
+                    <div class="btrack">
+                        <div class="bfill" style="width:8.2%"></div>
+                    </div>
+                    <div class="bval">2,28 %</div>
                 </div>
             </div>
-            <div>
-                <div class="mini-h">Partenaires privés, maillots &amp; soutiens</div>
-                <div class="chips">
-                    <span class="chip"><i class="fa-solid fa-shirt"></i><b>Maillots de leader</b> — E.Leclerc, Crédit
-                        Mutuel, SUMA × Skoda, Maison Doucet, Département 71, Région Bourgogne-Franche-Comté</span>
-                    <span class="chip"><i class="fa-solid fa-handshake"></i><b>Mécènes &amp; soutiens</b> —
-                        TotalEnergies, Cave de Lugny, AXA MRT, Alé, Italvet, PVP, In-Yellow, Panenka, Bernard Thévenet,
-                        Carrosserie Coiffard, Groupe Alainé</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="sec-h" style="margin-top:10px"><span class="bar"></span>
-            <h2>Ils financent l'épreuve</h2>
-        </div>
-        <div class="logowall">
-            <div class="brandbox"><img src="images/bandeau-1/regionbfc.jpg.webp" alt="Région BFC"></div>
-            <div class="brandbox"><img src="images/bandeau-1/saoneetloire.png" alt="Saône-et-Loire"></div>
-            <div class="brandbox"><img src="images/bandeau-1/creusot.jpg" alt="Le Creusot"></div>
-            <div class="brandbox"><img src="images/bandeau-1/digoin.png" alt="Digoin"></div>
-            <div class="brandbox"><img src="images/bandeau-1/saintvallier.jpg" alt="Saint-Vallier"></div>
-            <div class="brandbox"><img src="images/bandeau-1/pierredebresse.jpg" alt="Pierre-de-Bresse"></div>
-            <div class="brandbox"><img src="images/bandeau-1/chardonnay.png" alt="Chardonnay"></div>
-            <div class="brandbox"><img src="images/bandeau-1/veloce.png" alt="Véloce"></div>
-            <div class="brandbox"><img src="images/bandeau-2/leclerc.png" alt="E.Leclerc"></div>
-            <div class="brandbox"><img src="images/bandeau-2/credit-mutuel.png" alt="Crédit Mutuel"></div>
-            <div class="brandbox"><img src="images/bandeau-2/skoda.png" alt="Skoda"></div>
-            <div class="brandbox"><img src="images/bandeau-2/suma.png" alt="SUMA"></div>
-            <div class="brandbox"><img src="images/bandeau-2/doucet.png" alt="Maison Doucet"></div>
-            <div class="brandbox"><img src="images/bandeau-2/Logo_TotalEnergies.png" alt="TotalEnergies"></div>
-            <div class="brandbox"><img src="images/bandeau-2/in-yellow.png" alt="In-Yellow"></div>
-        </div>
-
-        <footer class="foot">
-            <span><span class="s">Jaune Événements</span> · Circuit de Saône-et-Loire 2026</span>
-            <span class="pg">Page 4 / 5</span>
-        </footer>
-    </section>
-
-    <!-- ==================== PAGE 5 — BUDGET : DÉPENSES ==================== -->
-    <section class="page">
-        <header class="head">
-            <div>
-                <div class="kicker">Bilan de l'édition · Budget</div>
-                <h1>Le budget — <span class="yr">Dépenses</span></h1>
-                <p class="meta">Où va le budget : répartition des <b>11 postes de dépenses</b></p>
-            </div>
-            <div class="logo">
-                <img src="images/jaune-evenements.png" alt="Jaune Événements">
-                <span>Organisation</span>
-            </div>
-        </header>
-
-        <div class="budget-top">
-            <div class="budget-hero">
+            <div class="bbox">
                 <div class="bk">Total des dépenses</div>
-                <div class="bt">129 772 €</div>
-                <div class="bs">Un budget à l'équilibre : les dépenses couvrent exactement les recettes de l'épreuve
-                    (voir page précédente).</div>
+                <div class="bt">131 531 €</div>
+                <div class="bs">Réparties sur 11 postes, de l'accueil des équipes à la sécurisation du parcours.</div>
                 <div class="bmeta">
                     <div>
                         <div class="v">11</div>
-                        <div class="l">postes de dépenses</div>
+                        <div class="l">postes de<br>dépenses</div>
                     </div>
                     <div>
-                        <div class="v">28 %</div>
-                        <div class="l">hébergement &amp; restauration</div>
+                        <div class="v">27,70 %</div>
+                        <div class="l">hébergement &amp;<br>restauration</div>
                     </div>
                 </div>
-            </div>
-            <div class="budget-photo">
-                <img src="images/Banque%20Photos/Banque%20Etape%201/55264018965_5feb7e210a_k.jpg"
-                    alt="Coupure de ruban et présentation officielle">
             </div>
         </div>
 
         <div class="sec-h"><span class="bar"></span>
-            <h2>Répartition des dépenses</h2>
-            <span class="hint">Total : 129 772 €</span>
+            <h2>Merci pour votre soutien</h2>
         </div>
-        <div class="bars">
-            <div class="brow">
-                <div class="blabel">Hébergement &amp; restauration</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:100%"></div>
-                </div>
-                <div class="bval">36 429 €<small>28,1 %</small></div>
+
+        <div class="wallgroup">
+            <div class="wg-h">Soutiens majeurs</div>
+            <div class="logowall c8">
+                <div class="brandbox"><img src="images/bandeau-2/doucet.png" alt="Maison Doucet"></div>
+                <div class="brandbox"><img src="images/bandeau-2/leclerc.png" alt="E.Leclerc"></div>
+                <div class="brandbox"><img src="images/bandeau-2/skoda.png" alt="Skoda"></div>
+                <div class="brandbox"><img src="images/bandeau-2/suma.png" alt="SUMA"></div>
+                <div class="brandbox"><img src="images/bandeau-2/credit-mutuel.png" alt="Crédit Mutuel"></div>
+                <div class="brandbox"><img src="images/bandeau-2/italvet.png" alt="Italvet"></div>
+                <div class="brandbox"><img src="images/bandeau-2/ale.png" alt="Alé — maillot officiel"></div>
+                <div class="brandbox"><img src="images/bandeau-2/pvp.png" alt="PVP"></div>
             </div>
-            <div class="brow">
-                <div class="blabel">Sécurité</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:39.7%"></div>
-                </div>
-                <div class="bval">14 471 €<small>11,2 %</small></div>
+        </div>
+
+        <div class="wallgroup">
+            <div class="wg-h">Villes départ &amp; arrivée et collectivités</div>
+            <div class="logowall c5">
+                <div class="brandbox"><img src="images/bandeau-1/creusot.jpg" alt="Le Creusot"></div>
+                <div class="brandbox"><img src="images/bandeau-1/pierredebresse.jpg" alt="Pierre-de-Bresse"></div>
+                <div class="brandbox"><img src="images/bandeau-1/mbaglo.png" alt="Bresse Nord Intercom"></div>
+                <div class="brandbox"><img src="images/bandeau-1/chardonnay.png" alt="Chardonnay"></div>
+                <div class="brandbox"><img src="images/bandeau-1/veloce.png" alt="Véloce"></div>
+                <div class="brandbox"><img src="images/bandeau-1/digoin.png" alt="Digoin"></div>
+                <div class="brandbox"><img src="images/bandeau-1/saintvallier.jpg" alt="Saint-Vallier"></div>
+                <div class="brandbox"><img src="images/bandeau-1/saoneetloire.png" alt="Département de Saône-et-Loire"></div>
+                <div class="brandbox"><img src="images/bandeau-1/regionbfc.jpg.webp" alt="Région Bourgogne-Franche-Comté"></div>
+                <div class="brandbox"><img src="images/bandeau-1/rf.png" alt="République Française"></div>
             </div>
-            <div class="brow">
-                <div class="blabel">Infrastructures</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:37.6%"></div>
-                </div>
-                <div class="bval">13 708 €<small>10,6 %</small></div>
+        </div>
+
+        <div class="wallgroup">
+            <div class="wg-h">Soutiens &amp; mécènes</div>
+            <div class="logowall c8">
+                <div class="brandbox"><img src="images/bandeau-3/ab.png" alt="Alpes Bourgogne Environnement"></div>
+                <div class="brandbox"><img src="images/bandeau-3/audabe.png" alt="Aubade"></div>
+                <div class="brandbox"><img src="images/bandeau-3/Logo_Axa.jpg" alt="AXA"></div>
+                <div class="brandbox"><img src="images/bandeau-3/LOGO-AXA-MRT.png" alt="Assur MRT"></div>
+                <div class="brandbox"><img src="images/bandeau-3/bep.png" alt="Business Event Partner"></div>
+                <div class="brandbox"><img src="images/bandeau-3/CaveLugny.jpg" alt="Cave de Lugny"></div>
+                <div class="brandbox"><img src="images/bandeau-3/CaveLugny_101.jpg" alt="Cave de Lugny — 100 ans"></div>
+                <div class="brandbox"><img src="images/bandeau-2/in-yellow.png" alt="In-Yellow"></div>
+                <div class="brandbox"><img src="images/bandeau-3/jacob.png" alt="Jacob Services"></div>
+                <div class="brandbox"><img src="images/bandeau-3/dufoux.png" alt="Maison Dufoux"></div>
+                <div class="brandbox"><img src="images/bandeau-3/LOGOCyclo.jpg" alt="La Cyclo Bernard Thévenet"></div>
+                <div class="brandbox"><img src="images/bandeau-3/panenka.png" alt="Agence Panenka"></div>
+                <div class="brandbox"><img src="images/bandeau-3/groupe-saint-aubin-logo-454-blanc-60.png" alt="Groupe Saint-Aubin"></div>
+                <div class="brandbox"><img src="images/bandeau-3/scob.jpg" alt="SCOB Bâtiment"></div>
+                <div class="brandbox"><img src="images/bandeau-2/Logo_TotalEnergies.png" alt="TotalEnergies"></div>
+                <div class="brandbox"><img src="images/bandeau-3/votre-bureau.png" alt="Votre Bureau"></div>
             </div>
-            <div class="brow">
-                <div class="blabel">FFC</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:34.3%"></div>
+        </div>
+
+        <div class="wallgroup">
+            <div class="wg-h">Presse &amp; médias</div>
+            <div class="logowall c5">
+                <div class="brandbox"><img src="images/bandeau-3/LOGO RADIO SCOOP.png" alt="Radio Scoop"></div>
+                <div class="brandbox">
+                    <div class="wm" style="font-size:11px">JSL<small>Journal de Saône-et-Loire</small></div>
                 </div>
-                <div class="bval">12 496 €<small>9,6 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Véhicules</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:32.8%"></div>
-                </div>
-                <div class="bval">11 934 €<small>9,2 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Marketing &amp; communication</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:29.1%"></div>
-                </div>
-                <div class="bval">10 591 €<small>8,2 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Charges d'exploitation</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:23.2%"></div>
-                </div>
-                <div class="bval">8 448 €<small>6,5 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Coordination &amp; animation</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:21.7%"></div>
-                </div>
-                <div class="bval">7 900 €<small>6,1 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Prestations techniques · course</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:15.5%"></div>
-                </div>
-                <div class="bval">5 630 €<small>4,3 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Animations &amp; prestations</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:14.2%"></div>
-                </div>
-                <div class="bval">5 160 €<small>4,0 %</small></div>
-            </div>
-            <div class="brow">
-                <div class="blabel">Présentation officielle</div>
-                <div class="btrack">
-                    <div class="bfill" style="width:8.2%"></div>
-                </div>
-                <div class="bval">3 005 €<small>2,3 %</small></div>
             </div>
         </div>
 
         <footer class="foot">
             <span><span class="s">Jaune Événements</span> · Circuit de Saône-et-Loire 2026</span>
-            <span class="pg">Page 5 / 5</span>
+            <span class="pg">Page 4 / 4</span>
         </footer>
     </section>
 
@@ -1665,7 +2106,7 @@
             }
             function closeApay() { overlay.classList.remove('show'); }
 
-            document.querySelectorAll('.logo img').forEach(function (el) {
+            document.querySelectorAll('.je-logo').forEach(function (el) {
                 el.addEventListener('click', openApay);
             });
             overlay.addEventListener('click', function (e) {
