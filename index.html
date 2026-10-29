@@ -7,7 +7,7 @@
     <title>Circuit de Saône-et-Loire</title>
     <meta name="description"
         content="Site officiel du Circuit de Saône-et-Loire. Découvrez le parcours, les équipes et l'histoire de cette course cycliste légendaire.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2027-5">
     <link rel="icon" href="images/pin.png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -53,12 +53,76 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-bg" style="background-image: url('images/v2-2.png');"></div>
+        <div class="hero-bg" style="background-image: url('images/hero-2027.jpg');"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
         </div>
 
     </header>
+
+    <!-- Onglets éditions -->
+    <div class="edition-tabs-bar">
+        <nav class="edition-tabs" aria-label="Choix de l'édition">
+            <a href="index.html" class="edition-tab active" aria-current="page">Édition 2027</a>
+            <a href="edition-2026.html" class="edition-tab">Édition 2026</a>
+        </nav>
+    </div>
+
+    <!-- Compte à rebours 2027 -->
+    <section class="c27-section">
+        <div class="container">
+            <span class="c27-eyebrow">55ème édition</span>
+            <h2 class="c27-title">Rendez-vous en mai 2027</h2>
+            <div class="c27-line"></div>
+
+            <div class="c27-dates">
+                <div class="c27-date">
+                    <span class="c27-day-name">Vendredi</span>
+                    <span class="c27-day-num">7</span>
+                    <span class="c27-day-month">Mai</span>
+                </div>
+                <div class="c27-date">
+                    <span class="c27-day-name">Samedi</span>
+                    <span class="c27-day-num">8</span>
+                    <span class="c27-day-month">Mai</span>
+                </div>
+                <div class="c27-date">
+                    <span class="c27-day-name">Dimanche</span>
+                    <span class="c27-day-num">9</span>
+                    <span class="c27-day-month">Mai</span>
+                </div>
+            </div>
+
+            <div class="c27-countdown" id="c27-countdown" data-target="2027-05-07T00:00:00+02:00"
+                aria-label="Temps restant avant le départ">
+                <div class="c27-unit"><span class="c27-num" data-unit="days">--</span><span class="c27-label">Jours</span></div>
+                <span class="c27-sep" aria-hidden="true">:</span>
+                <div class="c27-unit"><span class="c27-num" data-unit="hours">--</span><span class="c27-label">Heures</span></div>
+                <span class="c27-sep" aria-hidden="true">:</span>
+                <div class="c27-unit"><span class="c27-num" data-unit="minutes">--</span><span class="c27-label">Minutes</span></div>
+                <span class="c27-sep" aria-hidden="true">:</span>
+                <div class="c27-unit"><span class="c27-num" data-unit="seconds">--</span><span class="c27-label">Secondes</span></div>
+            </div>
+            <p class="c27-live" hidden>C'est parti ! Suivez la course en direct sur nos réseaux.</p>
+
+            <p class="c27-note">Parcours et équipes 2027 dévoilés prochainement.</p>
+        </div>
+    </section>
+
+    <!-- Résumé vidéo 2026 -->
+    <section class="recap-section">
+        <div class="container">
+            <span class="c27-eyebrow">En vidéo</span>
+            <h2 class="c27-title">Retour sur 2026</h2>
+            <div class="c27-line"></div>
+            <div class="recap-video">
+                <video controls playsinline preload="metadata" poster="videos/recap-2026-poster.jpg?v=4">
+                    <source src="videos/recap-2026.mp4?v=3" type="video/mp4">
+                    Votre navigateur ne peut pas lire cette vidéo.
+                </video>
+            </div>
+        </div>
+    </section>
 
     <!-- Scrolling Partners Banner -->
     <div class="partners-section">
@@ -92,175 +156,10 @@
         </div>
     </div>
 
-    <!-- Key Stats Section (Ticker style) -->
-    <section class="stats-ticker">
-        <div class="container">
-            <div class="stat-item">
-                <span class="stat-value" data-target="3">3</span>
-                <span class="stat-label">Étapes</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <span class="stat-value" data-target="474">474</span>
-                <span class="stat-label">Kilomètres</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <span class="stat-value" data-target="71">71</span>
-                <span class="stat-label">Communes</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <span class="stat-value" data-target="110">102</span>
-                <span class="stat-label">Coureurs</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <span class="stat-value" data-target="5963">5963</span>
-                <span class="stat-label">Dénivelé (m)</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- La Course 2026 Section -->
-    <section class="course-live-section bg-light" style="padding: 80px 0;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">La Course <span class="text-primary">2026</span></h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="live-grid">
-                <h3><i class="fas fa-route"></i> Le Direct par étape</h3>
-                
-                <!-- Etapes Accordion -->
-                <div class="stages-live-container">
-                    
-                    <!-- Etape 1 (Active by default) -->
-                    <div class="stage-live-card active" onclick="toggleStage(this)">
-                        <div class="stage-live-header">
-                            <span class="day-label">Vendredi 8 Mai</span>
-                            <h4>Étape 1 : Le Creusot > Pierre de Bresse</h4>
-                            <div class="badge-live"><i class="fas fa-arrows-alt-h"></i> 149.8 km &bull; <i class="fas fa-mountain"></i> 1384m D+</div>
-                        </div>
-                        <div class="stage-live-content">
-                            <div class="stage-links">
-                                <a href="etape-1.html" class="btn btn-outline dark"><i class="fas fa-info-circle"></i> Détail de l'étape</a>
-                            </div>
-                            <div class="stage-results">
-                                <a href="ClassementEtape1.pdf" target="_blank" class="btn-result"><i class="fas fa-list-ol"></i> Classements</a>
-                                <a href="photos.html#etape-1" class="btn-result"><i class="fas fa-camera"></i> Photos de l'étape</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Etape 2 -->
-                    <div class="stage-live-card" onclick="toggleStage(this)">
-                        <div class="stage-live-header">
-                            <span class="day-label">Samedi 9 Mai</span>
-                            <h4>Étape 2 : Chardonnay > Chardonnay</h4>
-                            <div class="badge-live"><i class="fas fa-arrows-alt-h"></i> 164.6 km &bull; <i class="fas fa-mountain"></i> 2468m D+</div>
-                        </div>
-                        <div class="stage-live-content">
-                            <div class="stage-links">
-                                <a href="etape-2.html" class="btn btn-outline dark"><i class="fas fa-info-circle"></i> Détail de l'étape</a>
-                            </div>
-                            <div class="stage-results">
-                                <a href="ClassementEtape2.pdf" target="_blank" class="btn-result"><i class="fas fa-list-ol"></i> Classements</a>
-                                <a href="photos.html#etape-2" class="btn-result"><i class="fas fa-camera"></i> Photos de l'étape</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Etape 3 -->
-                    <div class="stage-live-card" onclick="toggleStage(this)">
-                        <div class="stage-live-header">
-                            <span class="day-label">Dimanche 10 Mai</span>
-                            <h4>Étape 3 : Digoin > St Vallier</h4>
-                            <div class="badge-live"><i class="fas fa-arrows-alt-h"></i> 159.7 km &bull; <i class="fas fa-mountain"></i> 2111m D+</div>
-                        </div>
-                        <div class="stage-live-content">
-                            <div class="stage-links">
-                                <a href="etape-3.html" class="btn btn-outline dark"><i class="fas fa-info-circle"></i> Détail de l'étape</a>
-                            </div>
-                            <div class="stage-results">
-                                <a href="ClassementEtape3.pdf" target="_blank" class="btn-result"><i class="fas fa-list-ol"></i> Classements</a>
-                                <a href="photos.html#etape-3" class="btn-result"><i class="fas fa-camera"></i> Photos de l'étape</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- The Route Section -->
-    <section id="parcours" class="section-parcours bg-motif-bottom">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Le Parcours <span class="text-primary">2026</span></h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="parcours-grid">
-                <div class="parcours-info">
-                    <h3>Les étapes</h3>
-                    <p>Pour cette 54ème édition, le Circuit de Saône-et-Loire propose un tracé exigeant. Des
-                        monts
-                        du Mâconnais aux plaines de la Bresse, en passant par les routes sinueuses du Morvan.</p>
-
-                    <div class="stage-list">
-                        <a href="etape-1.html" class="stage-item active">
-                            <span class="stage-num">Étape 1</span>
-                            <div class="stage-details">
-                                <h4>Le Creusot > Pierre de Bresse - 149.8 km • 1384m D+</h4>
-                            </div>
-                            <span class="stage-icon"><i class="fas fa-mountain"></i></span>
-                        </a>
-                        <a href="etape-2.html" class="stage-item">
-                            <span class="stage-num">Étape 2</span>
-                            <div class="stage-details">
-                                <h4>Chardonnay > Chardonnay - 164.6 km • 2468m D+</h4>
-                            </div>
-                            <span class="stage-icon"><i class="fas fa-mountain"></i></span>
-                        </a>
-                        <a href="etape-3.html" class="stage-item active">
-                            <span class="stage-num">Étape 3</span>
-                            <div class="stage-details">
-                                <h4>Digoin > St Vallier - 159.7 km • 2111m D+</h4>
-                            </div>
-                            <span class="stage-icon"><i class="fas fa-mountain"></i></span>
-                        </a>
-                    </div>
-
-                    <div class="download-poster-section">
-                        <a href="images/CSL26_Affiche.pdf" download type="application/pdf" class="btn btn-primary">
-                            <i class="fas fa-file-pdf"></i> Affiche 2026
-                        </a>
-                        <a href="Reglement_Final_CSL_2026.docx-2.pdf" download type="application/pdf" class="btn btn-outline dark">
-                            <i class="fas fa-download"></i> Règlement 2026
-                        </a>
-                        <a href="GuidedeRoute_CSL_2026.pdf" download type="application/pdf" class="btn btn-outline dark">
-                            <i class="fas fa-book"></i> Guide de route 2026
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="parcours-map-card">
-                    <img src="images/carte.png" alt="Carte du parcours 2026" class="map-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Jerseys Section -->
     <section class="section-jerseys">
         <div class="container">
-            <h2 class="section-title text-center" style="text-align: center; margin-bottom: 2rem;">Les Maillots 2026
-            </h2>
+            <h2 class="section-title text-center" style="text-align: center; margin-bottom: 2rem;">Les Maillots</h2>
             <div class="jerseys-grid">
                 <div class="jersey-item">
                     <img src="images/Maillots/general.png" alt="Maillot Général" class="jersey-img clickable-jersey"
@@ -723,7 +622,34 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2027-4"></script>
+    <script>
+        // Compte à rebours jusqu'au départ de l'édition 2027
+        (function () {
+            var box = document.getElementById('c27-countdown');
+            if (!box) return;
+            var target = new Date(box.getAttribute('data-target')).getTime();
+            var els = {};
+            box.querySelectorAll('[data-unit]').forEach(function (el) { els[el.getAttribute('data-unit')] = el; });
+            function pad(n) { return n < 10 ? '0' + n : String(n); }
+            function tick() {
+                var diff = target - Date.now();
+                if (diff <= 0) {
+                    box.hidden = true;
+                    document.querySelector('.c27-live').hidden = false;
+                    clearInterval(timer);
+                    return;
+                }
+                var s = Math.floor(diff / 1000);
+                els.days.textContent = Math.floor(s / 86400);
+                els.hours.textContent = pad(Math.floor(s % 86400 / 3600));
+                els.minutes.textContent = pad(Math.floor(s % 3600 / 60));
+                els.seconds.textContent = pad(s % 60);
+            }
+            var timer = setInterval(tick, 1000);
+            tick();
+        })();
+    </script>
 </body>
 
 </html>

@@ -370,53 +370,37 @@ function openJerseyModal(jerseyName) {
     if (!data) return;
 
     // Reset first, and set custom class
-    modalContent.className = 'modal-content jersey-modal-layout';
+    modalContent.className = 'modal-content jm-layout';
     modalContent.removeAttribute('style');
 
     modalContent.innerHTML = `
-        <div class="jersey-modal-container">
-            <!-- Header: Icon, Sponsor, and Titles -->
-            <div class="jersey-modal-header">
-                <div class="jersey-header-left">
-                    <div class="jersey-vector-badge">
-                        <img src="${data.img}" alt="${data.title}" class="jersey-vector-img">
-                    </div>
-                    <div class="jersey-header-titles">
-                        <span class="jersey-sponsor-label">Parrainé par : <strong>${data.sponsor}</strong></span>
-                        <h2 class="jersey-modal-title">${data.title}</h2>
-                        <p class="jersey-modal-subtitle">${data.subtitle}</p>
+        <div class="jm">
+            <figure class="jm-photo">
+                <img src="${data.photo}" alt="${data.winnerName}, vainqueur du ${data.title} 2026">
+                <figcaption class="jm-photo-tag">Podium 2026</figcaption>
+            </figure>
+
+            <div class="jm-body">
+                <div class="jm-head">
+                    <img src="${data.img}" alt="" class="jm-jersey">
+                    <div>
+                        <span class="jm-eyebrow">${data.subtitle}</span>
+                        <h2 class="jm-title">${data.title}</h2>
                     </div>
                 </div>
-                ${data.partnerLogo ? `<a href="${data.partnerLink}" class="jersey-partner-logo" title="Découvrir ${data.sponsor} dans nos soutiens">
+
+                <p class="jm-text">${data.text}</p>
+
+                <div class="jm-winner">
+                    <span class="jm-winner-label">Vainqueur 2026</span>
+                    <div class="jm-winner-name">${data.winnerName}</div>
+                    <div class="jm-winner-meta">${data.winnerTeam} · Dossard n°${data.winnerBib}</div>
+                </div>
+
+                ${data.partnerLogo ? `<a href="${data.partnerLink}" class="jm-sponsor" title="Découvrir ${data.sponsor} dans nos soutiens">
+                    <span class="jm-sponsor-label">Partenaire du maillot</span>
                     <img src="${data.partnerLogo}" alt="${data.sponsor}">
                 </a>` : ``}
-            </div>
-
-            <!-- Body: Grid with Podium Photo & Winner details -->
-            <div class="jersey-modal-body-grid">
-                <div class="jersey-photo-wrapper">
-                    <img src="${data.photo}" alt="Vainqueur ${data.title}" class="jersey-photo">
-                    <div class="jersey-photo-badge">Photo Officielle 2026</div>
-                </div>
-
-                <div class="jersey-info-column">
-                    <div class="winner-card">
-                        <div class="winner-card-header">
-                            <span class="winner-trophy-icon">🏆</span>
-                            <span class="winner-label">Vainqueur Final 2026</span>
-                        </div>
-                        <div class="winner-card-body">
-                            <div class="winner-name">${data.winnerName}</div>
-                            <div class="winner-team">${data.winnerTeam}</div>
-                            <div class="winner-bib-badge">Dossard N°${data.winnerBib}</div>
-                        </div>
-                    </div>
-
-                    <div class="jersey-desc-card">
-                        <h3>À propos de ce maillot</h3>
-                        <p>${data.text}</p>
-                    </div>
-                </div>
             </div>
         </div>
     `;
