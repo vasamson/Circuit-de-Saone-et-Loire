@@ -6077,3 +6077,31 @@ body.in-maintenance {
         padding-bottom: 4rem;
     }
 }
+
+/* ===================================
+   BANDEAUX PARTENAIRES : défilement fluide
+   =================================== */
+.partners-marquee-container {
+    text-align: left;
+}
+
+.partners-marquee {
+    width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.partner-logo {
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}

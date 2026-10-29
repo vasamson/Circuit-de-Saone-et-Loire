@@ -565,3 +565,32 @@ function toggleStage(card) {
 
 // Hello Message
 console.log('%c🚴 Circuit de Saône-et-Loire 🚴', 'font-size: 20px; font-weight: bold; color: #C2945D;');
+
+// ===================================
+// BANDEAUX PARTENAIRES (défilement sans trou)
+// ===================================
+// Chaque bandeau contient sa liste de logos en double et défile de 0 à -50 %.
+// Une fois les images chargées, on duplique la liste tant qu'une moitié ne couvre
+// pas toute la largeur de l'écran, on compense l'espacement pour un raccord exact
+// et on fixe une vitesse constante quelle que soit la longueur du bandeau.
+function setupPartnerMarquees() {
+    const SPEED = 70; // pixels par seconde
+    document.querySelectorAll('.partners-marquee').forEach(marquee => {
+        const container = marquee.parentElement;
+        if (!container) return;
+
+        const gap = parseFloat(getComputedStyle(marquee).columnGap) || 0;
+        marquee.style.paddingRight = gap + 'px';
+
+        let guard = 0;
+        while (marquee.scrollWidth / 2 < container.clientWidth + 50 && guard < 4) {
+            Array.from(marquee.children).forEach(child => marquee.appendChild(child.cloneNode(true)));
+            guard++;
+        }
+
+        const half = marquee.scrollWidth / 2;
+        if (half > 0) marquee.style.animationDuration = (half / SPEED).toFixed(1) + 's';
+    });
+}
+
+window.addEventListener('load', setupPartnerMarquees);
